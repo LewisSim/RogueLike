@@ -19,32 +19,32 @@ public class QLearning : StateSystem
         GameState state = problem.GetRandomState();
         for (int i = 0; i < numIterations; i++)
         {
-            //next steps
+            yield return null;
+
+            if (Random.value < nu)
+                state = problem.GetRandomState();
+
+            GameAction[] actions;
+            actions = problem.GetAvailableActions(state); 
+            GameAction action;
+
+            if (Random.value < rho)
+                action = GetRandomAction(actions);
+            else
+                action = store.GetBestAction(state);
+
+            float reward = 0f;
+            GameState newState;
+            newState = problem.TakeAction(state, action, ref reward);
+
+            float q = store.GetQValue(state, action);
+            GameAction bestAction = store.GetBestAction(newState); 
+            float maxQ = store.GetQValue(newState, bestAction);
+            q = (1f - alpha) * q + alpha * (reward + gamma * maxQ);
+            store.StoreQValue(state, action, q); 
+            state = newState;
         }
 
-        yield return null;
-
-        if (Random.value < nu)
-            state = problem.GetRandomState();
-
-        GameAction[] actions;
-        actions = problem.GetAvailableActions(state); 
-        GameAction action;
-
-        if (Random.value < rho)
-            action = GetRandomAction(actions);
-        else
-            action = store.GetBestAction(state);
-
-        float reward = 0f;
-        GameState newState;
-        newState = problem.TakeAction(state, action, ref reward);
-
-        float q = store.GetQValue(state, action);
-        GameAction bestAction = store.GetBestAction(newState); 
-        float maxQ = store.GetQValue(newState, bestAction);
-        q = (1f - alpha) * q + alpha * (reward + gamma * maxQ);
-        store.StoreQValue(state, action, q); 
-        state = newState;
+        
     }
 }
