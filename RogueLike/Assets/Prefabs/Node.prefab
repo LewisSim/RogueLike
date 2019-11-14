@@ -43,15 +43,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bf7d2ca5f8c38424893207138855cb5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  entrance: {fileID: 2803025957840912040, guid: 2fea00ea0cf00cd41905a22184a7a968,
+  entrance: {fileID: 3937636985179495679, guid: 26fcaa50c2a9bf54a988108af0694202,
     type: 3}
-  exit: {fileID: 2803025957840912040, guid: 2fea00ea0cf00cd41905a22184a7a968, type: 3}
-  lConnect: {fileID: 0}
-  tConnect: {fileID: 0}
-  xConnect: {fileID: 0}
-  sConnect: {fileID: 0}
-  room: {fileID: 0}
-  deadEnd: {fileID: 0}
+  exit: {fileID: 3937636985179495679, guid: 26fcaa50c2a9bf54a988108af0694202, type: 3}
+  lConnect: {fileID: 2128735488754389369, guid: f1fcf8a8d60af4b4cae07e490cab17bc,
+    type: 3}
+  tConnect: {fileID: 8626635509490383058, guid: 7e6a061cf9b03ee4297832ee7edb6e69,
+    type: 3}
+  xConnect: {fileID: 1185362582847120242, guid: 926e08d26afd6cb40a75e43cfd3b2ffd,
+    type: 3}
+  sConnect: {fileID: 2803025957840912040, guid: 2fea00ea0cf00cd41905a22184a7a968,
+    type: 3}
+  room: {fileID: 3937636985179495679, guid: 26fcaa50c2a9bf54a988108af0694202, type: 3}
+  deadEnd: {fileID: 3937636985179495679, guid: 26fcaa50c2a9bf54a988108af0694202, type: 3}
   connectionPoints: 
   isAssigned: 0
   iD: 0
