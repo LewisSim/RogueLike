@@ -8,7 +8,7 @@ public class TileGenerator : MonoBehaviour
     public GameObject entrance, exit, lConnect, tConnect, xConnect, sConnect, room, deadEnd;
     public enum RoomType { Entrance, Exit, LConnect, TConnect, XConnect, SConnect, Room, DeadEnd };
     public bool[] connectionPoints;
-    RoomType type;
+    public RoomType type;
     int width, height;
     public bool isAssigned = false;
     public int iD;

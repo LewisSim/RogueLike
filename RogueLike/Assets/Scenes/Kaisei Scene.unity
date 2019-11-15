@@ -252,13 +252,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeRef: {fileID: 4239950382535666048, guid: da02283fa5af9ba4eaa8faddf1e3bf90, type: 3}
-  seed: 5
+  seed: 1
   gridSizeX: 5
   gridSizeY: 5
   cellSizeX: 1
   cellSizeY: 1
+  numberOfRI: 3
   entrancePos: 0
-  exitPos: 2
+  exitPos: 0
 --- !u!4 &603329336
 Transform:
   m_ObjectHideFlags: 0
