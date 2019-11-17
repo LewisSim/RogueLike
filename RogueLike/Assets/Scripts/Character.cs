@@ -7,23 +7,52 @@ public class Character : MonoBehaviour
 
     //Variables
     public Rigidbody rb;
-    public float movementSpeed = 3f;
+    public float movementSpeed = 10f;
     public float jumpHeight = 15;
+    float maxVelocity = 3;
+    bool isGrounded, isJumping;
 
     //Methods
     private void FixedUpdate()
     {
         Movement();
+        Jumping();
     }
 
     public void Movement()
     {
-        //float moveHorizontal = Input.GetAxis("Horizontal");
-        //float moveVertical = Input.GetAxis("Vertical");
-        //Not initially required (JAY) Vector3 verticalMovement = moveVertical * rb.transform.forward;
-        //rb.velocity = new Vector3((moveHorizontal * speed), rb.velocity.y, moveVertical * speed);
-
+        //Walking
         rb.velocity = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), rb.velocity.y, Input.GetAxis("Vertical") * movementSpeed);
+        Vector3 movement = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), rb.velocity.y, Input.GetAxis("Vertical") * movementSpeed);
+        rb.velocity = Vector3.ClampMagnitude(movement, maxVelocity);
+    }
+
+    public void Jumping()
+    {
+
+        RaycastHit hit;
+        if (Physics.Raycast(transform.position, -Vector3.up, out hit))
+        {
+            if (hit.distance < 0.50f)
+            {
+                isGrounded = true;
+            }
+            else
+            {
+                isGrounded = false;
+            }
+        }
+        float jumpForce = 10;
+
+        if (isGrounded && Input.GetKey(KeyCode.Space))
+        {
+            isJumping = true;
+            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+        }
+        else if ((isJumping) && (isGrounded))
+        {
+            isJumping = false;
+        }
 
     }
 
