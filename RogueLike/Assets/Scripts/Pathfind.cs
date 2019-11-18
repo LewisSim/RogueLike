@@ -6,14 +6,14 @@ using System.Linq;
 public class Pathfind : MonoBehaviour
 {
 
-    Grid GridReference;//For referencing the grid class
-    public Transform StartPosition;//Starting position to pathfind from
-    public Transform TargetPosition;//Starting position to pathfind to
+    Grid GridReference;
+    public Transform StartPosition;//starting position to pathfind from
+    public Transform TargetPosition;//starting position to pathfind to
     public List<Node> FinalPath;
 
     private void Awake()
     {
-        GridReference = GetComponent<Grid>();//Get a reference to the game manager
+        GridReference = GetComponent<Grid>();
     }
 
     public void Update()
@@ -51,23 +51,23 @@ public class Pathfind : MonoBehaviour
                 GetFinalPath(StartNode, TargetNode);//calculate the final path
             }
 
-            foreach (Node NeighborNode in GridReference.GetNeighboringNodes(CurrentNode))//Loop through each neighbor of the current node
+            foreach (Node NeighborNode in GridReference.GetNeighboringNodes(CurrentNode))
             {
-                if (!NeighborNode.bIsWall || ClosedList.Contains(NeighborNode))//If the neighbor is a wall or has already been checked
+                if (!NeighborNode.bIsWall || ClosedList.Contains(NeighborNode))
                 {
-                    continue;//Skip it
+                    continue;
                 }
-                int MoveCost = CurrentNode.igCost + GetManhattenDistance(CurrentNode, NeighborNode);//Get the F cost of that neighbor
+                int MoveCost = CurrentNode.igCost + GetManhattenDistance(CurrentNode, NeighborNode);
 
-                if (MoveCost < NeighborNode.igCost || !OpenList.Contains(NeighborNode))//If the f cost is greater than the g cost or it is not in the open list
+                if (MoveCost < NeighborNode.igCost || !OpenList.Contains(NeighborNode))
                 {
-                    NeighborNode.igCost = MoveCost;//Set the g cost to the f cost
-                    NeighborNode.ihCost = GetManhattenDistance(NeighborNode, TargetNode);//Set the h cost
-                    NeighborNode.ParentNode = CurrentNode;//Set the parent of the node for retracing steps
+                    NeighborNode.igCost = MoveCost;
+                    NeighborNode.ihCost = GetManhattenDistance(NeighborNode, TargetNode);
+                    NeighborNode.ParentNode = CurrentNode;
 
-                    if (!OpenList.Contains(NeighborNode))//If the neighbor is not in the openlist
+                    if (!OpenList.Contains(NeighborNode))
                     {
-                        OpenList.Add(NeighborNode);//Add it to the list
+                        OpenList.Add(NeighborNode);
                     }
                 }
             }
@@ -82,10 +82,11 @@ public class Pathfind : MonoBehaviour
         FinalPath = new List<Node>();//list to hold the path sequentially 
         Node CurrentNode = a_EndNode;//node to store the current node being checked
 
-        while (CurrentNode != a_StartingNode)//While loop to work through each node going through the parents to the beginning of the path
-        {
-            FinalPath.Add(CurrentNode);//Add that node to the final path
-            CurrentNode = CurrentNode.ParentNode;//Move onto its parent node
+        while (CurrentNode != a_StartingNode)
+        { 
+
+            FinalPath.Add(CurrentNode);//add that node to the final path
+            CurrentNode = CurrentNode.ParentNode;//move onto its parent node
         }
 
         FinalPath.Reverse();//reverse the path
@@ -101,7 +102,7 @@ public class Pathfind : MonoBehaviour
         int ix = Mathf.Abs(a_nodeA.iGridX - a_nodeB.iGridX);//x1-x2
         int iy = Mathf.Abs(a_nodeA.iGridY - a_nodeB.iGridY);//y1-y2
 
-        return ix + iy;//Return the sum
+        return ix + iy;
     }
 
     void LookTo()
