@@ -382,7 +382,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 8
+  orthographic size: 17
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1124,7 +1124,6 @@ RectTransform:
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
   - {fileID: 877139057}
-  - {fileID: 1703336420}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1490,8 +1489,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -159.5, y: 160.5}
-  m_SizeDelta: {x: 178, y: 178}
+  m_AnchoredPosition: {x: -216.55, y: 176.73}
+  m_SizeDelta: {x: 242.01, y: 182.36}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &877139058
 MonoBehaviour:
@@ -1513,7 +1512,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: b99c1bf55d9781341bed6f20de0c8e46, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2e7cec2d7fc1dfd4da9f6d1a2953e9e3, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2222,13 +2221,14 @@ RectTransform:
   m_Children:
   - {fileID: 454750038}
   - {fileID: 1148939441}
+  - {fileID: 1703336420}
   m_Father: {fileID: 877139057}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0000076293945, y: 0}
-  m_SizeDelta: {x: 170, y: 170}
+  m_AnchoredPosition: {x: 9.652222, y: 0.63049316}
+  m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1389961824
 MonoBehaviour:
@@ -2719,7 +2719,7 @@ GameObject:
   - component: {fileID: 1703336422}
   - component: {fileID: 1703336421}
   m_Layer: 5
-  m_Name: RawImage
+  m_Name: Arrow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2732,16 +2732,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1703336419}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 0.6}
   m_Children: []
-  m_Father: {fileID: 772704438}
-  m_RootOrder: 1
+  m_Father: {fileID: 1389961823}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 0}
-  m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -158.9, y: 165.4}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1703336421
@@ -3476,11 +3476,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1871782074}
     m_Modifications:
-    - target: {fileID: 2014989335246070599, guid: 432c9f780d2483046a93aaf78e5f8ff4,
-        type: 3}
-      propertyPath: m_Name
-      value: 'Left Foot Quad '
-      objectReference: {fileID: 0}
     - target: {fileID: 2014989335246070595, guid: 432c9f780d2483046a93aaf78e5f8ff4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3535,6 +3530,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2014989335246070599, guid: 432c9f780d2483046a93aaf78e5f8ff4,
+        type: 3}
+      propertyPath: m_Name
+      value: 'Left Foot Quad '
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 432c9f780d2483046a93aaf78e5f8ff4, type: 3}
