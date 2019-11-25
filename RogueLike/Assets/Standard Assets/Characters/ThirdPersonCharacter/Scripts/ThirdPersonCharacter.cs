@@ -154,9 +154,13 @@ namespace UnityStandardAssets.Characters.ThirdPerson
             {
                 //where the ray hits the ground we will place a footprint
                 GameObject decal = Instantiate(prefab);
-                decal.transform.position = hit.point;
+                var newPos = hit.point;
+                newPos.y += 0.05f;
+                decal.transform.position = newPos;
                 //turn the footprint to match the direction the player is facing
-                decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.x);
+                //decal.transform.Rotate(Vector3.up, this.transform.eulerAngles.x);
+                var newRotation = Quaternion.Euler(new Vector3(90f, transform.eulerAngles.y, 0f));
+                decal.transform.rotation = newRotation;
             }
         }
 
