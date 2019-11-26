@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/Martyn_UI_Menus.unity
+    guid: eff03ae93ccf57c41aae88e80f91921d
+  - enabled: 1
+    path: Assets/Scenes/Kaisei Scene.unity
+    guid: 267588927a296a94d8c097a73f657546
   m_configObjects: {}
