@@ -19,9 +19,11 @@ public class Footprints : MonoBehaviour
     public void Update() // 100% time = 100% size,,, time goes down(%),, and so does the size until it's destroyed
     {
         float ElapsedTime = Time.time - mark;
+        //Debug.Log(ElapsedTime);
         if (ElapsedTime != 0)
         {
             float PercentTimeLeft = (Lifetime - ElapsedTime) / Lifetime;
+            //Debug.Log(PercentTimeLeft);
 
             this.transform.localScale = new Vector3(OrigSize.x * PercentTimeLeft, OrigSize.y * PercentTimeLeft, OrigSize.z * PercentTimeLeft);
             if (ElapsedTime > Lifetime)
