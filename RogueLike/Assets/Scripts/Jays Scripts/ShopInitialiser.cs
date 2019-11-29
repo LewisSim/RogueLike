@@ -11,14 +11,12 @@ public class ShopInitialiser
 {
 
     //Variables
-
     [XmlArray("ShopItems")]
     [XmlArrayItem("Item")]
 
     public List<ItemBase> ShopItems = new List<ItemBase>();
 
     //Methods
-
     public static ShopInitialiser Load(string path)
     {
         TextAsset _xml = Resources.Load<TextAsset>(path);
