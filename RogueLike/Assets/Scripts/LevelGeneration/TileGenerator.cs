@@ -51,14 +51,14 @@ public class TileGenerator : MonoBehaviour
             case RoomType.Entrance:
                 Instantiate(entrance, transform);
                 unchangable = true;
-                Debug.Log("Entrance spawned");
+                //Debug.Log("Entrance spawned");
                 gameObject.name = "Entrance";
                 break;
 
             case RoomType.Exit:
                 Instantiate(exit, transform);
                 unchangable = true;
-                Debug.Log("Exit spawned");
+                //Debug.Log("Exit spawned");
                 gameObject.name = "Exit";
                 break;
 
@@ -101,9 +101,9 @@ public class TileGenerator : MonoBehaviour
 
     public void SetRotation(float r)
     {
-        Debug.Log("WAS " + transform.rotation.y);
+        //Debug.Log("WAS " + transform.rotation.y);
         transform.rotation = Quaternion.Euler(0f, r, 0f);
-        Debug.Log(transform.rotation.eulerAngles.y);
+        //Debug.Log(transform.rotation.eulerAngles.y);
         //Assign connection point if room is pre placed type e.g. Entrance, Exit, Important room
         if (type == RoomType.Entrance || type == RoomType.Exit || type == RoomType.Room)
         {
@@ -136,7 +136,7 @@ public class TileGenerator : MonoBehaviour
 
             }
         }
-        Debug.Log(iD + " Got Rotated: " + r);
+        //Debug.Log(iD + " Got Rotated: " + r);
     }
 
     public List<int> GetNonConnectedDirections()

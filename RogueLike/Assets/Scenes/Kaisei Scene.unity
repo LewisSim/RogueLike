@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!81 &460198209
 AudioListener:
   m_ObjectHideFlags: 0
@@ -252,12 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeRef: {fileID: 4239950382535666048, guid: da02283fa5af9ba4eaa8faddf1e3bf90, type: 3}
-  seed: 4
+  seed: 2
   gridSizeX: 5
   gridSizeY: 5
   cellSizeX: 1
   cellSizeY: 1
-  numberOfRI: 3
+  numberOfRI: 2
   entrancePos: 0
   exitPos: 1
 --- !u!4 &603329336
