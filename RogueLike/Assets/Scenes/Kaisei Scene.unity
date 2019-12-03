@@ -252,12 +252,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   nodeRef: {fileID: 4239950382535666048, guid: da02283fa5af9ba4eaa8faddf1e3bf90, type: 3}
-  seed: 2
+  seed: 35451
   gridSizeX: 5
   gridSizeY: 5
   cellSizeX: 1
   cellSizeY: 1
-  numberOfRI: 2
+  numberOfRI: 3
   entrancePos: 0
   exitPos: 1
 --- !u!4 &603329336

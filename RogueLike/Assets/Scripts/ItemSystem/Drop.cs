@@ -5,6 +5,7 @@ using UnityEngine;
 public class Drop : MonoBehaviour
 {
     public GameObject basicItemPrefab;
+    public bool test = false;
     public int[] typeWeightTable =
     {
         45,
@@ -20,6 +21,17 @@ public class Drop : MonoBehaviour
     };
     public void DropItem()
     {
+        if (test)
+        {
+            var items = GameObject.FindGameObjectsWithTag("Item");
+            if(items != null)
+            {
+                for (int i = 0; i < items.Length; i++)
+                {
+                    Destroy(items[i]);
+                }
+            }
+        }
         GameObject newItem = Instantiate(basicItemPrefab);
         newItem.transform.position = transform.position;
 

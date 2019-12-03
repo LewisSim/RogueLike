@@ -619,6 +619,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   basicItemPrefab: {fileID: 6680819215139037823, guid: 491023aae0e038b418528141e4881959,
     type: 3}
+  test: 1
   typeWeightTable: 2d0000001e00000019000000
   tierWeightTable: 46000000140000000a000000
 --- !u!4 &1704986031
@@ -670,8 +671,8 @@ Camera:
   m_GameObject: {fileID: 1953854011}
   m_Enabled: 1
   serializedVersion: 2
-  m_ClearFlags: 1
-  m_BackGroundColor: {r: 0.19215687, g: 0.3019608, b: 0.4745098, a: 0}
+  m_ClearFlags: 2
+  m_BackGroundColor: {r: 0, g: 0, b: 0, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0

@@ -16,7 +16,7 @@ public class Equipment : Item
     //Can be placed in equipment slots
     static I_ItemAffix[] m_prefixes = {
         new I_ItemAffix("Healthy", I_ItemAffix.StatTarget.Health, new float[]{5,10}, new float[]{10,20}, new float[]{20, 40}),
-        new I_ItemAffix("Light", I_ItemAffix.StatTarget.Speed, new float[]{0.1f,0.3f}, new float[]{0.3f,0.5f}, new float[]{0.5f, 0.8f}),
+        new I_ItemAffix("Hermes", I_ItemAffix.StatTarget.Speed, new float[]{0.1f,0.3f}, new float[]{0.3f,0.5f}, new float[]{0.5f, 0.8f}),
         new I_ItemAffix("Empowering", I_ItemAffix.StatTarget.Damage, new float[]{5,10}, new float[]{10,20}, new float[]{20, 40}),
     };
     public static I_ItemAffix[] Prefixes
