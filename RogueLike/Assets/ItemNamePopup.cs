@@ -5,16 +5,14 @@ using UnityEngine.UI;
 
 public class ItemNamePopup : MonoBehaviour
 {
-    public string i_Name;
     public Text nameText;
     public GameObject renderObject;
     // Start is called before the first frame update
     void Awake()
     {
-        i_Name = transform.parent.GetComponent<ItemStats>().fullName;
-        AssignTextToPopUp();
+        AssignTextToPopUp("Item");
     }
-    void AssignTextToPopUp()
+    public void AssignTextToPopUp(string i_Name)
     {
         nameText.text = i_Name;
     }

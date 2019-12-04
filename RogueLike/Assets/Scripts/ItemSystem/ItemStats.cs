@@ -11,13 +11,23 @@ public class ItemStats : MonoBehaviour
     public string baseName, prefix, suffix, fullName;
     public Item.ItemTier tier;
 
+    //Rigidbody
+    private Rigidbody rb;
+
     //Only for Potions
     [Header("Only for Potions")]
     public float potency;
 
+    [Header("The text pop up for the item")]
+    public ItemNamePopup INP;
+
+
     private void Awake()
     {
+        rb = GetComponent<Rigidbody>();
+        //rb.
         AssignStats();
+        GetComponentInChildren<Animation>().Play();
     }
 
     private void Update()
@@ -33,13 +43,13 @@ public class ItemStats : MonoBehaviour
         switch (type)
         {
             case Item.ItemType.Armour:
-                PullFromBase(Armour.Base[Random.Range(0, Armour.Base.Length - 1)]);
+                PullFromBase(Armour.Base[Random.Range(0, Armour.Base.Length)]);
                 break;
             case Item.ItemType.Weapon:
-                PullFromBase(Weapon.Base[Random.Range(0, Armour.Base.Length - 1)]);
+                PullFromBase(Weapon.Base[Random.Range(0, Weapon.Base.Length)]);
                 break;
             case Item.ItemType.Potion:
-                PullFromBase(Potion.Base[Random.Range(0, Armour.Base.Length - 1)]);
+                PullFromBase(Potion.Base[Random.Range(0, Potion.Base.Length)]);
                 break;
         }
 
@@ -49,16 +59,16 @@ public class ItemStats : MonoBehaviour
         if (type == Item.ItemType.Armour)
         {
             //Assign prefix
-            AssignAffix(Armour.Prefixes[Random.Range(0, Armour.Prefixes.Length - 1)], true);
+            AssignAffix(Armour.Prefixes[Random.Range(0, Armour.Prefixes.Length)], true);
             //Assign suffix
-            AssignAffix(Armour.Suffixes[Random.Range(0, Armour.Suffixes.Length - 1)], false);
+            AssignAffix(Armour.Suffixes[Random.Range(0, Armour.Suffixes.Length)], false);
 
         }
         //Weapon
         if (type == Item.ItemType.Weapon)
         {
-            AssignAffix(Weapon.Prefixes[Random.Range(0, Weapon.Prefixes.Length - 1)], true);
-            AssignAffix(Weapon.Suffixes[Random.Range(0, Weapon.Suffixes.Length - 1)], false);
+            AssignAffix(Weapon.Prefixes[Random.Range(0, Weapon.Prefixes.Length)], true);
+            AssignAffix(Weapon.Suffixes[Random.Range(0, Weapon.Suffixes.Length)], false);
         }
 
         if(type == Item.ItemType.Potion)
@@ -97,6 +107,9 @@ public class ItemStats : MonoBehaviour
         }
         gameObject.name = n;
         fullName = n;
+
+        //Update pop up
+        INP.AssignTextToPopUp(fullName);
     }
 
     void PullFromBase(I_ItemBase b)

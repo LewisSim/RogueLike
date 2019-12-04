@@ -18,6 +18,7 @@ public class Equipment : Item
         new I_ItemAffix("Healthy", I_ItemAffix.StatTarget.Health, new float[]{5,10}, new float[]{10,20}, new float[]{20, 40}),
         new I_ItemAffix("Hermes", I_ItemAffix.StatTarget.Speed, new float[]{0.1f,0.3f}, new float[]{0.3f,0.5f}, new float[]{0.5f, 0.8f}),
         new I_ItemAffix("Empowering", I_ItemAffix.StatTarget.Damage, new float[]{5,10}, new float[]{10,20}, new float[]{20, 40}),
+        new I_ItemAffix("Lumbersome", I_ItemAffix.StatTarget.Speed, new float[]{-1,-0.5f}, new float[]{-1.5f,-1f}, new float[]{-1.7f, -1.5f})
     };
     public static I_ItemAffix[] Prefixes
     {
@@ -39,7 +40,10 @@ public class Armour : Equipment
     static I_ItemBase[] m_base = {
         new I_ItemBase("Light Armour", 20, 5, 10, 0.15f),
         new I_ItemBase("Medium Armour", 40, 5, 15, 0f),
-        new I_ItemBase("Heavy Armour", 60, 5, 20, -0.2f)
+        new I_ItemBase("Heavy Armour", 60, 5, 20, -0.2f),
+        new I_ItemBase("Masterwork Light Armour", 40, 5, 10, 0.15f),
+        new I_ItemBase("Masterwork Medium Armour", 60, 5, 15, 0f),
+        new I_ItemBase("Masterwork Heavy Armour", 80, 5, 20, -0.2f)
 
     };
     public static I_ItemBase[] Base
