@@ -11,6 +11,10 @@ public class ItemStats : MonoBehaviour
     public string baseName, prefix, suffix, fullName;
     public Item.ItemTier tier;
 
+    //Item Meshes
+    public Mesh armourMesh, weaponMesh, potionMesh;
+    MeshFilter currentMeshFilter;
+
     //Rigidbody
     private Rigidbody rb;
 
@@ -25,7 +29,7 @@ public class ItemStats : MonoBehaviour
     private void Awake()
     {
         rb = GetComponent<Rigidbody>();
-        //rb.
+        currentMeshFilter = GetComponentInChildren<MeshFilter>();
         AssignStats();
         GetComponentInChildren<Animation>().Play();
     }
@@ -44,12 +48,15 @@ public class ItemStats : MonoBehaviour
         {
             case Item.ItemType.Armour:
                 PullFromBase(Armour.Base[Random.Range(0, Armour.Base.Length)]);
+                currentMeshFilter.mesh = armourMesh;
                 break;
             case Item.ItemType.Weapon:
                 PullFromBase(Weapon.Base[Random.Range(0, Weapon.Base.Length)]);
+                currentMeshFilter.mesh = weaponMesh;
                 break;
             case Item.ItemType.Potion:
                 PullFromBase(Potion.Base[Random.Range(0, Potion.Base.Length)]);
+                currentMeshFilter.mesh = potionMesh;
                 break;
         }
 
