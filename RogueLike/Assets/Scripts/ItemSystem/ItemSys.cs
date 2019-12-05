@@ -9,6 +9,17 @@ public class Item
 
     public enum ItemTier {Common, Uncommon, Rare};
 
+    //Basic stats
+    public ItemType Type { get; set; }
+    public ItemTier Tier { get; set; }
+    public float ArmourRating { get; set; }
+    public float Damage { get; set; }
+    public float Health { get; set; }
+    public float Speed { get; set; }
+    public float Potency { get; set; }
+    public string BaseName { get; set; }
+    public string Prefix { get; set; }
+    public string Suffix { get; set; }
 }
 
 public class Equipment : Item

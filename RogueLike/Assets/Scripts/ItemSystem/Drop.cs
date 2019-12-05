@@ -81,5 +81,16 @@ public class Drop : MonoBehaviour
 
 
         newItemStats.AssignStats();
+        //var vals =  newItemStats.GetStats();
+        //Debug.Log("Type: " + vals.Type);
+        //Debug.Log("Tier: " + vals.Tier);
+        //Debug.Log("base name: " + vals.BaseName);
+        //Debug.Log("prefix: " + vals.Prefix);
+        //Debug.Log("suffix: " + vals.Suffix);
+        //Debug.Log("Armour: " + vals.ArmourRating);
+        //Debug.Log("Damage: " + vals.Damage);
+        //Debug.Log("Health: " + vals.Health);
+        //Debug.Log("Speed: " + vals.Speed);
+        //Debug.Log("Potency: " + vals.Potency);
     }
 }

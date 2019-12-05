@@ -200,13 +200,48 @@ public class ItemStats : MonoBehaviour
         }
     }
 
-    public void LoadStats()
+    public void LoadStats(Item itemObject)
     {
-
+        tier = itemObject.Tier;
+        type = itemObject.Type;
+        armourRating = itemObject.ArmourRating;
+        health = itemObject.Health;
+        damage = itemObject.Damage;
+        speed = itemObject.Speed;
+        baseName = itemObject.BaseName;
+        prefix = itemObject.Prefix;
+        suffix = itemObject.Suffix;
+        potency = itemObject.Potency;
     }
 
-    public void GetStats()
+    public Item GetStats()
     {
-
+        Item itemOut = new Item();
+        switch (type)
+        {
+            case Item.ItemType.Armour:
+                itemOut = new Armour();
+                break;
+            case Item.ItemType.Weapon:
+                itemOut = new Weapon();
+                break;
+            case Item.ItemType.Potion:
+                itemOut = new Potion();
+                break;
+            default:
+                break;
+        }
+        //Assign all variables
+        itemOut.Tier = tier;
+        itemOut.Type = type;
+        itemOut.ArmourRating = armourRating;
+        itemOut.Health = health;
+        itemOut.Damage = damage;
+        itemOut.Speed = speed;
+        itemOut.Potency = potency;
+        itemOut.BaseName = baseName;
+        itemOut.Prefix = prefix;
+        itemOut.Suffix = suffix;
+        return itemOut;
     }
 }
