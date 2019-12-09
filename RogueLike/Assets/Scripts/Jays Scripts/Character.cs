@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
 
@@ -9,14 +9,27 @@ public class Character : MonoBehaviour
     public Rigidbody rb;
     public float movementSpeed = 10f;
     public float jumpHeight = 15;
+    public int Health, Gold;
     float maxVelocity = 3;
     bool isGrounded, isJumping;
 
+    //UI Variables
+    public Text ui_Gold, ui_Health;
+
+    //Just4Test
+    private void Start()
+    {
+        usePowerUp();
+    }
     //Methods
     private void FixedUpdate()
     {
         Movement();
         Jumping();
+
+        //UI Tester
+        ui_Gold.text = Gold.ToString();
+        ui_Health.text = Health.ToString();
     }
 
     public void Movement()
@@ -56,4 +69,14 @@ public class Character : MonoBehaviour
 
     }
 
+    public void usePowerUp()
+    {
+        PowerUpGold pwrup1 = new PowerUpGold();
+        Gold = pwrup1.alterBehaviour(Gold);
+        print(Gold);
+
+        PowerUpHealth pwrup2 = new PowerUpHealth();
+        Health = pwrup2.alterBehaviour(Health);
+        print(Health);
+    }
 }
