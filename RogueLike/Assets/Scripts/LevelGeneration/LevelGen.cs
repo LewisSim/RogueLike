@@ -17,6 +17,11 @@ public class LevelGen : MonoBehaviour
 
     private void Awake()
     {
+        Begin();
+    }
+
+    public void Begin()
+    {
         Random.InitState(seed);
         //Initialise grid
         grid = new GameObject[gridSizeX][];
@@ -278,6 +283,15 @@ public class LevelGen : MonoBehaviour
             if (allTiles[i].unchangable == false)
             {
                 allTiles[i].ConsolidateTile();
+            }
+        }
+        //Generate from spawn points
+        var sPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
+        if (sPoints.Length > 0)
+        {
+            for (int i = 0; i < sPoints.Length; i++)
+            {
+                sPoints[i].GetComponent<SpawnPoint>().Spawn();
             }
         }
     }

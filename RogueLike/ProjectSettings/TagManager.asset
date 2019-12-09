@@ -7,6 +7,8 @@ TagManager:
   - Wall
   - Item
   - ItemCollider
+  - SpawnPoint
+  - LevelGenerator
   layers:
   - Default
   - TransparentFX
