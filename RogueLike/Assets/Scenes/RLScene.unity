@@ -518,7 +518,7 @@ MonoBehaviour:
     vectorActionSize: 02000000
     vectorActionDescriptions: []
     vectorActionSpaceType: 1
-  m_Model: {fileID: 0}
+  m_Model: {fileID: 5022602860645237092, guid: 5c9c941963189394291c16297c4e2399, type: 3}
   m_InferenceDevice: 0
   m_UseHeuristic: 0
   m_BehaviorName: My Behavior

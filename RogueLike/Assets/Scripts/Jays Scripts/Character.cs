@@ -11,10 +11,25 @@ public class Character : MonoBehaviour
     public float jumpHeight = 15;
     float maxVelocity = 3;
     bool isGrounded, isJumping;
+    Animator anim;
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     //Methods
     private void FixedUpdate()
     {
+        //check if we stopped moving
+        if((rb.velocity.x != 0) || (rb.velocity.z != 0))
+        {
+            anim.SetBool("isWalk", true);
+        }
+        else
+        {
+            anim.SetBool("isWalk", false);
+        }
         Movement();
         Jumping();
     }
