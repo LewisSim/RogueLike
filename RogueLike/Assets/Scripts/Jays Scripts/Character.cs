@@ -9,24 +9,22 @@ public class Character : MonoBehaviour
     public Rigidbody rb;
     public float movementSpeed = 10f;
     public float jumpHeight = 15;
+    public float speed = 2f;
     public int Health, Gold;
     float maxVelocity = 3;
     bool isGrounded, isJumping;
     Animator anim;
 
     private void Start()
+        
     {
+        usePowerUp();
         anim = GetComponent<Animator>();
     }
 
     //UI Variables
     public Text ui_Gold, ui_Health;
 
-    //Just4Test
-    private void Start()
-    {
-        usePowerUp();
-    }
     //Methods
     private void FixedUpdate()
     {
@@ -41,10 +39,15 @@ public class Character : MonoBehaviour
         }
         Movement();
         Jumping();
+        float h = speed * Input.GetAxis("Mouse X");
+        transform.Rotate(0, h, 0);
+
 
         //UI Tester
-        ui_Gold.text = Gold.ToString();
-        ui_Health.text = Health.ToString();
+        //ui_Gold.text = Gold.ToString();
+        //ui_Health.text = Health.ToString();
+
+
     }
 
     public void Movement()
