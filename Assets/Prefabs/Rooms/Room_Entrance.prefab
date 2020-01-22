@@ -56,7 +56,7 @@ GameObject:
   - component: {fileID: 3310050744731442637}
   - component: {fileID: 6464723248380527112}
   - component: {fileID: 2782589093513731426}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: minimap-render
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -129,7 +129,7 @@ GameObject:
   - component: {fileID: 5802322289803803328}
   - component: {fileID: 6476839675920482072}
   - component: {fileID: 7634998026073342340}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -228,7 +228,7 @@ GameObject:
   - component: {fileID: 8725790192251461359}
   - component: {fileID: 6721432287786235229}
   - component: {fileID: 8046107271070610386}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: MiniMap-Camera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -314,7 +314,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 132832217681191427}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Room_Entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -353,7 +353,7 @@ GameObject:
   - component: {fileID: 448015622294310524}
   - component: {fileID: 2572737237257884389}
   - component: {fileID: 6701185643067334491}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 7893567218357456297}
   - component: {fileID: 6334263837909844987}
   - component: {fileID: 4984992178428740336}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: minimap mask
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -681,7 +681,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6661170273287273638}
   - component: {fileID: 1200063901810898078}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Point Light
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -773,7 +773,7 @@ GameObject:
   - component: {fileID: 7690953693108343047}
   - component: {fileID: 3392578666318835731}
   - component: {fileID: 3603662212776346462}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: minimap blackbackground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -847,7 +847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7399922146147352608}
   - component: {fileID: 1516566967947722892}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: PlayerSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -906,7 +906,7 @@ GameObject:
   - component: {fileID: 914795160111137898}
   - component: {fileID: 6574414841947985489}
   - component: {fileID: 5798927998931429563}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: minimap border
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -983,16 +983,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hallway_DeadEnd_1
       objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 5c0457188faa6634591b64fa1b8f2487,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -5972450164777567154, guid: 5c0457188faa6634591b64fa1b8f2487,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 5c0457188faa6634591b64fa1b8f2487,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1063,16 +1053,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.85
       objectReference: {fileID: 0}
-    - target: {fileID: 497692183163790206, guid: 5c0457188faa6634591b64fa1b8f2487,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2970853475513075581, guid: 5c0457188faa6634591b64fa1b8f2487,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5c0457188faa6634591b64fa1b8f2487, type: 3}
 --- !u!1 &9045363865919590268 stripped
@@ -1101,6 +1081,10 @@ PrefabInstance:
     - target: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_TagString
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 149790, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 408730, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1146,20 +1130,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 11469404, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
-      propertyPath: LeftPrefab
+    - target: {fileID: 9579096, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+      propertyPath: m_Avatar
       value: 
-      objectReference: {fileID: 2014989335246070599, guid: 432c9f780d2483046a93aaf78e5f8ff4,
-        type: 3}
+      objectReference: {fileID: 9000000, guid: b235179bd2a63d1468dd430670338c55, type: 3}
     - target: {fileID: 11469404, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
       propertyPath: RightPrefab
       value: 
       objectReference: {fileID: 5781138882076686705, guid: 6fc3d837848abd046b1f8ac471e82d83,
         type: 3}
-    - target: {fileID: 127968, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
-      propertyPath: m_TagString
-      value: Player
-      objectReference: {fileID: 0}
+    - target: {fileID: 11469404, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
+      propertyPath: LeftPrefab
+      value: 
+      objectReference: {fileID: 2014989335246070599, guid: 432c9f780d2483046a93aaf78e5f8ff4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7737647c22c1fc64a88d5cd030c352ce, type: 3}
 --- !u!4 &7566543970686109816 stripped

@@ -14,18 +14,18 @@ public class PlayerItemSerialiser : MonoBehaviour
        
     }        
 
-    void Update()
-    {
+    //void Update()
+    //{
 
-        PItemBase LeatherArmour = new PItemBase();
-        LeatherArmour.Dog = "Dog tester";
-        LeatherArmour.Dog2 = "Dog tester2";
+    //    PItemBase LeatherArmour = new PItemBase();
+    //    LeatherArmour.Dog = "Dog tester";
+    //    LeatherArmour.Dog2 = "Dog tester2";
 
-        //Serialiser
-        XmlSerializer serializer = new XmlSerializer(typeof(PItemBase));
-        StreamWriter writer = new StreamWriter(path);
-        serializer.Serialize(writer.BaseStream, LeatherArmour);
-        writer.Close();
-        print("XMLS - Run");
-    }
+    //    //Serialiser
+    //    XmlSerializer serializer = new XmlSerializer(typeof(PItemBase));
+    //    StreamWriter writer = new StreamWriter(path);
+    //    serializer.Serialize(writer.BaseStream, LeatherArmour);
+    //    writer.Close();
+    //    print("XMLS - Run");
+    //}
 }

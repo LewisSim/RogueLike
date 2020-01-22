@@ -7,31 +7,8 @@ TagManager:
   - Wall
   - Item
   - ItemCollider
-  - target
-  - ground
-  - goal
-  - agent
-  - block
-  - wall
-  - switchOff
-  - Fire
-  - badFood
-  - stone
-  - pyramid
-  - walkableSurface
-  - purpleAgent
-  - purpleGoal
-  - blueAgent
-  - blueGoal
-  - ball
-  - symbol_X
-  - iWall
-  - symbol_O
-  - food
-  - pit
-  - symbol_O_Goal
-  - symbol_X_Goal
-  - Enemy
+  - SpawnPoint
+  - LevelGenerator
   layers:
   - Default
   - TransparentFX

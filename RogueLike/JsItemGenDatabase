@@ -1,5 +1,0 @@
-<?xml version="1.0"?>
-<PItemBase xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-  <Dog>Dog tester</Dog>
-  <Dog2>Dog tester2</Dog2>
-</PItemBase>

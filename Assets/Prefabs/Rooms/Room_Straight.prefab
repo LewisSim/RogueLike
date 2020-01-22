@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 176217036460858337}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Room_Straight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,11 +56,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hallway_Straight_1
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 237873a2d8496a84e9a4f3b7ac94c053,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 237873a2d8496a84e9a4f3b7ac94c053,
         type: 3}
@@ -131,16 +126,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: -3765012628603765652, guid: 237873a2d8496a84e9a4f3b7ac94c053,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2123923439238673457, guid: 237873a2d8496a84e9a4f3b7ac94c053,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 237873a2d8496a84e9a4f3b7ac94c053, type: 3}

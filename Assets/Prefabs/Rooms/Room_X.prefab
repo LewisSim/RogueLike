@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5522101920839695020}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Room_X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -56,16 +56,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Hallway_CrossSection_1
-      objectReference: {fileID: 0}
-    - target: {fileID: -927199367670048503, guid: 16e08ee0a343806418e5a8ef6feceefa,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -6376317209432448241, guid: 16e08ee0a343806418e5a8ef6feceefa,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 16e08ee0a343806418e5a8ef6feceefa,
         type: 3}
@@ -129,33 +119,13 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 16e08ee0a343806418e5a8ef6feceefa,
         type: 3}
-      propertyPath: m_LocalScale.y
+      propertyPath: m_LocalScale.z
       value: 0.85
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 16e08ee0a343806418e5a8ef6feceefa,
         type: 3}
-      propertyPath: m_LocalScale.z
+      propertyPath: m_LocalScale.y
       value: 0.85
-      objectReference: {fileID: 0}
-    - target: {fileID: -4169428838998053772, guid: 16e08ee0a343806418e5a8ef6feceefa,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: -1687809332837183196, guid: 16e08ee0a343806418e5a8ef6feceefa,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 568709731084235883, guid: 16e08ee0a343806418e5a8ef6feceefa,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3148988974976980142, guid: 16e08ee0a343806418e5a8ef6feceefa,
-        type: 3}
-      propertyPath: m_Layer
-      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 16e08ee0a343806418e5a8ef6feceefa, type: 3}
