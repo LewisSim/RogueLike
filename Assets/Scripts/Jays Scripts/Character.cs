@@ -18,13 +18,12 @@ public class Character : MonoBehaviour
     public float rotationSpeed = 100.0f;
 
     //Combat variables
-    public float attackDam = 10;
+    public int attackDam = 1;
     public Collider[] eCollider;
 
     private void Start()  
     {
-        mAttack();
-        usePowerUp();
+        //usePowerUp();
         anim = GetComponent<Animator>();
     }
 
@@ -127,16 +126,27 @@ public class Character : MonoBehaviour
         int i = 0;
         while (i < eCollider.Length)
         {
-            print(eCollider[i].name);
             if (eCollider[i].tag == "Enemy")
             {
                 float dT = Vector3.Distance(eCollider[i].transform.position, rb.transform.position);
                 if (dT <= attackRange)
                 {
-                    print(dT.ToString());
+                    print(dT.ToString() + " Attack Landed!");
+                    eCollider[i].SendMessage("AddDamage", attackDam);
                 }
             }
-            i++;
+            else if (eCollider[i].tag == "Agent")
+            {
+                print("AI Boss found!");
+                float dT = Vector3.Distance(eCollider[i].transform.position, rb.transform.position);
+                if (dT <= attackRange)
+                {
+                    print(dT.ToString() + " Attack Landed!");
+                    eCollider[i].SendMessage("AddDamage", attackDam);
+                }
+            }
+                i++;
         }
     }
+
 }
