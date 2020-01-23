@@ -7,16 +7,17 @@ public class Character : MonoBehaviour
 
     //Variables
     public Rigidbody rb;
-    public float movementSpeed = 10f;
+   // public float movementSpeed = 10f;
     public float jumpHeight = 15;
     public float speed = 2f;
     public int Health, Gold;
     float maxVelocity = 3;
     bool isGrounded, isJumping;
     Animator anim;
+    public float movementSpeed = 5.0f;
+    public float rotationSpeed = 100.0f;
 
-    private void Start()
-        
+    private void Start()  
     {
         usePowerUp();
         anim = GetComponent<Animator>();
@@ -37,20 +38,25 @@ public class Character : MonoBehaviour
         {
             anim.SetBool("isWalk", false);
         }
-        Movement();
+        //Movement();
         Jumping();
-        float h = speed * Input.GetAxis("Mouse X");
-        transform.Rotate(0, h, 0);
 
+        //Mouse camera movement
+       // float h = speed * Input.GetAxis("Mouse X");
+       // transform.Rotate(0, h, 0);
 
         //UI Tester
         //ui_Gold.text = Gold.ToString();
         //ui_Health.text = Health.ToString();
-
-
     }
 
-    public void Movement()
+    public void Update()
+    {
+            transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
+            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+    }
+
+        public void Movement()
     {
         //Walking
         rb.velocity = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), rb.velocity.y, Input.GetAxis("Vertical") * movementSpeed);
@@ -73,7 +79,7 @@ public class Character : MonoBehaviour
                 isGrounded = false;
             }
         }
-        float jumpForce = 10;
+        float jumpForce = 1f;
 
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {
