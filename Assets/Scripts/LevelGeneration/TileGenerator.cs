@@ -5,7 +5,7 @@ using UnityEngine;
 public class TileGenerator : MonoBehaviour
 {
     //NOTE: Current use of public variables is for debugging only, refactor at a later date
-    public GameObject entrance, exit, lConnect, tConnect, xConnect, sConnect, room, deadEnd;
+    public GameObject[] entrance, exit, lConnect, tConnect, xConnect, sConnect, room, deadEnd;
     public enum RoomType { Entrance, Exit, LConnect, TConnect, XConnect, SConnect, Room, DeadEnd };
     public bool[] connectionPoints;
     public RoomType type;
@@ -49,47 +49,47 @@ public class TileGenerator : MonoBehaviour
         switch (type)
         {
             case RoomType.Entrance:
-                Instantiate(entrance, transform);
+                Instantiate(VariantPick(entrance, false, 0), transform);
                 unchangable = true;
                 //Debug.Log("Entrance spawned");
                 gameObject.name = "Entrance";
                 break;
 
             case RoomType.Exit:
-                Instantiate(exit, transform);
+                Instantiate(VariantPick(exit, false, 0), transform);
                 unchangable = true;
                 //Debug.Log("Exit spawned");
                 gameObject.name = "Exit";
                 break;
 
             case RoomType.LConnect:
-                Instantiate(lConnect, transform);
+                Instantiate(VariantPick(lConnect, false, 0), transform);
                 gameObject.name = "L connect";
                 break;
 
             case RoomType.TConnect:
-                Instantiate(tConnect, transform);
+                Instantiate(VariantPick(tConnect, false, 0), transform);
                 gameObject.name = "T connect";
                 break;
 
             case RoomType.XConnect:
-                Instantiate(xConnect, transform);
+                Instantiate(VariantPick(xConnect, false, 0), transform);
                 gameObject.name = "X connect";
                 break;
 
             case RoomType.SConnect:
-                Instantiate(sConnect, transform);
+                Instantiate(VariantPick(sConnect, false, 0), transform);
                 gameObject.name = "Straight connect";
                 break;
 
             case RoomType.Room:
-                Instantiate(room, transform);
+                Instantiate(VariantPick(room, false, 0), transform);
                 gameObject.name = "Room";
                 unchangable = true;
                 break;
 
             case RoomType.DeadEnd:
-                Instantiate(deadEnd, transform);
+                Instantiate(VariantPick(deadEnd, false, 0), transform);
                 gameObject.name = "Dead End";
                 break;
 
@@ -250,5 +250,20 @@ public class TileGenerator : MonoBehaviour
                 SetRotation(270);
             }
         }
+    }
+
+    private GameObject VariantPick(GameObject[] roomSubset, bool isRotationSensitive, int rotation)
+    {
+
+        //if (!isRotationSensitive)
+        //{
+            GameObject roomOut = roomSubset[Random.Range(0, roomSubset.Length)];
+            return roomOut;
+        //}
+        //else
+        //{
+        //    GameObject roomOut = ;
+        //    return roomOut;
+        //}
     }
 }
