@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class NPCStatement : MonoBehaviour
+public class NPCConvosation : MonoBehaviour
 {
 
     public LayerMask layerMask;
@@ -18,7 +18,6 @@ public class NPCStatement : MonoBehaviour
     private Vector3 origin;
     private Vector3 direction;
     private TextMeshProUGUI tmprotext;
-    private float textTimer;
 
 
     private float currentHitDistance;
@@ -32,13 +31,12 @@ public class NPCStatement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        textTimer -= Time.deltaTime;
         origin = transform.position;
         direction = transform.forward;
 
         RaycastHit hit;
 
-        if (Physics.SphereCast(origin,sphereRadius, direction, out hit, distance, layerMask, QueryTriggerInteraction.UseGlobal))
+        if (Physics.SphereCast(origin, sphereRadius, direction, out hit, distance, layerMask, QueryTriggerInteraction.UseGlobal))
         {
             currentHitDistance = hit.distance;
             Diagloue();
@@ -48,11 +46,7 @@ public class NPCStatement : MonoBehaviour
             currentHitDistance = distance;
         }
 
-        if ((textTimer < 0) && (tmprotext.text == statementText)){
-            tmprotext.SetText("");
-        }
 
-        CameraFace(canvasObj, camera);
     }
 
     private void OnDrawGizmosSelected()
@@ -65,11 +59,6 @@ public class NPCStatement : MonoBehaviour
     private void Diagloue()
     {
         tmprotext.SetText(statementText);
-        textTimer = timer;
     }
 
-    private void CameraFace(GameObject obj, Camera camera)
-    {
-        obj.transform.rotation = Quaternion.LookRotation(transform.position - camera.transform.position);
-    }
 }
