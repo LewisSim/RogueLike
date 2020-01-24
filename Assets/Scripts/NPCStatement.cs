@@ -8,7 +8,7 @@ public class NPCStatement : MonoBehaviour
 
     public LayerMask layerMask;
     public float sphereRadius;
-    public float maxDistance;
+    public float distance;
     public GameObject canvasObj;
     public Camera camera;
     public GameObject text;
@@ -38,14 +38,14 @@ public class NPCStatement : MonoBehaviour
 
         RaycastHit hit;
 
-        if (Physics.SphereCast(origin,sphereRadius, direction, out hit, maxDistance, layerMask, QueryTriggerInteraction.UseGlobal))
+        if (Physics.SphereCast(origin,sphereRadius, direction, out hit, distance, layerMask, QueryTriggerInteraction.UseGlobal))
         {
             currentHitDistance = hit.distance;
             Diagloue();
         }
         else
         {
-            currentHitDistance = maxDistance;
+            currentHitDistance = distance;
         }
 
         if ((textTimer < 0) && (tmprotext.text == statementText)){
