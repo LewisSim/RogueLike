@@ -582,11 +582,11 @@ MonoBehaviour:
     m_Bits: 2048
   sphereRadius: 2
   distance: 1
-  canvasObj: {fileID: 225975187}
-  camera: {fileID: 240374859}
-  text: {fileID: 592332830}
   timer: 5
-  randomiseStatement: 1
+  canvasObj: {fileID: 225975187}
+  text: {fileID: 592332830}
+  camera: {fileID: 240374859}
+  randomiseStatement: 0
   randomStatementText:
   - Hell No
   - Fuck me
