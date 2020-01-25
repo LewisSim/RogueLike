@@ -7,26 +7,23 @@ public class NPCStatement : MonoBehaviour
 {
 
     public LayerMask layerMask;
-    public float sphereRadius;
-    public float distance;
-    public GameObject canvasObj;
+    public float sphereRadius, distance, timer;
+    public GameObject canvasObj, text;
     public Camera camera;
-    public GameObject text;
+    public bool randomiseStatement;
+    public string[] randomStatementText;
     public string statementText;
-    public float timer;
 
-    private Vector3 origin;
-    private Vector3 direction;
+    private Vector3 origin, direction;
     private TextMeshProUGUI tmprotext;
-    private float textTimer;
-
-
-    private float currentHitDistance;
+    private float currentHitDistance, textTimer;
+    private int chooseRandom;
 
     // Start is called before the first frame update
     void Start()
     {
         tmprotext = text.GetComponent<TextMeshProUGUI>();
+        
     }
 
     // Update is called once per frame
@@ -48,7 +45,7 @@ public class NPCStatement : MonoBehaviour
             currentHitDistance = distance;
         }
 
-        if ((textTimer < 0) && (tmprotext.text == statementText)){
+        if ((textTimer < 0) && (tmprotext.text != "")){
             tmprotext.SetText("");
         }
 
@@ -64,7 +61,18 @@ public class NPCStatement : MonoBehaviour
 
     private void Diagloue()
     {
-        tmprotext.SetText(statementText);
+        if (randomiseStatement)
+        {
+            if ((textTimer < 0))
+            {
+                RandomStatement();
+            }        
+            tmprotext.SetText(randomStatementText[chooseRandom]);
+        }
+        else
+        {
+            tmprotext.SetText(statementText);          
+        }
         textTimer = timer;
     }
 
@@ -72,4 +80,10 @@ public class NPCStatement : MonoBehaviour
     {
         obj.transform.rotation = Quaternion.LookRotation(transform.position - camera.transform.position);
     }
+
+    private void RandomStatement()
+    {
+        chooseRandom = Random.Range(0, randomStatementText.Length);
+    }
+
 }

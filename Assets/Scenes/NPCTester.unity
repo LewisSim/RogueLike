@@ -574,19 +574,23 @@ MonoBehaviour:
   m_GameObject: {fileID: 595884864}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 755fb0855203df14b84bcd3c26e66ddc, type: 3}
+  m_Script: {fileID: 11500000, guid: 118d103d81290424e8495b4c9be99de4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   layerMask:
     serializedVersion: 2
-    m_Bits: 0
-  sphereRadius: 0
-  distance: 0
-  canvasObj: {fileID: 0}
-  camera: {fileID: 0}
-  text: {fileID: 0}
-  statementText: 
-  timer: 0
+    m_Bits: 2048
+  sphereRadius: 2
+  distance: 1
+  canvasObj: {fileID: 225975187}
+  camera: {fileID: 240374859}
+  text: {fileID: 592332830}
+  timer: 5
+  randomiseStatement: 1
+  randomStatementText:
+  - Hell No
+  - Fuck me
+  statementText: Hell Yeah
 --- !u!4 &595884866 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: b8be64f7b9c8ebd48b930200eedc29ab,
