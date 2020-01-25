@@ -9,7 +9,7 @@ public class NPCStatement : MonoBehaviour
     public LayerMask layerMask;
     public float sphereRadius, distance, timer;
     public GameObject canvasObj, text;
-    public Camera camera;
+    public Camera characterCamera;
     public bool randomiseStatement;
     public string[] randomStatementText;
     public string statementText;
@@ -49,7 +49,7 @@ public class NPCStatement : MonoBehaviour
             tmprotext.SetText("");
         }
 
-        CameraFace(canvasObj, camera);
+        CameraFace(canvasObj, characterCamera);
     }
 
     private void OnDrawGizmosSelected()

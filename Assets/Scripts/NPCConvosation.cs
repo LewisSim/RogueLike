@@ -10,7 +10,7 @@ public class NPCConvosation : MonoBehaviour
     public float sphereRadius;
     public float distance;
     public GameObject canvasObj;
-    public Camera camera;
+    public Camera characterCamera;
     public GameObject text;
     public string statementText;
     public float timer;
