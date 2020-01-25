@@ -5,7 +5,7 @@ using UnityEngine;
 public class TileGenerator : MonoBehaviour
 {
     //NOTE: Current use of public variables is for debugging only, refactor at a later date
-    public GameObject entrance, exit, lConnect, tConnect, xConnect, sConnect, room, deadEnd;
+    public GameObject[] entrance, exit, lConnect, tConnect, xConnect, sConnect, room, deadEnd;
     public enum RoomType { Entrance, Exit, LConnect, TConnect, XConnect, SConnect, Room, DeadEnd };
     public bool[] connectionPoints;
     public RoomType type;
@@ -39,7 +39,7 @@ public class TileGenerator : MonoBehaviour
         transform.localScale = new Vector3(width, height, depth);
     }
 
-    public void SetRoomType(RoomType t)
+    public void SetRoomType(RoomType t, int rotation)
     {
         type = t;
         if (transform.childCount > 0)
@@ -49,47 +49,47 @@ public class TileGenerator : MonoBehaviour
         switch (type)
         {
             case RoomType.Entrance:
-                Instantiate(entrance, transform);
+                Instantiate(VariantPick(entrance, true, rotation), transform);
                 unchangable = true;
                 //Debug.Log("Entrance spawned");
                 gameObject.name = "Entrance";
                 break;
 
             case RoomType.Exit:
-                Instantiate(exit, transform);
+                Instantiate(VariantPick(exit, true, rotation), transform);
                 unchangable = true;
                 //Debug.Log("Exit spawned");
                 gameObject.name = "Exit";
                 break;
 
             case RoomType.LConnect:
-                Instantiate(lConnect, transform);
+                Instantiate(VariantPick(lConnect, true, rotation), transform);
                 gameObject.name = "L connect";
                 break;
 
             case RoomType.TConnect:
-                Instantiate(tConnect, transform);
+                Instantiate(VariantPick(tConnect, true, rotation), transform);
                 gameObject.name = "T connect";
                 break;
 
             case RoomType.XConnect:
-                Instantiate(xConnect, transform);
+                Instantiate(VariantPick(xConnect, false, rotation), transform);
                 gameObject.name = "X connect";
                 break;
 
             case RoomType.SConnect:
-                Instantiate(sConnect, transform);
+                Instantiate(VariantPick(sConnect, true, rotation), transform);
                 gameObject.name = "Straight connect";
                 break;
 
             case RoomType.Room:
-                Instantiate(room, transform);
+                Instantiate(VariantPick(room, true, rotation), transform);
                 gameObject.name = "Room";
                 unchangable = true;
                 break;
 
             case RoomType.DeadEnd:
-                Instantiate(deadEnd, transform);
+                Instantiate(VariantPick(deadEnd, true, rotation), transform);
                 gameObject.name = "Dead End";
                 break;
 
@@ -102,12 +102,12 @@ public class TileGenerator : MonoBehaviour
     public void SetRotation(float r)
     {
         //Debug.Log("WAS " + transform.rotation.y);
-        transform.rotation = Quaternion.Euler(0f, r, 0f);
+        //transform.rotation = Quaternion.Euler(0f, r, 0f);
         //Debug.Log(transform.rotation.eulerAngles.y);
         //Assign connection point if room is pre placed type e.g. Entrance, Exit, Important room
         if (type == RoomType.Entrance || type == RoomType.Exit || type == RoomType.Room)
         {
-            switch (transform.rotation.eulerAngles.y)
+            switch (r)
             {
                 case 0:
                     connectionPoints[0] = true;
@@ -171,31 +171,31 @@ public class TileGenerator : MonoBehaviour
         {
             if (connectionPoints[0] && connectionPoints[1] && !connectionPoints[2] && !connectionPoints[3])
             {
-                SetRoomType(RoomType.LConnect);
+                SetRoomType(RoomType.LConnect, 0);
             }
             if (connectionPoints[1] && connectionPoints[2] && !connectionPoints[3] && !connectionPoints[0])
             {
-                SetRoomType(RoomType.LConnect);
-                SetRotation(90);
+                SetRoomType(RoomType.LConnect, 1);
+                //SetRotation(90);
             }
             if (connectionPoints[2] && connectionPoints[3] && !connectionPoints[0] && !connectionPoints[1])
             {
-                SetRoomType(RoomType.LConnect);
-                SetRotation(180);
+                SetRoomType(RoomType.LConnect, 2);
+                //SetRotation(180);
             }
             if (connectionPoints[3] && connectionPoints[0] && !connectionPoints[1] && !connectionPoints[2])
             {
-                SetRoomType(RoomType.LConnect);
-                SetRotation(270);
+                SetRoomType(RoomType.LConnect, 3);
+                //SetRotation(270);
             }
             if (connectionPoints[0] && connectionPoints[2] && !connectionPoints[1] && !connectionPoints[3])
             {
-                SetRoomType(RoomType.SConnect);
+                SetRoomType(RoomType.SConnect, 0);
             }
             if (connectionPoints[1] && connectionPoints[3] && !connectionPoints[2] && !connectionPoints[0])
             {
-                SetRoomType(RoomType.SConnect);
-                SetRotation(90);
+                SetRoomType(RoomType.SConnect, 1);
+                //SetRotation(90);
             }
             //if (connectionPoints[2] && connectionPoints[0] && !connectionPoints[1] && !connectionPoints[3])
             //{
@@ -209,45 +209,73 @@ public class TileGenerator : MonoBehaviour
             //}
             if (connectionPoints[0] && connectionPoints[1] && connectionPoints[2] && !connectionPoints[3])
             {
-                SetRoomType(RoomType.TConnect);
+                SetRoomType(RoomType.TConnect, 0);
             }
             if (connectionPoints[1] && connectionPoints[2] && connectionPoints[3] && !connectionPoints[0])
             {
-                SetRoomType(RoomType.TConnect);
-                SetRotation(90);
+                SetRoomType(RoomType.TConnect, 1);
+                //SetRotation(90);
             }
             if (connectionPoints[2] && connectionPoints[3] && connectionPoints[0] && !connectionPoints[1])
             {
-                SetRoomType(RoomType.TConnect);
-                SetRotation(180);
+                SetRoomType(RoomType.TConnect, 2);
+                //SetRotation(180);
             }
             if (connectionPoints[3] && connectionPoints[0] && connectionPoints[1] && !connectionPoints[2])
             {
-                SetRoomType(RoomType.TConnect);
-                SetRotation(270);
+                SetRoomType(RoomType.TConnect, 3);
+                //SetRotation(270);
             }
             if (connectionPoints[0] && connectionPoints[1] && connectionPoints[2] && connectionPoints[3])
             {
-                SetRoomType(RoomType.XConnect);
+                SetRoomType(RoomType.XConnect, 0);
             }
             if (connectionPoints[0] && !connectionPoints[1] && !connectionPoints[2] && !connectionPoints[3])
             {
-                SetRoomType(RoomType.DeadEnd);
+                SetRoomType(RoomType.DeadEnd, 0);
             }
             if (!connectionPoints[0] && connectionPoints[1] && !connectionPoints[2] && !connectionPoints[3])
             {
-                SetRoomType(RoomType.DeadEnd);
-                SetRotation(90);
+                SetRoomType(RoomType.DeadEnd, 1);
+                //SetRotation(90);
             }
             if (!connectionPoints[0] && !connectionPoints[1] && connectionPoints[2] && !connectionPoints[3])
             {
-                SetRoomType(RoomType.DeadEnd);
-                SetRotation(180);
+                SetRoomType(RoomType.DeadEnd, 2);
+                //SetRotation(180);
             }
             if (!connectionPoints[0] && !connectionPoints[1] && !connectionPoints[2] && connectionPoints[3])
             {
-                SetRoomType(RoomType.DeadEnd);
-                SetRotation(270);
+                SetRoomType(RoomType.DeadEnd, 3);
+                //SetRotation(270);
+            }
+        }
+    }
+
+    private GameObject VariantPick(GameObject[] roomSubset, bool isRotationSensitive, int rotation)
+    {
+
+        if (!isRotationSensitive)
+        {
+            GameObject roomOut = roomSubset[Random.Range(0, roomSubset.Length)];
+            return roomOut;
+        }
+        else
+        {
+            //GameObject roomOut = ;
+            //return roomOut;
+            switch (rotation)
+            {
+                case 0:
+                    return roomSubset[0];
+                case 1:
+                    return roomSubset[1];
+                case 2:
+                    return roomSubset[2];
+                case 3:
+                    return roomSubset[3];
+                default:
+                    return roomSubset[0];
             }
         }
     }

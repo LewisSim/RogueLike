@@ -233,19 +233,22 @@ public class LevelGen : MonoBehaviour
 
         for (int i = 0; i < nonEntrance.Count; i++)
         {
+            Debug.Log("Iterating nonentrances");
             //Grab connection points
             var cPoints = nonEntrance[i].connectionPoints;
             //Loop through each index: 0 = connection on right, 1 = connection below etc.
             for (int j = 0; j < cPoints.Length; j++)
             {
+                Debug.Log("Iterating connections" + " " + nonEntrance[i].GetComponent<TileGenerator>().iD);
                 switch (j)
                 {
                     case 0:
                         if (cPoints[j])
                         {
                             //cell on right?- add connection on left
+                            Debug.Log(grid[nonEntrance[i].arrayPosX + 1][nonEntrance[i].arrayPosY].GetComponent<TileGenerator>().connectionPoints[0]);
                             grid[nonEntrance[i].arrayPosX + 1][nonEntrance[i].arrayPosY].GetComponent<TileGenerator>().connectionPoints[2] = true;
-                            //Debug.Log("Connected on right");
+                            Debug.Log("Connected on right");
                         }
                         break;
                     case 1:
@@ -253,7 +256,7 @@ public class LevelGen : MonoBehaviour
                         {
                             //cell on south?- add connection on top
                             grid[nonEntrance[i].arrayPosX][nonEntrance[i].arrayPosY - 1].GetComponent<TileGenerator>().connectionPoints[3] = true;
-                            //Debug.Log("Connected on south");
+                            Debug.Log("Connected on south");
                         }
                         break;
                     case 2:
@@ -261,7 +264,7 @@ public class LevelGen : MonoBehaviour
                         {
                             //cell on left?- add connection on right
                             grid[nonEntrance[i].arrayPosX - 1][nonEntrance[i].arrayPosY].GetComponent<TileGenerator>().connectionPoints[0] = true;
-                            //Debug.Log("Connected on left");
+                            Debug.Log("Connected on left");
                         }
                         break;
                     case 3:
@@ -269,7 +272,7 @@ public class LevelGen : MonoBehaviour
                         {
                             //cell on north?- add connection on south
                             grid[nonEntrance[i].arrayPosX][nonEntrance[i].arrayPosY + 1].GetComponent<TileGenerator>().connectionPoints[1] = true;
-                            //Debug.Log("Connected on north");
+                            Debug.Log("Connected on north");
                         }
                         break;
                 }
@@ -308,7 +311,7 @@ public class LevelGen : MonoBehaviour
                 var targetN = grid[rnd][grid[0].Length - 1].GetComponent<TileGenerator>();
                 if (!targetN.isAssigned)
                 {
-                    targetN.SetRoomType(rType);
+                    targetN.SetRoomType(rType, 1);
                 }
                 else
                 {
@@ -317,7 +320,7 @@ public class LevelGen : MonoBehaviour
                         rnd = Random.Range(1, grid.Length - 2);
                         targetN = grid[rnd][grid[0].Length - 1].GetComponent<TileGenerator>();
                     }
-                    targetN.SetRoomType(rType);
+                    targetN.SetRoomType(rType, 1);
                 }
                 targetN.SetRotation(90);
                 break;
@@ -327,7 +330,7 @@ public class LevelGen : MonoBehaviour
                 var targetE = grid[grid[0].Length - 1][rnd].GetComponent<TileGenerator>();
                 if (!targetE.isAssigned)
                 {
-                    targetE.SetRoomType(rType);
+                    targetE.SetRoomType(rType, 2);
                 }
                 else
                 {
@@ -336,7 +339,7 @@ public class LevelGen : MonoBehaviour
                         rnd = Random.Range(1, grid.Length - 2);
                         targetE = grid[grid[0].Length - 1][rnd].GetComponent<TileGenerator>();
                     }
-                    targetE.SetRoomType(rType);
+                    targetE.SetRoomType(rType, 2);
                 }
                 targetE.SetRotation(180);
                 break;
@@ -346,7 +349,7 @@ public class LevelGen : MonoBehaviour
                 var targetS = grid[rnd][0].GetComponent<TileGenerator>();
                 if (!targetS.isAssigned)
                 {
-                    targetS.SetRoomType(rType);
+                    targetS.SetRoomType(rType, 3);
                 }
                 else
                 {
@@ -355,7 +358,7 @@ public class LevelGen : MonoBehaviour
                         rnd = Random.Range(1, grid.Length - 2);
                         targetS = grid[rnd][0].GetComponent<TileGenerator>();
                     }
-                    targetS.SetRoomType(rType);
+                    targetS.SetRoomType(rType, 3);
                 }
                 targetS.SetRotation(270);
                 break;
@@ -365,7 +368,7 @@ public class LevelGen : MonoBehaviour
                 var targetW = grid[0][rnd].GetComponent<TileGenerator>();
                 if (!targetW.isAssigned)
                 {
-                    targetW.SetRoomType(rType);
+                    targetW.SetRoomType(rType, 0);
                 }
                 else
                 {
@@ -374,7 +377,7 @@ public class LevelGen : MonoBehaviour
                         rnd = Random.Range(1, grid.Length - 2);
                         targetW = grid[0][rnd].GetComponent<TileGenerator>();
                     }
-                    targetW.SetRoomType(rType);
+                    targetW.SetRoomType(rType, 0);
                 }
                 targetW.SetRotation(0);
                 break;
@@ -394,7 +397,7 @@ public class LevelGen : MonoBehaviour
         var tAdjacentL = grid[rnd1 - 1][rnd2].GetComponent<TileGenerator>();
         if (!target.isAssigned && !tAdjacentT.isAssigned && !tAdjacentR.isAssigned && !tAdjacentB.isAssigned && !tAdjacentL.isAssigned)
         {
-            target.SetRoomType(rType);
+            target.SetRoomType(rType, 0);
         }
         //Regenerate until empty space with enough clearance is found
         else
@@ -423,7 +426,7 @@ public class LevelGen : MonoBehaviour
             }
             if (usable)
             {
-                target.SetRoomType(rType);
+                target.SetRoomType(rType, 0);
             }
             else
             {
@@ -436,15 +439,19 @@ public class LevelGen : MonoBehaviour
         {
             case 0:
                 target.SetRotation(0);
+                target.SetRoomType(rType, 0);
                 break;
             case 1:
                 target.SetRotation(90);
+                target.SetRoomType(rType, 1);
                 break;
             case 2:
                 target.SetRotation(180);
+                target.SetRoomType(rType, 2);
                 break;
             case 3:
                 target.SetRotation(270);
+                target.SetRoomType(rType, 3);
                 break;
         }
         //Debug.Log(rotrnd + "rotrnd");
@@ -457,7 +464,7 @@ public class LevelGen : MonoBehaviour
         //Pick random frontier cell to pop
         int ran = Random.Range(0, f.Count);
         //Add to Occupied list
-        f[ran].SetRoomType(TileGenerator.RoomType.XConnect);
+        f[ran].SetRoomType(TileGenerator.RoomType.XConnect, 0);
         o.Add(f[ran]);
         //Check adjacent spots for existing cells and add connection to one
         for (int i = 0; i < 4; i++)
