@@ -7,19 +7,15 @@ public class NPCConvosation : MonoBehaviour
 {
 
     public LayerMask layerMask;
-    public float sphereRadius;
-    public float distance;
-    public GameObject canvasObj;
-    public Camera characterCamera;
+    public float sphereRadius, distance;
     public GameObject text;
-    public string statementText;
-    public float timer;
+    public string[] npcDialogue;
+    public bool shouldCharacterRespond;
+    public string[] responses;
 
     private Vector3 origin;
     private Vector3 direction;
     private TextMeshProUGUI tmprotext;
-
-
     private float currentHitDistance;
 
     // Start is called before the first frame update
@@ -58,7 +54,7 @@ public class NPCConvosation : MonoBehaviour
 
     private void Diagloue()
     {
-        tmprotext.SetText(statementText);
+
     }
 
 }
