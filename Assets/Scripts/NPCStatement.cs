@@ -78,7 +78,9 @@ public class NPCStatement : MonoBehaviour
 
     private void CameraFace(GameObject obj, Camera camera)
     {
-        obj.transform.rotation = Quaternion.LookRotation(transform.position - camera.transform.position);
+        var lookAt = camera.transform.position;
+        lookAt.y = 0;
+        obj.transform.rotation = Quaternion.LookRotation(transform.position - lookAt);
     }
 
     private void RandomStatement()
