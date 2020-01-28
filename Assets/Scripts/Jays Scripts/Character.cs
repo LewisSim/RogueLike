@@ -18,8 +18,9 @@ public class Character : MonoBehaviour
     public float rotationSpeed = 100.0f;
 
     //Combat variables
-    public int attackDam = 1;
+    public int attackDam = 10;
     public Collider[] eCollider;
+    public Collider[] lCollider;
 
     private void Start()  
     {
@@ -55,6 +56,10 @@ public class Character : MonoBehaviour
         if (Input.GetButtonDown("Fire1"))
         {
             mAttack();
+        }
+        if (Input.GetMouseButtonDown(2))
+        {
+            lockOn();
         }
     }
 
@@ -149,4 +154,29 @@ public class Character : MonoBehaviour
         }
     }
 
+    public void lockOn()
+    {
+        float lockRange = 10;
+        float minDistance = 100;
+        float Distance;
+        Transform nearestTarget = null;
+        lCollider = Physics.OverlapSphere(rb.transform.position, lockRange);
+        int i = 0;
+        while (i < lCollider.Length)
+        {
+            if (lCollider[i].tag == "Enemy")
+            {
+                Distance = Vector3.Distance(lCollider[i].transform.position, rb.transform.position);
+                print(Distance.ToString());
+                if (Distance < minDistance)
+                {
+                    minDistance = Distance;
+                    nearestTarget = lCollider[i].transform;
+                }
+            }
+            i++;
+            transform.LookAt(nearestTarget);
+        }
+        
+    }
 }
