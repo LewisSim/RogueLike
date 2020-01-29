@@ -9,6 +9,7 @@ TagManager:
   - ItemCollider
   - SpawnPoint
   - LevelGenerator
+  - Fire
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - Level
   - Player
   - ItemPickUp
-  - 
+  - WordSpace UI
   - 
   - 
   - 

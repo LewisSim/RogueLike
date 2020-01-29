@@ -49,7 +49,6 @@ public class NPCStatement : MonoBehaviour
             tmprotext.SetText("");
         }
 
-        CameraFace(canvasObj, characterCamera);
     }
 
     private void OnDrawGizmosSelected()
@@ -76,12 +75,7 @@ public class NPCStatement : MonoBehaviour
         textTimer = timer;
     }
 
-    private void CameraFace(GameObject obj, Camera camera)
-    {
-        var lookAt = camera.transform.position;
-        lookAt.y = 0;
-        obj.transform.rotation = Quaternion.LookRotation(transform.position - lookAt);
-    }
+
 
     private void RandomStatement()
     {
