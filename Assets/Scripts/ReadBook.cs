@@ -7,6 +7,7 @@ public class ReadBook : MonoBehaviour
 
     public GameObject detectObject;
     public GameObject canvasObj;
+    public GameObject bookCanvas;
 
     private Vector3 origin;
     private Vector3 direction;
@@ -63,7 +64,7 @@ public class ReadBook : MonoBehaviour
 
     private void Read()
     {
-        print("im reading");
+        bookCanvas.SetActive(true);
     }
 
     private void ShowInteraction()
