@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ReadBook : MonoBehaviour
 {
@@ -8,27 +9,32 @@ public class ReadBook : MonoBehaviour
     public GameObject detectObject;
     public GameObject canvasObj;
     public GameObject bookCanvas;
+    public Image bookObj;
+    public Sprite[] bookSprites;
 
-    private Vector3 origin;
-    private Vector3 direction;
-    private float currentHitDistance;
+    private bool reading;
+    private int bookPage;
+
 
     // Start is called before the first frame update
     void Start()
     {
-
+        reading = false;
+        bookPage = 0;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if (reading)
+        {
+            Reading();
+        }
 
     }
 
 
-
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerEnter(Collider collision)
     {
         if (collision.gameObject == detectObject)
         {
@@ -36,18 +42,18 @@ public class ReadBook : MonoBehaviour
         }
     }
 
-    private void OnCollisionStay(Collision collision)
+    private void OnTriggerStay(Collider collision)
     {
         if (collision.gameObject == detectObject)
         {
             if (Input.GetButtonDown("Interact"))
             {
-                Read();
+                Read(collision);
             }
         }
     }
 
-    private void OnCollisionExit(Collision collision)
+    private void OnTriggerExit(Collider collision)
     {
         if (collision.gameObject == detectObject)
         {
@@ -62,9 +68,13 @@ public class ReadBook : MonoBehaviour
 
     }
 
-    private void Read()
+    private void Read(Collider collision)
     {
-        bookCanvas.SetActive(true);
+
+        DisableCharacter();
+        reading = true;
+
+
     }
 
     private void ShowInteraction()
@@ -81,6 +91,35 @@ public class ReadBook : MonoBehaviour
     {
 
         canvasObj.SetActive(false);
+    }
+
+    private void DisableCharacter()
+    {
+        detectObject.gameObject.GetComponent<Character>().enabled = false;
+    }
+
+    private void EnableCharacter()
+    {
+        detectObject.gameObject.GetComponent<Character>().enabled = true;
+    }
+
+    private void Reading()
+    {
+        bookCanvas.SetActive(true);
+        bookObj.sprite = bookSprites[bookPage];
+        if (Input.GetButton("Cancel"))
+        {
+            CloseBook();
+
+        }
+    }
+
+    private void CloseBook()
+    {
+        bookCanvas.SetActive(false);
+        EnableCharacter();
+        reading = false;
+
     }
 }
 
