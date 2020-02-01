@@ -8,6 +8,7 @@ public class AreaTransition : MonoBehaviour
     public int sceneTarget;
     private TriggerHandler trigger;
     private GameObject levelGenerator;
+    public bool DelveDeeper = false;
 
     private void Awake()
     {
@@ -21,8 +22,11 @@ public class AreaTransition : MonoBehaviour
         {
             if (Input.GetButton("Fire1") && trigger.triggeredBy.gameObject.tag == "Player")
             {
-                DontDestroyOnLoad(levelGenerator);
-                AdjustGenerator();
+                if (levelGenerator && DelveDeeper)
+                {
+                    DontDestroyOnLoad(levelGenerator);
+                    AdjustGenerator();
+                }
                 SceneManager.LoadScene(sceneTarget);
             }
         }
