@@ -4,28 +4,29 @@ using UnityEngine;
 
 public class Node
 {
+    public bool traversable;
+    public Vector3 location;
+    public int gCost, hCost, gridX, gridY;
 
-    public int iGridX;
-    public int iGridY;
+    public Node Parent;
 
-    public bool bIsWall;
-    public Vector3 vPosition;
-
-    public Node ParentNode;
-
-    public int igCost;//cost of moving to the next square
-    public int ihCost;//distance to the goal from this node
-
-    public int FCost { get { return igCost + ihCost; } }
-
-    public Node(bool a_bIsWall, Vector3 a_vPos, int a_igridX, int a_igridY)
+    public Node(bool isTraversable, Vector3 curentLocation, int xPos, int yPos)
     {
-        bIsWall = a_bIsWall;//tells us if it's obstructed
-        vPosition = a_vPos;
-        iGridX = a_igridX;
-        iGridY = a_igridY;
+        traversable = isTraversable;
+        location = curentLocation;
+        gridX = xPos;
+        gridY = yPos;
+
+    }
+
+
+    public int fCost//total distance value of path
+    {
+        get
+        {
+            return gCost + hCost;
+        }
     }
 
 }
-
 

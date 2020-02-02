@@ -4,150 +4,144 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
+    public Transform enemy;
+    public Vector2 gridSize;
+    public float nodeSize;
+    public LayerMask obstacleMask;
+    Node[,] aGrid;
 
-    public Transform StartPosition;
-    public LayerMask WallMask;
-    public Vector2 vGridWorldSize;
-    public float fNodeRadius;
-    public float fDistanceBetweenNodes;
-
-    Node[,] NodeArray;
-    public List<Node> FinalPath;//completed path
-
-
-    float fNodeDiameter;
-    int iGridSizeX, iGridSizeY;
+    float nodeDiameter;
+    int gridSizeX, gridSizeY;
+    bool displayGizmos = true;
 
 
-    private void Start()
+
+
+
+
+    // Start is called before the first frame update
+    void Awake()
     {
-        fNodeDiameter = fNodeRadius * 2;
-        iGridSizeX = Mathf.RoundToInt(vGridWorldSize.x / fNodeDiameter);
-        iGridSizeY = Mathf.RoundToInt(vGridWorldSize.y / fNodeDiameter);
-        CreateGrid();
+        nodeDiameter = nodeSize * 2;//current 1
+        gridSizeX = Mathf.RoundToInt(gridSize.x / nodeDiameter);
+        gridSizeY = Mathf.RoundToInt(gridSize.y / nodeDiameter);
+        Create();
     }
 
-    void CreateGrid()
-    {
-        NodeArray = new Node[iGridSizeX, iGridSizeY];
-        Vector3 bottomLeft = transform.position - Vector3.right * vGridWorldSize.x / 2 - Vector3.forward * vGridWorldSize.y / 2;//find bottom left of grid
-        for (int x = 0; x < iGridSizeX; x++)
-        {
-            for (int y = 0; y < iGridSizeY; y++)
-            {
-                Vector3 worldPoint = bottomLeft + Vector3.right * (x * fNodeDiameter + fNodeRadius) + Vector3.forward * (y * fNodeDiameter + fNodeRadius);
-                bool Wall = true;
 
-                if (Physics.CheckSphere(worldPoint, fNodeRadius, WallMask))
+    void Create()//create nodes for grid
+    {
+        aGrid = new Node[gridSizeX, gridSizeY];
+
+        Vector3 swPos = transform.position - (Vector3.right * gridSize.x / 2) - (Vector3.forward * gridSize.y / 2);  //X + Z
+
+        for (int x = 0; x < gridSizeX; x++)
+        {
+            for (int y = 0; y < gridSizeY; y++)
+            {
+                Vector3 worldPoint = swPos + Vector3.right * (x * nodeDiameter + nodeSize) + Vector3.forward * (y * nodeDiameter + nodeSize);// recorde pos for each node starting bottom left of grid
+                bool traversable = !(Physics.CheckSphere(worldPoint, nodeSize, obstacleMask));//check if pos is already occupied
+                aGrid[x, y] = new Node(traversable, worldPoint, x, y);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+
+
+    public Node nodeFromWorldPos(Vector3 worldPos)//find current node
+    {
+        float precentX = (worldPos.x + gridSize.x / 2) / gridSize.x;
+        Vector3 swPos = transform.position - (Vector3.right * (gridSizeX / 2)) - (Vector3.forward * (gridSizeY / 2));  //finds bottom left pos of grid
+
+
+
+        float precentY = (worldPos.z + gridSize.y / 2) / gridSize.y;
+
+
+
+        precentX = Mathf.Clamp01(precentX);//Prevent issues if grid is left
+        precentY = Mathf.Clamp01(precentY);
+
+        int x = Mathf.FloorToInt((worldPos - swPos).x/* nodeSize*/);
+        int y = Mathf.FloorToInt((worldPos - swPos).z /* nodeSize*/);
+
+
+        return aGrid[x, y];
+    }
+
+
+    public List<Node> path;//only for visually test pathfinding
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawWireCube(transform.position, new Vector3(gridSize.x, 1, gridSize.y));//X == Z in 3D
+
+
+        if (aGrid != null)//testing
+        {
+            //node enemyNode = nodeFromPos(enemy.position);// passes enemy pos 
+            //Node enemyNode = nodeFromWorldPos(enemy.position);
+
+            if (displayGizmos == true)
+            {
+                foreach (Node n in aGrid)
                 {
-                    Wall = false;
-                }
-
-                NodeArray[x, y] = new Node(Wall, worldPoint, x, y);
-            }
-        }
-    }
+                    Gizmos.color = (n.traversable) ? Color.white : Color.red;
 
 
-    public List<Node> GetNeighboringNodes(Node a_NeighborNode)
-    {
-        List<Node> NeighborList = new List<Node>();//list of all possible neighbours
-        int icheckX;
-        int icheckY;
-
-        //checks on the right
-        icheckX = a_NeighborNode.iGridX + 1;
-        icheckY = a_NeighborNode.iGridY;
-        if (icheckX >= 0 && icheckX < iGridSizeX)
-        {
-            if (icheckY >= 0 && icheckY < iGridSizeY)
-            {
-                NeighborList.Add(NodeArray[icheckX, icheckY]);
-            }
-        }
-        //checks on the left
-        icheckX = a_NeighborNode.iGridX - 1;
-        icheckY = a_NeighborNode.iGridY;
-        if (icheckX >= 0 && icheckX < iGridSizeX)
-        {
-            if (icheckY >= 0 && icheckY < iGridSizeY)
-            {
-                NeighborList.Add(NodeArray[icheckX, icheckY]);
-            }
-        }
-        //checks above
-        icheckX = a_NeighborNode.iGridX;
-        icheckY = a_NeighborNode.iGridY + 1;
-        if (icheckX >= 0 && icheckX < iGridSizeX)
-        {
-            if (icheckY >= 0 && icheckY < iGridSizeY)
-            {
-                NeighborList.Add(NodeArray[icheckX, icheckY]);
-            }
-        }
-        //checks below
-        icheckX = a_NeighborNode.iGridX;
-        icheckY = a_NeighborNode.iGridY - 1;
-        if (icheckX >= 0 && icheckX < iGridSizeX)
-        {
-            if (icheckY >= 0 && icheckY < iGridSizeY)
-            {
-                NeighborList.Add(NodeArray[icheckX, icheckY]);
-            }
-        }
-
-        return NeighborList;
-    }
-
-        public Node NodeFromWorldPoint(Vector3 a_vWorldPos)
-        {
-            float ixPos = ((a_vWorldPos.x + vGridWorldSize.x / 2) / vGridWorldSize.x);
-            float iyPos = ((a_vWorldPos.z + vGridWorldSize.y / 2) / vGridWorldSize.y);
-
-            ixPos = Mathf.Clamp01(ixPos);
-            iyPos = Mathf.Clamp01(iyPos);
-
-            int ix = Mathf.RoundToInt((iGridSizeX - 1) * ixPos);
-            int iy = Mathf.RoundToInt((iGridSizeY - 1) * iyPos);
-
-            return NodeArray[ix, iy];
-        }
-
-
-        //draws wireframe, will remove :)
-        private void OnDrawGizmos()
-        {
-
-            Gizmos.DrawWireCube(transform.position, new Vector3(vGridWorldSize.x, 1, vGridWorldSize.y));//Draw a wire cube with the given dimensions from the Unity inspector
-
-            if (NodeArray != null)
-            {
-                foreach (Node n in NodeArray)
-                {
-                    if (n.bIsWall)
-                    {
-                        Gizmos.color = Color.white;
-                    }
-                    else
+                    if (path != null && path.Contains(n))
                     {
                         Gizmos.color = Color.yellow;
                     }
 
 
-                    if (FinalPath != null)
+                    /*if (n == enemyNode)
                     {
-                        if (FinalPath.Contains(n))
-                        {
-                            Gizmos.color = Color.red;
-                        }
+                        //Gizmos.color = Color.blue;
+                    }*/
 
-                    }
-
-
-                    Gizmos.DrawCube(n.vPosition, Vector3.one * (fNodeDiameter - fDistanceBetweenNodes));
+                    Gizmos.DrawCube(n.location, Vector3.one * (nodeDiameter - 0.1f));
+                    Gizmos.color = (n.traversable) ? Color.white : Color.red;
                 }
             }
         }
-}
 
+
+    }
+
+
+    public List<Node> getBorderNodes(Node Node)
+    {
+        List<Node> neighbours = new List<Node>();
+
+        for (int x = -1; x <= 1; x++)//3 by 3 grid
+        {
+            for (int y = -1; y <= 1; y++)
+            {
+                if (x == 0 && y == 0)//ignores curren node/centre
+                {
+                    continue;
+                }
+                int checkX = Node.gridX + x;
+                int checkY = Node.gridY + y;
+
+                if (checkX >= 0 && checkX < gridSizeX && checkY >= 0 && checkY < gridSizeY)//if neibouring
+                {
+                    neighbours.Add(aGrid[checkX, checkY]);
+
+
+                }
+            }
+        }
+        //Debug.Log("working");
+        return neighbours;
+    }
+
+}
 
