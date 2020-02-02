@@ -106,7 +106,7 @@ public class ReadBook : MonoBehaviour
     private void Reading()
     {
         bookCanvas.SetActive(true);
-        //bookObj.sprite = bookSprites[bookPage];
+        bookObj.sprite = bookSprites[bookPage];
         if (Input.GetButton("Cancel"))
         {
             CloseBook();
@@ -123,9 +123,10 @@ public class ReadBook : MonoBehaviour
                 bookPage -= 1;
             }
         }
-        else if (Input.GetButtonDown("Right"))
+
+        if (Input.GetButtonDown("Right"))
         {
-            if (bookPage == bookSprites.Length)
+            if (bookPage == bookSprites.Length - 1)
             {
                 //do nothing
             }
