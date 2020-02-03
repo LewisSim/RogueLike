@@ -15,7 +15,7 @@ public class Character : MonoBehaviour
     bool isGrounded, isJumping;
     Animator anim;
     public float movementSpeed = 5.0f;
-    public float rotationSpeed = 100.0f;
+    public float rotationSpeed = 200f;
 
     //Combat variables
     public int attackDam = 10;
