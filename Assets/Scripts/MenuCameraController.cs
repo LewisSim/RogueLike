@@ -12,7 +12,7 @@ public class MenuCameraController : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-
+        currentView = views[0];
 
     }
 
@@ -44,6 +44,31 @@ public class MenuCameraController : MonoBehaviour
             currentView = views[4];
         }
 
+    }
+
+    public void SetView_zero()
+    {
+        currentView = views[0];
+    }
+
+    public void SetView_one()
+    {
+        currentView = views[1];
+    }
+
+    public void SetView_two()
+    {
+        currentView = views[2];
+    }
+
+    public void SetView_three()
+    {
+        currentView = views[3];
+    }
+
+    public void SetView_four()
+    {
+        currentView = views[4];
     }
 
 
