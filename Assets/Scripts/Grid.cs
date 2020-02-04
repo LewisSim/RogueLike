@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Grid : MonoBehaviour
 {
-    public Transform enemy;
+    public Transform enemy, startPos;
     public Vector2 gridSize;
     public float nodeSize;
     public LayerMask obstacleMask;
@@ -12,7 +12,7 @@ public class Grid : MonoBehaviour
 
     float nodeDiameter;
     int gridSizeX, gridSizeY;
-    bool displayGizmos = true;
+    bool displayGizmos = true, inRange = false;
 
 
 
@@ -22,11 +22,13 @@ public class Grid : MonoBehaviour
     // Start is called before the first frame update
     void Awake()
     {
+        startPos = gameObject.transform;
         nodeDiameter = nodeSize * 2;//current 1
         gridSizeX = Mathf.RoundToInt(gridSize.x / nodeDiameter);
         gridSizeY = Mathf.RoundToInt(gridSize.y / nodeDiameter);
         Create();
     }
+
 
 
     void Create()//create nodes for grid
@@ -49,7 +51,19 @@ public class Grid : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RaycastHit hit;
 
+        if(Physics.SphereCast(gameObject.transform.position, 10f, transform.forward, out hit, 10) && hit.transform.gameObject.tag == "Player")
+        {
+            enemy = GameObject.FindGameObjectWithTag("Player").transform;
+        }
+
+        else
+        {
+            enemy = startPos;
+        }
+
+        
     }
 
 
@@ -85,8 +99,6 @@ public class Grid : MonoBehaviour
 
         if (aGrid != null)//testing
         {
-            //node enemyNode = nodeFromPos(enemy.position);// passes enemy pos 
-            //Node enemyNode = nodeFromWorldPos(enemy.position);
 
             if (displayGizmos == true)
             {
@@ -99,12 +111,6 @@ public class Grid : MonoBehaviour
                     {
                         Gizmos.color = Color.yellow;
                     }
-
-
-                    /*if (n == enemyNode)
-                    {
-                        //Gizmos.color = Color.blue;
-                    }*/
 
                     Gizmos.DrawCube(n.location, Vector3.one * (nodeDiameter - 0.1f));
                     Gizmos.color = (n.traversable) ? Color.white : Color.red;
