@@ -960,36 +960,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7136824975053254316}
     m_Modifications:
-    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
-        type: 3}
-      propertyPath: displayLightIntensity
-      value: 1200
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
-        type: 3}
-      propertyPath: m_SpotLightShape
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
-        type: 3}
-      propertyPath: lightUnit
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
-        type: 3}
-      propertyPath: m_InnerSpotPercent
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
-        type: 3}
-      propertyPath: shapeRadius
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
-        type: 3}
-      propertyPath: maxSmoothness
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 9136379149227009171, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_Name
@@ -1073,7 +1043,7 @@ PrefabInstance:
     - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_Intensity
-      value: 95.492966
+      value: 3978.8735
       objectReference: {fileID: 0}
     - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
@@ -1133,22 +1103,62 @@ PrefabInstance:
     - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_SpotAngle
-      value: 51.4
+      value: 66.29544
       objectReference: {fileID: 0}
     - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.61387503
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.8396226
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.803087
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: displayLightIntensity
+      value: 50000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_SpotLightShape
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: lightUnit
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_InnerSpotPercent
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: shapeRadius
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: maxSmoothness
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -1790029290169054860, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: contactShadows
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3584f457015fe044794ffa0a59e9a0a3, type: 3}
