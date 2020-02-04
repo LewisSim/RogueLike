@@ -47,7 +47,7 @@ MonoBehaviour:
   type: 2
   tier: 0
   test: 0
-  s_enemy: {fileID: 2910218986273719159, guid: 69a06052665a91f418f4fb90cf8a2199, type: 3}
+  s_enemy: {fileID: 6698377524643813632, guid: d35fb78b42696424f8beb6be6424fea4, type: 3}
   s_lootChest: {fileID: 5291020719197207946, guid: 55f893aad364e114f8b5afa8e29f0366,
     type: 3}
   s_trap: {fileID: 3402661428815045746, guid: 7fe07c426c20a65418825bc109ab65cb, type: 3}
