@@ -118,6 +118,12 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8435838404501509855, guid: f09e851ee9466f749868f252bb5841ff,
+        type: 3}
+      propertyPath: s_enemy
+      value: 
+      objectReference: {fileID: 8039137461565999053, guid: ff1daec244093d94ead1393130fb0247,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09e851ee9466f749868f252bb5841ff, type: 3}
 --- !u!4 &4244379851410044101 stripped
@@ -133,11 +139,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 3404127168537727755}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: 7841dc1607339804fa9f85b53a434a20,
-        type: 3}
-      propertyPath: m_Name
-      value: Hallway_DeadEnd_3
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: 7841dc1607339804fa9f85b53a434a20,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -207,6 +208,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 7841dc1607339804fa9f85b53a434a20,
+        type: 3}
+      propertyPath: m_Name
+      value: Hallway_DeadEnd_3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7841dc1607339804fa9f85b53a434a20, type: 3}

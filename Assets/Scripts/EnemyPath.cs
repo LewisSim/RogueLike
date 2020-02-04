@@ -19,7 +19,7 @@ public class EnemyPath : MonoBehaviour
         state = GetComponent<Animator>();
         
 
-        goToPoint = GameObject.FindGameObjectWithTag("beacon").transform;
+        goToPoint = GameObject.FindGameObjectWithTag("Player").transform;
         ReqManager.RequestPath(transform.position, goToPoint.position, OnPathFound);//create path 
 
     }

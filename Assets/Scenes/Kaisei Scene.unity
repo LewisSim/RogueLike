@@ -582,7 +582,7 @@ MonoBehaviour:
   kernelSize: 5
   lightAngle: 1
   maxDepthBias: 0.001
---- !u!114 &973005019
+--- !u!114 &1057509087
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -874,7 +874,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 36c2b5d296692664ba5245b0821432a9, type: 2}
   m_StaticLightingSkyUniqueID: 2
-  m_SkySettings: {fileID: 973005019}
+  m_SkySettings: {fileID: 1057509087}
   m_SkySettingsFromProfile: {fileID: -3421143321213336758, guid: 36c2b5d296692664ba5245b0821432a9,
     type: 2}
 --- !u!114 &1719968598

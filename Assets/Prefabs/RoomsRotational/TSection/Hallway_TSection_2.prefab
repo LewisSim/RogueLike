@@ -152,11 +152,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6705516498145128905}
     m_Modifications:
-    - target: {fileID: 259316687623363688, guid: 79c996bf1d244c94cbb82a93c7e81da7,
-        type: 3}
-      propertyPath: m_Name
-      value: CandleFire
-      objectReference: {fileID: 0}
     - target: {fileID: 259316687622930504, guid: 79c996bf1d244c94cbb82a93c7e81da7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -212,8 +207,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 259316687633082762, guid: 79c996bf1d244c94cbb82a93c7e81da7, type: 3}
+    - target: {fileID: 259316687623363688, guid: 79c996bf1d244c94cbb82a93c7e81da7,
+        type: 3}
+      propertyPath: m_Name
+      value: CandleFire
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79c996bf1d244c94cbb82a93c7e81da7, type: 3}
 --- !u!4 &2123751165981706728 stripped
 Transform:
@@ -288,20 +287,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+    - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
-      propertyPath: displayLightIntensity
-      value: 1200
+      propertyPath: m_Intensity
+      value: 95.492966
       objectReference: {fileID: 0}
     - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_Range
       value: 5.75
       objectReference: {fileID: 0}
-    - target: {fileID: 9136379149227009170, guid: 3584f457015fe044794ffa0a59e9a0a3,
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
-      propertyPath: m_Intensity
-      value: 95.492966
+      propertyPath: displayLightIntensity
+      value: 1200
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3584f457015fe044794ffa0a59e9a0a3, type: 3}
@@ -383,6 +382,12 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8435838404501509855, guid: f09e851ee9466f749868f252bb5841ff,
+        type: 3}
+      propertyPath: s_enemy
+      value: 
+      objectReference: {fileID: 8039137461565999053, guid: ff1daec244093d94ead1393130fb0247,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09e851ee9466f749868f252bb5841ff, type: 3}
 --- !u!4 &3713675746148307664 stripped
@@ -467,11 +472,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 6705516498145128905}
     m_Modifications:
-    - target: {fileID: 259316687623363688, guid: 79c996bf1d244c94cbb82a93c7e81da7,
-        type: 3}
-      propertyPath: m_Name
-      value: CandleFire (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 259316687622930504, guid: 79c996bf1d244c94cbb82a93c7e81da7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -527,6 +527,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 259316687623363688, guid: 79c996bf1d244c94cbb82a93c7e81da7,
+        type: 3}
+      propertyPath: m_Name
+      value: CandleFire (1)
+      objectReference: {fileID: 0}
     - target: {fileID: 259316687641281800, guid: 79c996bf1d244c94cbb82a93c7e81da7,
         type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -567,8 +572,7 @@ PrefabInstance:
       propertyPath: InitialModule.startRotationY.minMaxState
       value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 259316687633082762, guid: 79c996bf1d244c94cbb82a93c7e81da7, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79c996bf1d244c94cbb82a93c7e81da7, type: 3}
 --- !u!4 &5983784992896187777 stripped
 Transform:
