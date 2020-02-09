@@ -26,6 +26,7 @@ public class Character : MonoBehaviour
     {
         //usePowerUp();
         anim = GetComponent<Animator>();
+        Inventory.Instance.TesterMetod();
     }
 
     //UI Variables
