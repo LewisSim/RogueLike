@@ -21,6 +21,7 @@ public class MenuCameraController : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
+
             currentView = views[0];
         }
 
