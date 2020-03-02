@@ -22,6 +22,9 @@ public class Character : MonoBehaviour
     public Collider[] eCollider;
     public Collider[] lCollider;
 
+    //Factory composition
+    //public aFactory aFac = new aFactory();
+
     private void Start()  
     {
         //usePowerUp();
@@ -38,13 +41,12 @@ public class Character : MonoBehaviour
         MovementCheck();
         //Movement();
         Jumping();
-
         //Mouse camera movement
-       // float h = speed * Input.GetAxis("Mouse X");
-       // transform.Rotate(0, h, 0);
+        // float h = speed * Input.GetAxis("Mouse X");
+        // transform.Rotate(0, h, 0);
 
         //UI Tester
-       // ui_Gold.text = Gold.ToString();
+        // ui_Gold.text = Gold.ToString();
         //ui_Health.text = Health.ToString();
     }
 
@@ -62,6 +64,8 @@ public class Character : MonoBehaviour
         {
             lockOn();
         }
+
+        aFactory.GpAbility("pushBack");
     }
 
         public void Movement()
