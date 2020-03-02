@@ -8,6 +8,8 @@ public class LevelLoader : MonoBehaviour {
     public GameObject loadingScreen;
     public Slider slider;
     public Text progressText;
+    public Animator transition;
+    public float transitionTime = 1f;
 
 
 	public void LoadLevel (int sceneIndex)
@@ -20,6 +22,12 @@ public class LevelLoader : MonoBehaviour {
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
 
         loadingScreen.SetActive(true);
+
+        transition.SetTrigger("Start");
+
+        yield return new WaitForSeconds(transitionTime);
+
+        SceneManager.LoadScene(sceneIndex);
 
         while (!operation.isDone)
         {
