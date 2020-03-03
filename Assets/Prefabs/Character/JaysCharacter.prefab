@@ -126,8 +126,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2086806096}
-  movementSpeed: 3
   jumpHeight: 15
+  speed: 2
+  Health: 0
+  Gold: 0
+  movementSpeed: 3
+  rotationSpeed: 200
+  attackDam: 10
+  eCollider: []
+  lCollider: []
+  ui_Gold: {fileID: 0}
+  ui_Health: {fileID: 0}
 --- !u!1001 &9078280469915918328
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -138,7 +147,17 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: b8be64f7b9c8ebd48b930200eedc29ab,
         type: 3}
       propertyPath: m_Name
-      value: SK_Valkyrie
+      value: JaysCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b8be64f7b9c8ebd48b930200eedc29ab,
+        type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: b8be64f7b9c8ebd48b930200eedc29ab,
+        type: 3}
+      propertyPath: m_Layer
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: b8be64f7b9c8ebd48b930200eedc29ab,
         type: 3}

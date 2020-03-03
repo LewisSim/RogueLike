@@ -17,6 +17,7 @@ public class LevelGen : MonoBehaviour
 
     public float progress = 0f;
     bool isGenerating = false;
+    public string loadingText = "";
 
     private void Awake()
     {
@@ -28,6 +29,7 @@ public class LevelGen : MonoBehaviour
         if (isGenerating)
         {
             print("PROGRESS: " + progress);
+            print(loadingText);
         }
         if (progress == 1f)
         {
@@ -48,11 +50,17 @@ public class LevelGen : MonoBehaviour
         progress = 0.1f;
         yield return null;
         //Generate();
+        loadingText = "Initialising Level Generation...";
         GenInit();
         progress = 0.2f;
         yield return null;
-        GenPrim();
+        //GenPrim();
+        yield return StartCoroutine(GenPrim());
         progress = 1f;
+
+        var pSpawner = GameObject.FindGameObjectWithTag("PlayerSpawner");
+        pSpawner.GetComponent<PlayerSpawner>().SpawnPlayer();
+
         yield break;
     }
 
@@ -102,8 +110,11 @@ public class LevelGen : MonoBehaviour
         }
     }
 
-    private void GenPrim()
+    private IEnumerator GenPrim()
     {
+
+        loadingText = "Listing tiles...";
+
         //Get list of all tiles
         List<TileGenerator> allTiles = new List<TileGenerator>();
         for (int i = 0; i < grid.Length; i++)
@@ -114,6 +125,11 @@ public class LevelGen : MonoBehaviour
             }
         }
 
+        progress = 0.22f;
+        yield return null;
+
+
+        loadingText = "Getting List of Occupied Cells...";
 
         //Get list of occupied cells
         List<TileGenerator> occupied = new List<TileGenerator>();
@@ -129,7 +145,10 @@ public class LevelGen : MonoBehaviour
         }
         //Debug.Log(occupied.Count);
 
+        progress = 0.23f;
+        yield return null;
 
+        loadingText = "Generating list of frontier cells...";
 
         //Get initial list of frontier cells
         List<TileGenerator> frontier = new List<TileGenerator>();
@@ -170,6 +189,11 @@ public class LevelGen : MonoBehaviour
         {
             //Debug.Log("Frontier cell " + i + "= cell id: " + frontier[i].iD);
         }
+
+        progress = 0.25f;
+        yield return null;
+
+        loadingText = "Connecting Cells...";
 
         //Step through randomly selecting frontier cells to connect to
         FrontierPop(frontier, occupied);
@@ -235,8 +259,14 @@ public class LevelGen : MonoBehaviour
             {
                 FrontierPop(frontier, occupied);
             }
+
+
         }
 
+        progress = 0.40f;
+        yield return null;
+
+        loadingText = "Connecting Rooms of Importance...";
 
         //Connect extra rooms i.e. exit, rooms of importance
         List<TileGenerator> nonEntrance = new List<TileGenerator>();
@@ -255,24 +285,27 @@ public class LevelGen : MonoBehaviour
         }
         //Debug.Log(nonEntrance.Count + "NONENTRANCES");
 
+        progress = 0.46f;
+        yield return null;
+
         for (int i = 0; i < nonEntrance.Count; i++)
         {
-            Debug.Log("Iterating nonentrances");
+            //Debug.Log("Iterating nonentrances");
             //Grab connection points
             var cPoints = nonEntrance[i].connectionPoints;
             //Loop through each index: 0 = connection on right, 1 = connection below etc.
             for (int j = 0; j < cPoints.Length; j++)
             {
-                Debug.Log("Iterating connections" + " " + nonEntrance[i].GetComponent<TileGenerator>().iD);
+                //Debug.Log("Iterating connections" + " " + nonEntrance[i].GetComponent<TileGenerator>().iD);
                 switch (j)
                 {
                     case 0:
                         if (cPoints[j])
                         {
                             //cell on right?- add connection on left
-                            Debug.Log(grid[nonEntrance[i].arrayPosX + 1][nonEntrance[i].arrayPosY].GetComponent<TileGenerator>().connectionPoints[0]);
+                            //Debug.Log(grid[nonEntrance[i].arrayPosX + 1][nonEntrance[i].arrayPosY].GetComponent<TileGenerator>().connectionPoints[0]);
                             grid[nonEntrance[i].arrayPosX + 1][nonEntrance[i].arrayPosY].GetComponent<TileGenerator>().connectionPoints[2] = true;
-                            Debug.Log("Connected on right");
+                            //Debug.Log("Connected on right");
                         }
                         break;
                     case 1:
@@ -280,7 +313,7 @@ public class LevelGen : MonoBehaviour
                         {
                             //cell on south?- add connection on top
                             grid[nonEntrance[i].arrayPosX][nonEntrance[i].arrayPosY - 1].GetComponent<TileGenerator>().connectionPoints[3] = true;
-                            Debug.Log("Connected on south");
+                            //Debug.Log("Connected on south");
                         }
                         break;
                     case 2:
@@ -288,7 +321,7 @@ public class LevelGen : MonoBehaviour
                         {
                             //cell on left?- add connection on right
                             grid[nonEntrance[i].arrayPosX - 1][nonEntrance[i].arrayPosY].GetComponent<TileGenerator>().connectionPoints[0] = true;
-                            Debug.Log("Connected on left");
+                            //Debug.Log("Connected on left");
                         }
                         break;
                     case 3:
@@ -296,13 +329,18 @@ public class LevelGen : MonoBehaviour
                         {
                             //cell on north?- add connection on south
                             grid[nonEntrance[i].arrayPosX][nonEntrance[i].arrayPosY + 1].GetComponent<TileGenerator>().connectionPoints[1] = true;
-                            Debug.Log("Connected on north");
+                            //Debug.Log("Connected on north");
                         }
                         break;
                 }
 
             }
         }
+
+        progress = 0.55f;
+        yield return null;
+
+        loadingText = "Consolidating Tiles...";
 
         //Consolidate all tiles
         for (int i = 0; i < allTiles.Count; i++)
@@ -312,6 +350,12 @@ public class LevelGen : MonoBehaviour
                 allTiles[i].ConsolidateTile();
             }
         }
+
+        progress = 0.70f;
+        yield return null;
+
+        loadingText = "Spawning Entities...";
+
         //Generate from spawn points
         var sPoints = GameObject.FindGameObjectsWithTag("SpawnPoint");
         if (sPoints.Length > 0)
@@ -321,6 +365,9 @@ public class LevelGen : MonoBehaviour
                 sPoints[i].GetComponent<SpawnPoint>().Spawn();
             }
         }
+
+        progress = 0.96f;
+        yield break;
     }
 
 

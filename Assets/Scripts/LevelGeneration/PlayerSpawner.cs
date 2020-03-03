@@ -5,15 +5,17 @@ using UnityEngine;
 public class PlayerSpawner : MonoBehaviour
 {
     public GameObject player;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public minimapscript miniMap;
 
-    // Update is called once per frame
-    void Update()
+    public void SpawnPlayer()
     {
-        
+        //Place player at its location
+        var s_player = Instantiate(player);
+        s_player.transform.position = transform.position;
+        s_player.transform.rotation = transform.rotation;
+        miniMap.player = s_player.transform;
+
+        //Destroy itself
+        Destroy(gameObject);
     }
 }
