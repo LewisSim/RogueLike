@@ -15,13 +15,29 @@ public class LevelGen : MonoBehaviour
     public enum BorderPos { North, East, South, West };
     public BorderPos entrancePos, exitPos;
 
+    public float progress = 0f;
+    bool isGenerating = false;
+
     private void Awake()
     {
-        Begin();
+        StartCoroutine(Begin());
     }
 
-    public void Begin()
+    private void Update()
     {
+        if (isGenerating)
+        {
+            print("PROGRESS: " + progress);
+        }
+        if (progress == 1f)
+        {
+            isGenerating = false;
+        }
+    }
+
+    public IEnumerator Begin()
+    {
+        isGenerating = true;
         Random.InitState(seed);
         //Initialise grid
         grid = new GameObject[gridSizeX][];
@@ -29,7 +45,15 @@ public class LevelGen : MonoBehaviour
         {
             grid[i] = new GameObject[gridSizeY];
         }
-        Generate();
+        progress = 0.1f;
+        yield return null;
+        //Generate();
+        GenInit();
+        progress = 0.2f;
+        yield return null;
+        GenPrim();
+        progress = 1f;
+        yield break;
     }
 
     private void Generate()
