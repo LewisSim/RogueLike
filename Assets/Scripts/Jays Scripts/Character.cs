@@ -14,7 +14,7 @@ public class Character : MonoBehaviour
     float maxVelocity = 3;
     bool isGrounded, isJumping;
     Animator anim;
-    public float movementSpeed = 5.0f;
+    public static float movementSpeed = 5.0f;
     public float rotationSpeed = 200f;
 
     //Combat variables
@@ -22,12 +22,8 @@ public class Character : MonoBehaviour
     public Collider[] eCollider;
     public Collider[] lCollider;
 
-    //Factory composition
-    //public aFactory aFac = new aFactory();
-
     private void Start()  
     {
-        //usePowerUp();
         anim = GetComponent<Animator>();
         Inventory.Instance.TesterMetod();
     }
@@ -58,14 +54,19 @@ public class Character : MonoBehaviour
         //Melee attack
         if (Input.GetButtonDown("Fire1"))
         {
-            mAttack();
+            //mAttack();
+            //Passing Monobehaviour
+            zoomies z = new zoomies();
+            z.monoParser(this);
+            aFactory.GpAbility("zoomies");
         }
         if (Input.GetMouseButtonDown(2))
         {
             lockOn();
         }
 
-        aFactory.GpAbility("pushBack");
+        //aFactory.GpAbility("pushBack");
+        //aFactory.GpAbility("zoomies");
     }
 
         public void Movement()
