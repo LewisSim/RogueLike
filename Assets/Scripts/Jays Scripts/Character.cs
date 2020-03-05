@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.UI;
 public class Character : MonoBehaviour
 {
-
     //Variables
     public Rigidbody rb;
     // public float movementSpeed = 10f;
@@ -16,21 +15,17 @@ public class Character : MonoBehaviour
     Animator anim;
     public static float movementSpeed = 5.0f;
     public float rotationSpeed = 200f;
-
     //Combat variables
     public int attackDam = 10;
     public Collider[] eCollider;
     public Collider[] lCollider;
-
     private void Start()  
     {
         anim = GetComponent<Animator>();
         Inventory.Instance.TesterMetod();
     }
-
     //UI Variables
     public Text ui_Gold, ui_Health;
-
     //Methods
     private void FixedUpdate()
     {
@@ -45,7 +40,6 @@ public class Character : MonoBehaviour
         // ui_Gold.text = Gold.ToString();
         //ui_Health.text = Health.ToString();
     }
-
     public void Update()
     {
             transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
@@ -54,21 +48,13 @@ public class Character : MonoBehaviour
         //Melee attack
         if (Input.GetButtonDown("Fire1"))
         {
-            //mAttack();
-            //Passing Monobehaviour
-            zoomies z = new zoomies();
-            z.monoParser(this);
-            aFactory.GpAbility("zoomies");
+            mAttack();
         }
         if (Input.GetMouseButtonDown(2))
         {
             lockOn();
         }
-
-        //aFactory.GpAbility("pushBack");
-        //aFactory.GpAbility("zoomies");
     }
-
         public void Movement()
     {
         //Walking
@@ -76,7 +62,6 @@ public class Character : MonoBehaviour
         Vector3 movement = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), rb.velocity.y, Input.GetAxis("Vertical") * movementSpeed);
         rb.velocity = Vector3.ClampMagnitude(movement, maxVelocity);
     }
-
     public void Jumping()
     {
 
@@ -105,7 +90,6 @@ public class Character : MonoBehaviour
         }
 
     }
-
     public void MovementCheck()
     {
         if ((rb.velocity.x != 0) || (rb.velocity.z != 0))
@@ -117,7 +101,6 @@ public class Character : MonoBehaviour
             anim.SetBool("isWalk", false);
         }
     }
-
     public void usePowerUp()
     {
         PowerUpGold pwrup1 = new PowerUpGold();
@@ -128,7 +111,6 @@ public class Character : MonoBehaviour
         Health = pwrup2.alterBehaviour(Health);
         print(Health);
     }
-
     //Combat Functions
     public void mAttack()
     {
@@ -159,7 +141,6 @@ public class Character : MonoBehaviour
                 i++;
         }
     }
-
     public void lockOn()
     {
         float lockRange = 10;
@@ -183,6 +164,16 @@ public class Character : MonoBehaviour
             i++;
             transform.LookAt(nearestTarget);
         }
-        
+    }
+    //Special abilities 
+    void abOne()
+    {
+        aFactory.GpAbility("pushBack");
+    } 
+    void abTwo()
+    {
+        zoomies z = new zoomies();
+        z.monoParser(this);
+        aFactory.GpAbility("zoomies");
     }
 }

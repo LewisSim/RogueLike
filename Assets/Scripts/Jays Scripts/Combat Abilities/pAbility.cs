@@ -1,13 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 //Abstract player ability class
 public abstract class pAbility
 {
     public abstract void pEffect();
 }
-
 public class pushBack : pAbility
 {
     GameObject Player = GameObject.FindWithTag("Player");
@@ -32,7 +30,6 @@ public class pushBack : pAbility
         } 
     }
 }
-
 public class zoomies : pAbility
 {
     public void monoParser(MonoBehaviour mono)
@@ -62,8 +59,6 @@ public class zoomies : pAbility
         Character.movementSpeed = 10f;
     }
 }
-
-
 public class aFactory
 {
     public static pAbility GpAbility(string aType)
