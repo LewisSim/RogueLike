@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class ReadBook : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ReadBook : MonoBehaviour
     public GameObject bookCanvas;
     public Image bookObj;
     public Sprite[] bookSprites;
+    public TextMeshProUGUI overlayText;
 
     private bool reading;
     private int bookPage;
@@ -85,12 +87,14 @@ public class ReadBook : MonoBehaviour
     private void ShowReadText()
     {
         canvasObj.SetActive(true);
+        overlayText.GetComponent<TextMeshProUGUI>().isOverlay = true;
     }
 
     private void HideReadText()
     {
-
+        overlayText.GetComponent<TextMeshProUGUI>().isOverlay = false;
         canvasObj.SetActive(false);
+        
     }
 
     private void DisableCharacter()
