@@ -64,7 +64,6 @@ public class Character : MonoBehaviour
     }
     public void Jumping()
     {
-
         RaycastHit hit;
         if (Physics.Raycast(transform.position, -Vector3.up, out hit))
         {
@@ -77,19 +76,25 @@ public class Character : MonoBehaviour
                 isGrounded = false;
             }
         }
-        float jumpForce = 1f;
+        float jumpForce = 5f;
 
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {
-            isJumping = true;
-            rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            if (!isJumping)
+            {
+                isJumping = true;
+                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                isGrounded = false;
+                Invoke("resetIsJumping", 1.5f);
+            }
         }
-        else if ((isJumping) && (isGrounded))
-        {
-            isJumping = false;
-        }
-
     }
+
+    private void resetIsJumping()
+    {
+        isJumping = false;
+    }
+
     public void MovementCheck()
     {
         if ((rb.velocity.x != 0) || (rb.velocity.z != 0))
