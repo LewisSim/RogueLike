@@ -7,6 +7,6 @@ public class ActivateLeveGen : MonoBehaviour
     private void Awake()
     {
         LevelGen lGen = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<LevelGen>();
-        lGen.Begin();
+        StartCoroutine(lGen.Begin());
     }
 }
