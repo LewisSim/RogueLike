@@ -9,6 +9,7 @@ public class AreaTransition : MonoBehaviour
     private TriggerHandler trigger;
     private GameObject levelGenerator;
     public bool DelveDeeper = false;
+    public bool LoadBoss = false;
 
     private void Awake()
     {
@@ -26,6 +27,10 @@ public class AreaTransition : MonoBehaviour
                 {
                     DontDestroyOnLoad(levelGenerator);
                     AdjustGenerator();
+                    if (LoadBoss)
+                    {
+                        levelGenerator.GetComponent<LevelGen>().loadBossRoom = true;
+                    }
                 }
                 SceneManager.LoadScene(sceneTarget);
             }

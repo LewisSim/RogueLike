@@ -7,6 +7,14 @@ public class ActivateLeveGen : MonoBehaviour
     private void Awake()
     {
         LevelGen lGen = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<LevelGen>();
-        StartCoroutine(lGen.Begin());
+        if (lGen.loadBossRoom)
+        {
+            lGen.LoadBossRoom();
+        }
+        else
+        {
+            StartCoroutine(lGen.Begin());
+        }
+
     }
 }

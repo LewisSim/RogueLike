@@ -5,7 +5,7 @@ using UnityEngine;
 public class LevelGen : MonoBehaviour
 {
     GameObject masterNode;
-    public GameObject nodeRef;
+    public GameObject nodeRef, bossRoomRef;
     GameObject[][] grid;
     public int seed;
     public int gridSizeX, gridSizeY, cellSizeX, cellSizeY;
@@ -18,6 +18,8 @@ public class LevelGen : MonoBehaviour
     public float progress = 0f;
     bool isGenerating = false;
     public string loadingText = "";
+
+    public bool loadBossRoom;
 
     private void Awake()
     {
@@ -635,5 +637,15 @@ public class LevelGen : MonoBehaviour
                 break;
         }
         return foundTile;
+    }
+
+
+    public void LoadBossRoom()
+    {
+        loadBossRoom = false;
+        GameObject.FindGameObjectWithTag("floor").SetActive(false);
+        Instantiate(bossRoomRef);
+        var pSpawner = GameObject.FindGameObjectWithTag("PlayerSpawner");
+        pSpawner.GetComponent<PlayerSpawner>().SpawnPlayer();
     }
 }

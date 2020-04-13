@@ -11,6 +11,9 @@ TagManager:
   - LevelGenerator
   - Fire
   - beacon
+  - PlayerSpawner
+  - Enemy
+  - floor
   layers:
   - Default
   - TransparentFX
