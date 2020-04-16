@@ -11,10 +11,11 @@ public class Character : MonoBehaviour
     public float speed = 2f;
     public int Health, Gold;
     float maxVelocity = 3;
-    bool isGrounded, isJumping;
+    bool isGrounded, isJumping, isAiming;
     Animator anim;
     public static float movementSpeed = 5.0f;
     public float rotationSpeed = 200f;
+    public Image reticle;
     //Combat variables
     public int attackDam = 10;
     public Collider[] eCollider;
@@ -54,6 +55,8 @@ public class Character : MonoBehaviour
         {
             lockOn();
         }
+        //Ranged attack
+        rAttack();
     }
         public void Movement()
     {
@@ -117,7 +120,7 @@ public class Character : MonoBehaviour
         print(Health);
     }
     //Combat Functions
-    public void mAttack()
+    public void mAttack() //Melee
     {
       float attackRange = 2;
       eCollider = Physics.OverlapSphere(rb.transform.position, attackRange);
@@ -144,6 +147,21 @@ public class Character : MonoBehaviour
                 }
             }
                 i++;
+        }
+    }
+    public void rAttack() //Ranged
+    {
+        if (Input.GetMouseButtonDown(1) && isAiming == false)
+        {
+            print("RMBd active");
+            reticle.gameObject.SetActive(true);
+            isAiming = true;
+        }
+        else if (Input.GetMouseButtonDown(1) && isAiming == true)
+        {
+            print("RMBd deactivated");
+            reticle.gameObject.SetActive(false);
+            isAiming = false;
         }
     }
     public void lockOn()
