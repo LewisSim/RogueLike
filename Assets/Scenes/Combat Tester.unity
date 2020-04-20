@@ -815,6 +815,12 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.8448991, y: 0.63442385, z: 1}
   m_Center: {x: -0.048836026, y: 0.024180172, z: -0.0000000037494856}
+--- !u!20 &1179774615 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 1309618464, guid: 3d7a2d772bc6b8542818cf8227d0d8ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 1720491045}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1199550548
 GameObject:
   m_ObjectHideFlags: 0
@@ -1308,6 +1314,10 @@ PrefabInstance:
       propertyPath: reticle
       value: 
       objectReference: {fileID: 1559814243}
+    - target: {fileID: 2086806097, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
+      propertyPath: cam
+      value: 
+      objectReference: {fileID: 1179774615}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
 --- !u!1 &1783566691

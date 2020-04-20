@@ -18,8 +18,11 @@ public class Character : MonoBehaviour
     public Image reticle;
     //Combat variables
     public int attackDam = 10;
+    public int rangedAttackDam = 20;
+    public float attackRange;
     public Collider[] eCollider;
     public Collider[] lCollider;
+    public Camera cam;
     private void Start()  
     {
         anim = GetComponent<Animator>();
@@ -47,7 +50,7 @@ public class Character : MonoBehaviour
             transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
 
         //Melee attack
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && isAiming == false)
         {
             mAttack();
         }
@@ -162,6 +165,24 @@ public class Character : MonoBehaviour
             print("RMBd deactivated");
             reticle.gameObject.SetActive(false);
             isAiming = false;
+        }
+        //Actual firing mechanic
+        if (isAiming == true)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+                print("Firing MY G");
+            }
+        }
+    }
+    void Shoot()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, attackRange))
+        {
+            Debug.Log(hit.transform.name);
+            hit.collider.SendMessage("AddDamage", rangedAttackDam);
         }
     }
     public void lockOn()
