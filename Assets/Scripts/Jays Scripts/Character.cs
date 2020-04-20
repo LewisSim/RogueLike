@@ -19,7 +19,7 @@ public class Character : MonoBehaviour
     //Combat variables
     public int attackDam = 10;
     public int rangedAttackDam = 20;
-    public float attackRange;
+    //public float attackRange;
     public Collider[] eCollider;
     public Collider[] lCollider;
     public Camera cam;
@@ -178,9 +178,11 @@ public class Character : MonoBehaviour
     }
     void Shoot()
     {
+        float RattackRange = 100f;
         RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, attackRange))
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, RattackRange))
         {
+            print("WorkingG");
             Debug.Log(hit.transform.name);
             hit.collider.SendMessage("AddDamage", rangedAttackDam);
         }
