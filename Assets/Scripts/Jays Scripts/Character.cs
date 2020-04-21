@@ -6,27 +6,55 @@ public class Character : MonoBehaviour
 {
     //Variables
     public Rigidbody rb;
-    // public float movementSpeed = 10f;
     public float jumpHeight = 15;
     public float speed = 2f;
     public int Health, Gold;
     float maxVelocity = 3;
-    bool isGrounded, isJumping;
+    bool isGrounded, isJumping, isAiming;
     Animator anim;
     public static float movementSpeed = 5.0f;
     public float rotationSpeed = 200f;
+    public Image reticle;
+    //Camera variables
+    public float lookSpeed = 3;
+    private Vector2 rotation = Vector2.zero;
     //Combat variables
     public int attackDam = 10;
+    public int rangedAttackDam = 20;
+    //public float attackRange;
     public Collider[] eCollider;
     public Collider[] lCollider;
+    public Camera cam;
+
+    //Camera variables
+    public bool lockCursor;
+    public float mouseSensitivity = 1;
+    public Vector2 pitchMinMax = new Vector2(-40, 85);
+    public float rotationSmoothTime = .12f;
+    Vector3 rotationSmoothVelocity;
+    Vector3 currentRotation;
+    float yaw;
+    float pitch;
+
+    //UI Variables
+    public Text ui_Gold, ui_Health;
+
+    //Methods 
     private void Start()  
     {
         anim = GetComponent<Animator>();
         Inventory.Instance.TesterMetod();
     }
-    //UI Variables
-    public Text ui_Gold, ui_Health;
-    //Methods
+
+    void LateUpdate()
+    {
+        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+        pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
+
+        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+        transform.eulerAngles = currentRotation;
+    }
     private void FixedUpdate()
     {
         MovementCheck();
@@ -42,11 +70,11 @@ public class Character : MonoBehaviour
     }
     public void Update()
     {
-            transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
-            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+        transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
+        transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
 
         //Melee attack
-        if (Input.GetButtonDown("Fire1"))
+        if (Input.GetButtonDown("Fire1") && isAiming == false)
         {
             mAttack();
         }
@@ -54,6 +82,9 @@ public class Character : MonoBehaviour
         {
             lockOn();
         }
+        //Ranged attack
+        rAttack();
+        //Look();
     }
         public void Movement()
     {
@@ -117,7 +148,7 @@ public class Character : MonoBehaviour
         print(Health);
     }
     //Combat Functions
-    public void mAttack()
+    public void mAttack() //Melee
     {
       float attackRange = 2;
       eCollider = Physics.OverlapSphere(rb.transform.position, attackRange);
@@ -144,6 +175,41 @@ public class Character : MonoBehaviour
                 }
             }
                 i++;
+        }
+    }
+    public void rAttack() //Ranged
+    {
+        if (Input.GetMouseButtonDown(1) && isAiming == false)
+        {
+            print("RMBd active");
+            reticle.gameObject.SetActive(true);
+            isAiming = true;
+        }
+        else if (Input.GetMouseButtonDown(1) && isAiming == true)
+        {
+            print("RMBd deactivated");
+            reticle.gameObject.SetActive(false);
+            isAiming = false;
+        }
+        //Actual firing mechanic
+        if (isAiming == true)
+        {
+            if (Input.GetButtonDown("Fire1"))
+            {
+                Shoot();
+                print("Firing MY G");
+            }
+        }
+    }
+    void Shoot()
+    {
+        float RattackRange = 100f;
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, RattackRange))
+        {
+            print("WorkingG");
+            Debug.Log(hit.transform.name);
+            hit.collider.SendMessage("AddDamage", rangedAttackDam);
         }
     }
     public void lockOn()
