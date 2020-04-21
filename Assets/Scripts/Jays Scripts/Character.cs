@@ -6,7 +6,6 @@ public class Character : MonoBehaviour
 {
     //Variables
     public Rigidbody rb;
-    // public float movementSpeed = 10f;
     public float jumpHeight = 15;
     public float speed = 2f;
     public int Health, Gold;
@@ -16,6 +15,9 @@ public class Character : MonoBehaviour
     public static float movementSpeed = 5.0f;
     public float rotationSpeed = 200f;
     public Image reticle;
+    //Camera variables
+    public float lookSpeed = 3;
+    private Vector2 rotation = Vector2.zero;
     //Combat variables
     public int attackDam = 10;
     public int rangedAttackDam = 20;
@@ -23,14 +25,36 @@ public class Character : MonoBehaviour
     public Collider[] eCollider;
     public Collider[] lCollider;
     public Camera cam;
+
+    //Camera variables
+    public bool lockCursor;
+    public float mouseSensitivity = 1;
+    public Vector2 pitchMinMax = new Vector2(-40, 85);
+    public float rotationSmoothTime = .12f;
+    Vector3 rotationSmoothVelocity;
+    Vector3 currentRotation;
+    float yaw;
+    float pitch;
+
+    //UI Variables
+    public Text ui_Gold, ui_Health;
+
+    //Methods 
     private void Start()  
     {
         anim = GetComponent<Animator>();
         Inventory.Instance.TesterMetod();
     }
-    //UI Variables
-    public Text ui_Gold, ui_Health;
-    //Methods
+
+    void LateUpdate()
+    {
+        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+        pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
+
+        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+        transform.eulerAngles = currentRotation;
+    }
     private void FixedUpdate()
     {
         MovementCheck();
@@ -46,8 +70,8 @@ public class Character : MonoBehaviour
     }
     public void Update()
     {
-            transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
-            transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+        transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
+        transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
 
         //Melee attack
         if (Input.GetButtonDown("Fire1") && isAiming == false)
@@ -60,6 +84,7 @@ public class Character : MonoBehaviour
         }
         //Ranged attack
         rAttack();
+        //Look();
     }
         public void Movement()
     {
