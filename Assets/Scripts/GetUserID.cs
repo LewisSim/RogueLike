@@ -11,6 +11,7 @@ public class GetUserID : MonoBehaviour
     string userDataString;
     string urlget = "http://daredicing.com/UserID.php";
     string urlset = "http://daredicing.com/setDate.php";
+    string urlplays = "http://daredicing.com/recordPlays.php";
     int userID;
     bool gettingPage;
 
@@ -27,6 +28,8 @@ public class GetUserID : MonoBehaviour
         {
             StartCoroutine(UpdateDate());
         }
+
+        StartCoroutine(EnterPlays());
     }
 
     IEnumerator GetUser()
@@ -54,7 +57,7 @@ public class GetUserID : MonoBehaviour
 
     IEnumerator UpdateDate()
     {
-        print("started date");
+
 
         int m_ID = PlayerPrefs.GetInt("UserID");
         print(m_ID);
@@ -62,6 +65,30 @@ public class GetUserID : MonoBehaviour
         form.AddField("userID", m_ID.ToString());
 
         using (UnityWebRequest www = UnityWebRequest.Post(urlset, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                print(www.error);
+            }
+            else
+            {
+                print("Form upload complete!");
+            }
+        }
+
+    }
+
+    IEnumerator EnterPlays()
+    {
+
+        int m_ID = PlayerPrefs.GetInt("UserID");
+        print(m_ID);
+        WWWForm form = new WWWForm();
+        form.AddField("userID", m_ID.ToString());
+
+        using (UnityWebRequest www = UnityWebRequest.Post(urlplays, form))
         {
             yield return www.SendWebRequest();
 
