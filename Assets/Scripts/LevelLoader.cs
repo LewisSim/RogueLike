@@ -6,6 +6,9 @@ using UnityEngine.UI;
 public class LevelLoader : MonoBehaviour {
 
     public GameObject loadingScreen;
+    public GameObject healthUI;
+    public GameObject minimapUI;
+
     public Slider slider;
     public Text progressText;
     public Animator transition;
@@ -62,6 +65,8 @@ public class LevelLoader : MonoBehaviour {
             {
                 isLevelWithGeneration = false;
                 loadingScreen.SetActive(false);
+                minimapUI.SetActive(true);
+                healthUI.SetActive(true);
             }
         }
     }
