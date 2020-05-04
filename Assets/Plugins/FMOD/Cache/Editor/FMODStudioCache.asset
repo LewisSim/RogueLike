@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-3025327035281504632
+--- !u!114 &-5885287177049781022
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -18,7 +18,7 @@ MonoBehaviour:
   LoadResult: 0
   FileSizes: []
   Exists: 1
---- !u!114 &-1196640059804263005
+--- !u!114 &-1336588836455732066
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -51,31 +51,13 @@ MonoBehaviour:
   m_Name: FMODStudioCache
   m_EditorClassIdentifier: 
   EditorBanks:
-  - {fileID: -1196640059804263005}
-  - {fileID: -3025327035281504632}
+  - {fileID: -1336588836455732066}
+  - {fileID: -5885287177049781022}
   EditorEvents: []
   EditorParameters: []
   MasterBanks:
-  - {fileID: -3025327035281504632}
+  - {fileID: -5885287177049781022}
   StringsBanks:
-  - {fileID: -1196640059804263005}
+  - {fileID: -1336588836455732066}
   stringsBankWriteTime: 637157566710945683
   cacheVersion: 3
---- !u!114 &4857646288581324002
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
-  m_Name: bank:/Master.bank
-  m_EditorClassIdentifier: 
-  Path: Assets/Audio/FMod/Build/Desktop/Master.bank
-  SubDir: 
-  lastModified: 637157437434267922
-  LoadResult: 0
-  FileSizes: []
-  Exists: 1
