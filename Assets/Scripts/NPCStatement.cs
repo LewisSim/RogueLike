@@ -65,6 +65,8 @@ public class NPCStatement : MonoBehaviour
             if ((textTimer < 0))
             {
                 RandomStatement();
+
+                gameObject.GetComponent<SoundAtSource>().TriggerSound();
             }        
             tmprotext.SetText(randomStatementText[chooseRandom]);
         }
@@ -73,6 +75,7 @@ public class NPCStatement : MonoBehaviour
             tmprotext.SetText(statementText);          
         }
         textTimer = timer;
+
     }
 
 

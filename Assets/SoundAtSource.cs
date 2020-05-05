@@ -7,7 +7,7 @@ public class SoundAtSource : MonoBehaviour
     AudioSource source;
     SoundMaster master;
 
-    public enum SoundClass { UI, MeleeImpact, RangedImpact, Equip, Effect}
+    public enum SoundClass { UI, MeleeImpact, RangedImpact, Equip, Effect, Voice}
     public SoundClass sClass;
 
     public int indexOverride;
@@ -28,6 +28,27 @@ public class SoundAtSource : MonoBehaviour
 
         master = GameObject.FindGameObjectWithTag("SoundSystem").GetComponent<SoundMaster>();
 
+        //Assign output channel
+        switch (sClass)
+        {
+            case SoundClass.UI:
+                source.outputAudioMixerGroup = master.mg_ui;
+                break;
+            case SoundClass.Effect:
+                source.outputAudioMixerGroup = master.mg_effect;
+                source.spatialBlend = 1f;
+                break;
+            case SoundClass.MeleeImpact:
+                source.outputAudioMixerGroup = master.mg_effect;
+                break;
+            case SoundClass.RangedImpact:
+                source.outputAudioMixerGroup = master.mg_effect;
+                break;
+            case SoundClass.Voice:
+                source.outputAudioMixerGroup = master.mg_effect;
+                break;
+
+        }
 
     }
 
@@ -35,6 +56,7 @@ public class SoundAtSource : MonoBehaviour
     {
         if (sClass == SoundClass.UI)
         {
+            //master.PlaySoundAtSource(master.UISource, master.UIgeneral[Random.Range(0, master.UIgeneral.Length -1)]);
             master.PlaySoundAtSource(master.UISource, master.UIgeneral[indexOverride]);
         }
         if(sClass == SoundClass.Effect)
@@ -44,6 +66,10 @@ public class SoundAtSource : MonoBehaviour
         if(sClass == SoundClass.MeleeImpact)
         {
             master.PlaySoundAtSource(source, master.meleeImpacts[indexOverride]);
+        }
+        if(sClass == SoundClass.Voice)
+        {
+            master.PlaySoundAtSource(source, master.voice[indexOverride]);
         }
     }
 

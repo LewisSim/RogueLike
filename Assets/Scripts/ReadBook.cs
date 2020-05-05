@@ -76,7 +76,10 @@ public class ReadBook : MonoBehaviour
         DisableCharacter();
         reading = true;
 
-
+        //Audio
+        var sas = gameObject.GetComponent<SoundAtSource>();
+        sas.indexOverride = 4;
+        sas.TriggerSound();
     }
 
     private void ShowInteraction()
@@ -147,6 +150,10 @@ public class ReadBook : MonoBehaviour
         EnableCharacter();
         reading = false;
 
+        //Audio
+        var sas = gameObject.GetComponent<SoundAtSource>();
+        sas.indexOverride = 3;
+        sas.TriggerSound();
     }
 }
 

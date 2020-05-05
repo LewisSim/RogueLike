@@ -33,6 +33,7 @@ public class AreaTransition : MonoBehaviour
                     }
                 }
                 SceneManager.LoadScene(sceneTarget);
+                gameObject.GetComponent<SoundAtSource>().TriggerSoundAtUI();
             }
         }
     }

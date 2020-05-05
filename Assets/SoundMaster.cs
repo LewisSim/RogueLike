@@ -5,12 +5,15 @@ using UnityEngine.Audio;
 
 public class SoundMaster : MonoBehaviour
 {
-    public AudioClip[] meleeImpacts, rangedImpacts, UIgeneral, equip, effect;
+    public AudioClip[] meleeImpacts, rangedImpacts, UIgeneral, equip, effect, voice;
 
     public AudioClip[] music;
 
     AudioSource musicSource;
     public AudioSource UISource;
+
+    public AudioMixer masterAudioMixer;
+    public AudioMixerGroup mg_ui, mg_effect, mg_ambient, mg_music;
 
     bool playing_music = false;
 
