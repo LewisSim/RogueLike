@@ -1789,6 +1789,7 @@ GameObject:
   - component: {fileID: 195546193}
   - component: {fileID: 195546196}
   - component: {fileID: 195546197}
+  - component: {fileID: 195546198}
   m_Layer: 5
   m_Name: BACK-Button
   m_TagString: Untagged
@@ -1893,6 +1894,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 195546198}
+        m_MethodName: TriggerSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &195546194
@@ -1967,6 +1979,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &195546198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195546191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!1 &198441148
 GameObject:
   m_ObjectHideFlags: 0
@@ -2056,6 +2082,7 @@ GameObject:
   - component: {fileID: 200055185}
   - component: {fileID: 200055188}
   - component: {fileID: 200055189}
+  - component: {fileID: 200055190}
   m_Layer: 5
   m_Name: CREDITS-Button
   m_TagString: Untagged
@@ -2160,6 +2187,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 200055190}
+        m_MethodName: TriggerSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &200055186
@@ -2234,6 +2272,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &200055190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 200055183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!1 &206164076
 GameObject:
   m_ObjectHideFlags: 0
@@ -2776,6 +2828,7 @@ GameObject:
   - component: {fileID: 274149946}
   - component: {fileID: 274149949}
   - component: {fileID: 274149950}
+  - component: {fileID: 274149951}
   m_Layer: 5
   m_Name: 'BACK-BUTTON '
   m_TagString: Untagged
@@ -2880,6 +2933,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 274149951}
+        m_MethodName: TriggerSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &274149947
@@ -2954,6 +3018,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &274149951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 274149944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!1 &274502490
 GameObject:
   m_ObjectHideFlags: 19
@@ -3640,82 +3718,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 328849709}
   m_CullTransparentMesh: 0
---- !u!114 &329224364
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  active: 1
-  m_AdvancedMode: 0
-  rotation:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-    max: 360
-  skyIntensityMode:
-    m_OverrideState: 0
-    m_Value: 0
-  exposure:
-    m_OverrideState: 0
-    m_Value: 0
-  multiplier:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  upperHemisphereLuxValue:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-  desiredLuxValue:
-    m_OverrideState: 0
-    m_Value: 20000
-  updateMode:
-    m_OverrideState: 0
-    m_Value: 0
-  updatePeriod:
-    m_OverrideState: 0
-    m_Value: 0
-    min: 0
-  includeSunInBaking:
-    m_OverrideState: 0
-    m_Value: 0
-  sunSize:
-    m_OverrideState: 0
-    m_Value: 0.04
-    min: 0
-    max: 1
-  sunSizeConvergence:
-    m_OverrideState: 0
-    m_Value: 5
-    min: 1
-    max: 10
-  atmosphereThickness:
-    m_OverrideState: 0
-    m_Value: 1
-    min: 0
-    max: 5
-  skyTint:
-    m_OverrideState: 0
-    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  groundColor:
-    m_OverrideState: 0
-    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
-    hdr: 0
-    showAlpha: 1
-    showEyeDropper: 1
-  enableSunDisk:
-    m_OverrideState: 0
-    m_Value: 1
 --- !u!1 &332874995 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: b9134fc0cceb39b49a7a6fc0f259f9a2,
@@ -6724,7 +6726,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 783098168}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: f12b346aae6280b47b1f8479c613b8d1, type: 3}
@@ -7951,6 +7953,7 @@ GameObject:
   - component: {fileID: 917930565}
   - component: {fileID: 917930564}
   - component: {fileID: 917930567}
+  - component: {fileID: 917930568}
   m_Layer: 5
   m_Name: BACK-Button
   m_TagString: Untagged
@@ -8055,6 +8058,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 917930568}
+        m_MethodName: TriggerSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &917930565
@@ -8110,6 +8124,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!114 &917930568
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 917930562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!1 &921139876
 GameObject:
   m_ObjectHideFlags: 0
@@ -8282,6 +8310,7 @@ GameObject:
   - component: {fileID: 976812624}
   - component: {fileID: 976812627}
   - component: {fileID: 976812628}
+  - component: {fileID: 976812629}
   m_Layer: 5
   m_Name: QUIT-BUTTON
   m_TagString: Untagged
@@ -8355,6 +8384,17 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 143409427}
         m_MethodName: QuitGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 976812629}
+        m_MethodName: TriggerSound
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8438,6 +8478,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &976812629
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 976812622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!4 &976839302 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -4216859302048453862, guid: 2bea37e9e54c4634fab857d8442eba61,
@@ -9187,6 +9241,82 @@ RectTransform:
   m_AnchoredPosition: {x: -0.049987793, y: -30}
   m_SizeDelta: {x: 0.1000061, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1072724254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3df29e7cc05fbec4aa43e06ea875565d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  rotation:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+    max: 360
+  skyIntensityMode:
+    m_OverrideState: 0
+    m_Value: 0
+  exposure:
+    m_OverrideState: 0
+    m_Value: 0
+  multiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  upperHemisphereLuxValue:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+  desiredLuxValue:
+    m_OverrideState: 0
+    m_Value: 20000
+  updateMode:
+    m_OverrideState: 0
+    m_Value: 0
+  updatePeriod:
+    m_OverrideState: 0
+    m_Value: 0
+    min: 0
+  includeSunInBaking:
+    m_OverrideState: 0
+    m_Value: 0
+  sunSize:
+    m_OverrideState: 0
+    m_Value: 0.04
+    min: 0
+    max: 1
+  sunSizeConvergence:
+    m_OverrideState: 0
+    m_Value: 5
+    min: 1
+    max: 10
+  atmosphereThickness:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 5
+  skyTint:
+    m_OverrideState: 0
+    m_Value: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  groundColor:
+    m_OverrideState: 0
+    m_Value: {r: 0.369, g: 0.349, b: 0.341, a: 1}
+    hdr: 0
+    showAlpha: 1
+    showEyeDropper: 1
+  enableSunDisk:
+    m_OverrideState: 0
+    m_Value: 1
 --- !u!115 &1076386266
 MonoScript:
   m_ObjectHideFlags: 0
@@ -9215,6 +9345,7 @@ GameObject:
   - component: {fileID: 1077721655}
   - component: {fileID: 1077721659}
   - component: {fileID: 1077721660}
+  - component: {fileID: 1077721661}
   m_Layer: 5
   m_Name: Apply-Button
   m_TagString: Untagged
@@ -9264,7 +9395,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1077721656}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1077721661}
+        m_MethodName: TriggerSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1077721656
@@ -9360,6 +9502,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1077721661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1077721654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!1 &1086735312
 GameObject:
   m_ObjectHideFlags: 0
@@ -10721,6 +10877,7 @@ GameObject:
   - component: {fileID: 1247784692}
   - component: {fileID: 1247784695}
   - component: {fileID: 1247784696}
+  - component: {fileID: 1247784697}
   m_Layer: 5
   m_Name: PLAY-Button
   m_TagString: Untagged
@@ -10803,6 +10960,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1247784697}
+        m_MethodName: TriggerSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1247784693
@@ -10877,6 +11045,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1247784697
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1247784690}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!1 &1255939864
 GameObject:
   m_ObjectHideFlags: 0
@@ -11866,6 +12048,31 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_Name
+      value: CandleFireLeftDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807108519677382505, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807108519677382505, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5341094793989668351, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -11921,37 +12128,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_Name
-      value: CandleFireLeftDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3807108520929336226, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3807108520929336226, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3807108519677382505, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 3807108519677382505, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -13345,7 +13527,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Profile: {fileID: 11400000, guid: 36c2b5d296692664ba5245b0821432a9, type: 2}
   m_StaticLightingSkyUniqueID: 2
-  m_SkySettings: {fileID: 329224364}
+  m_SkySettings: {fileID: 1072724254}
   m_SkySettingsFromProfile: {fileID: -3421143321213336758, guid: 36c2b5d296692664ba5245b0821432a9,
     type: 2}
 --- !u!114 &1564295920
@@ -13761,6 +13943,7 @@ GameObject:
   - component: {fileID: 1599550371}
   - component: {fileID: 1599550374}
   - component: {fileID: 1599550375}
+  - component: {fileID: 1599550376}
   m_Layer: 5
   m_Name: OPTIONS-Button
   m_TagString: Untagged
@@ -13865,6 +14048,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 1599550376}
+        m_MethodName: TriggerSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1599550372
@@ -13939,6 +14133,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1599550376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599550369}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!1 &1610988361
 GameObject:
   m_ObjectHideFlags: 0
@@ -15680,6 +15888,92 @@ MonoBehaviour:
   kernelSize: 5
   lightAngle: 1
   maxDepthBias: 0.001
+--- !u!1001 &1863276537
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5607799323308037784, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_Name
+      value: Sound System
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -1.54
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037765, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5607799323308037787, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 1575746c7d672bd43bcec191cede8ebd,
+        type: 2}
+    - target: {fileID: 5607799323308037787, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5078294031184413855, guid: a06e0beb93c5b1745834b613f9538cd7,
+        type: 3}
+      propertyPath: OutputAudioMixerGroup
+      value: 
+      objectReference: {fileID: 24300002, guid: 1575746c7d672bd43bcec191cede8ebd,
+        type: 2}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a06e0beb93c5b1745834b613f9538cd7, type: 3}
 --- !u!1 &1898911344
 GameObject:
   m_ObjectHideFlags: 0
@@ -17188,6 +17482,7 @@ GameObject:
   - component: {fileID: 2009684095}
   - component: {fileID: 2009684098}
   - component: {fileID: 2009684099}
+  - component: {fileID: 2009684100}
   m_Layer: 5
   m_Name: QUIT-Button
   m_TagString: Untagged
@@ -17292,6 +17587,17 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
+      - m_Target: {fileID: 2009684100}
+        m_MethodName: TriggerSound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &2009684096
@@ -17366,6 +17672,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2009684100
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2009684093}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 0
+  indexOverride: 0
 --- !u!1001 &2010523943
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -18694,6 +19014,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelLoader
       objectReference: {fileID: 0}
+    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
+        type: 3}
+      propertyPath: loadingScreen
+      value: 
+      objectReference: {fileID: 4538223161610318600}
+    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
+        type: 3}
+      propertyPath: slider
+      value: 
+      objectReference: {fileID: 4538223162361109869}
+    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
+        type: 3}
+      propertyPath: progressText
+      value: 
+      objectReference: {fileID: 4538223160828732544}
+    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
+        type: 3}
+      propertyPath: transition
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
+        type: 3}
+      propertyPath: transitionTime
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3002997457856762175, guid: ff432f806368ce24185da16b5d025262,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -18798,31 +19143,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Pivot.y
       value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
-        type: 3}
-      propertyPath: loadingScreen
-      value: 
-      objectReference: {fileID: 4538223161610318600}
-    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
-        type: 3}
-      propertyPath: slider
-      value: 
-      objectReference: {fileID: 4538223162361109869}
-    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
-        type: 3}
-      propertyPath: progressText
-      value: 
-      objectReference: {fileID: 4538223160828732544}
-    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
-        type: 3}
-      propertyPath: transition
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 3002997457856762174, guid: ff432f806368ce24185da16b5d025262,
-        type: 3}
-      propertyPath: transitionTime
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff432f806368ce24185da16b5d025262, type: 3}
@@ -18951,7 +19271,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 37.7, y: -505.95}
+  m_AnchoredPosition: {x: 37.699707, y: -505.95}
   m_SizeDelta: {x: -1572.1, y: -1011.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4538223160828732547
@@ -19044,7 +19364,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.18499756, y: -232.1}
+  m_AnchoredPosition: {x: 0.1850586, y: -232.10002}
   m_SizeDelta: {x: -0.37, y: 614.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4538223161178995999
@@ -19150,7 +19470,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0.13000488, y: -0.17626953}
+  m_AnchoredPosition: {x: 0.12988281, y: -0.17626953}
   m_SizeDelta: {x: -0.3, y: 0.35242}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &4538223161423274477
@@ -19421,6 +19741,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_Name
+      value: CandleFireRightDoor
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807108519677382505, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5341094793989668351, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -19476,47 +19816,7 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5341094793989668349, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 1.155
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341094793989668349, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.17900002
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341094793989668347, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 3.272
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341094793989668347, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1.205
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_Name
-      value: CandleFireRightDoor
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 3807108520929336226, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3807108519677382505, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 0
@@ -19605,6 +19905,26 @@ PrefabInstance:
         type: 3}
       propertyPath: InitialModule.startRotationY.minMaxState
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341094793989668349, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.155
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341094793989668349, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.17900002
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341094793989668347, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 3.272
+      objectReference: {fileID: 0}
+    - target: {fileID: 5341094793989668347, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 1.205
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5341094793996588093, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
