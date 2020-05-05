@@ -302,9 +302,12 @@ MonoBehaviour:
   suffix: 
   fullName: 
   tier: 0
-  armourMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  weaponMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
-  potionMesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+  armourMesh: {fileID: -6901855651183265238, guid: a01d1f6ef112c9e41a68f3a54b7e553a,
+    type: 3}
+  weaponMesh: {fileID: 2551729668346068454, guid: 6f505a503f5cbdb4681dbe83b50b6ca2,
+    type: 3}
+  potionMesh: {fileID: 4467052755238404529, guid: a43452d88e0ea824488ce33cdb8c87b6,
+    type: 3}
   potency: 0
   INP: {fileID: 9031374034619079136}
 --- !u!1 &7349592216817437153
