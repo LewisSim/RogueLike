@@ -5,7 +5,7 @@ using UnityEngine.Audio;
 
 public class SoundMaster : MonoBehaviour
 {
-    public AudioClip[] meleeImpacts, rangedImpacts, UIgeneral, equip;
+    public AudioClip[] meleeImpacts, rangedImpacts, UIgeneral, equip, effect;
 
     public AudioClip[] music;
 

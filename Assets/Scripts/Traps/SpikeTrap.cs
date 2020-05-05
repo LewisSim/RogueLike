@@ -41,5 +41,6 @@ public class SpikeTrap : MonoBehaviour
         {
             hit.GetComponent<Character>().Health -= damage;
         }
+        gameObject.GetComponent<SoundAtSource>().TriggerSound();
     }
 }

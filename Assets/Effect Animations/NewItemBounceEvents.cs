@@ -7,5 +7,6 @@ public class NewItemBounceEvents : MonoBehaviour
     public void OnAnimationEnd()
     {
         GetComponent<Rigidbody>().isKinematic = false;
+        GetComponent<SoundAtSource>().TriggerSound();
     }
 }

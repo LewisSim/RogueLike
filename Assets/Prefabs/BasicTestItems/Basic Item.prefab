@@ -324,6 +324,7 @@ GameObject:
   - component: {fileID: 8093639427368058522}
   - component: {fileID: 482607735454080873}
   - component: {fileID: 4263404623872345204}
+  - component: {fileID: 8262056422733532020}
   m_Layer: 0
   m_Name: Game Item
   m_TagString: Untagged
@@ -418,6 +419,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   detectCollider: {fileID: 2962298017237069388}
+--- !u!114 &8262056422733532020
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7349592216817437153}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 4
+  indexOverride: 0
 --- !u!1 &8495761534306502971
 GameObject:
   m_ObjectHideFlags: 0

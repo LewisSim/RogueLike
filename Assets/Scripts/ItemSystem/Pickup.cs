@@ -20,6 +20,9 @@ public class Pickup : MonoBehaviour
     void PickUp()
     {
         Debug.Log("You got picked up an item");
+        var sAtSource = gameObject.GetComponent<SoundAtSource>();
+        sAtSource.indexOverride = 1;
+        sAtSource.TriggerSoundAtUI();
         Destroy(gameObject.transform.parent.gameObject);
     }
 }

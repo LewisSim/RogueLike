@@ -190,6 +190,13 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 07764a982c5c219499ae3d370811c5dd, type: 3}
   - {fileID: 8300000, guid: 71b1d3523bf63dd4683a664c9ff3b6e4, type: 3}
   - {fileID: 8300000, guid: e702cc225ec16ad4d8d128a7f1b01fe8, type: 3}
+  - {fileID: 8300000, guid: d8c948d03837d8f4782b13fcc9d7e1ab, type: 3}
+  - {fileID: 8300000, guid: aa3e2517ee624b84cbf242085febafb2, type: 3}
+  - {fileID: 8300000, guid: 2ae89bdeafef5094bb209d444a5797d6, type: 3}
+  - {fileID: 8300000, guid: 0af73ebfb3f170e42afbd090e812f2f1, type: 3}
+  - {fileID: 8300000, guid: 021f41f575600234dbfc5e7c8ea5d140, type: 3}
+  - {fileID: 8300000, guid: 9bed11a9589694e41bc882d742484f3e, type: 3}
+  - {fileID: 8300000, guid: 637a81163ef18fd48922686a47c3f9d1, type: 3}
   rangedImpacts:
   - {fileID: 8300000, guid: 8e8eb88e1a96ab745aee49d062dd6ba9, type: 3}
   - {fileID: 8300000, guid: 066951a7cf836e442985211d9baef3ff, type: 3}
@@ -204,6 +211,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: db48a5e5105e25b4d83f65d1b2becbec, type: 3}
   - {fileID: 8300000, guid: 40e6a46bc7948cc4c9968aea8c657fa7, type: 3}
   - {fileID: 8300000, guid: 026fd905c8bb31c4aac0c0f75f7a5f0d, type: 3}
+  effect:
+  - {fileID: 8300000, guid: ba54cb43aeefbd9449294847b093c8fd, type: 3}
+  - {fileID: 8300000, guid: 350bd4337e9ce5f45bfba457d746b681, type: 3}
   music:
   - {fileID: 8300000, guid: cc04f5089ee98da46bd4f7fce01da03e, type: 3}
   UISource: {fileID: 5078294031184413855}
