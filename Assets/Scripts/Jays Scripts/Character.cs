@@ -18,6 +18,7 @@ public class Character : MonoBehaviour
     //Camera variables
     public float lookSpeed = 3;
     private Vector2 rotation = Vector2.zero;
+    bool LockedOn;
     //Combat variables
     public int attackDam = 10;
     public int rangedAttackDam = 20;
@@ -44,54 +45,97 @@ public class Character : MonoBehaviour
     {
         anim = GetComponent<Animator>();
         Inventory.Instance.TesterMetod();
+        LockedOn = false;
+        StartCoroutine(CameraSwitch());
+        Cursor.lockState = CursorLockMode.Locked;
     }
 
-    void LateUpdate()
-    {
-        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
-        pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
-        pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
-
-        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
-        transform.eulerAngles = currentRotation;
-    }
     private void FixedUpdate()
     {
         MovementCheck();
-        //Movement();
         Jumping();
-        //Mouse camera movement
-        // float h = speed * Input.GetAxis("Mouse X");
-        // transform.Rotate(0, h, 0);
-
-        //UI Tester
-        // ui_Gold.text = Gold.ToString();
-        //ui_Health.text = Health.ToString();
+        print(LockedOn);
     }
     public void Update()
     {
-        transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
-        transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
-
+        //transform.Rotate(0, Input.GetAxis("Horizontal") * Time.deltaTime * rotationSpeed, 0);
+        // transform.Translate(0, 0, Input.GetAxis("Vertical") * Time.deltaTime * movementSpeed);
+        Movement();
         //Melee attack
         if (Input.GetButtonDown("Fire1") && isAiming == false)
         {
             mAttack();
         }
-        if (Input.GetMouseButtonDown(2))
-        {
-            lockOn();
-        }
         //Ranged attack
         rAttack();
-        //Look();
+        //Switching Camera
+        if (Input.GetMouseButtonDown(2))
+        {
+            LockedOn = !LockedOn;
+        }
     }
-        public void Movement()
+    IEnumerator CameraSwitch()
     {
-        //Walking
-        rb.velocity = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), rb.velocity.y, Input.GetAxis("Vertical") * movementSpeed);
-        Vector3 movement = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), rb.velocity.y, Input.GetAxis("Vertical") * movementSpeed);
-        rb.velocity = Vector3.ClampMagnitude(movement, maxVelocity);
+        while (true)
+        {
+            if (LockedOn == false)
+            {
+                print("lockedonfalse");
+                yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+                currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(0, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+                transform.eulerAngles = currentRotation;
+                print("Cheese");
+                //yield return null;
+            }
+            if (LockedOn == true)
+            {
+                float lockRange = 10;
+                float minDistance = 100;
+                float Distance;
+                Transform nearestTarget = null;
+                lCollider = Physics.OverlapSphere(rb.transform.position, lockRange);
+                int i = 0;
+                while (i < lCollider.Length)
+                {
+                    if (lCollider[i].tag == "Enemy")
+                    {
+                        Distance = Vector3.Distance(lCollider[i].transform.position, rb.transform.position);
+                        print(Distance.ToString());
+                        if (Distance < minDistance)
+                        {
+                            minDistance = Distance;
+                            nearestTarget = lCollider[i].transform;
+                        }
+                    }
+                    i++;
+                    transform.LookAt(nearestTarget);
+                }
+            }
+            yield return null;
+        }
+    }
+    IEnumerator CameraLook()
+    {
+        print("active");
+        while (true)
+        {
+            yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+            //pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+            //pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
+
+            currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(0, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+            transform.eulerAngles = currentRotation;
+            print("Cheese");
+            yield return null;
+        }
+    }
+
+    public void Movement()
+    {
+        var localVelocity = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), 0 , Input.GetAxis("Vertical") * movementSpeed);
+        Vector3 movement = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), 0, Input.GetAxis("Vertical") * movementSpeed);
+        rb.velocity = transform.TransformDirection(localVelocity);
+        rb.velocity = Vector3.ClampMagnitude(transform.TransformDirection(localVelocity), movementSpeed);
     }
     public void Jumping()
     {
@@ -107,7 +151,7 @@ public class Character : MonoBehaviour
                 isGrounded = false;
             }
         }
-        float jumpForce = 5f;
+        float jumpForce = 30f;
 
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {
@@ -212,28 +256,29 @@ public class Character : MonoBehaviour
             hit.collider.SendMessage("AddDamage", rangedAttackDam);
         }
     }
-    public void lockOn()
+    IEnumerator lockOn()
     {
-        float lockRange = 10;
-        float minDistance = 100;
-        float Distance;
-        Transform nearestTarget = null;
-        lCollider = Physics.OverlapSphere(rb.transform.position, lockRange);
-        int i = 0;
-        while (i < lCollider.Length)
-        {
-            if (lCollider[i].tag == "Enemy")
+            float lockRange = 10;
+            float minDistance = 100;
+            float Distance;
+            Transform nearestTarget = null;
+            lCollider = Physics.OverlapSphere(rb.transform.position, lockRange);
+            int i = 0;
+            while (i < lCollider.Length)
             {
-                Distance = Vector3.Distance(lCollider[i].transform.position, rb.transform.position);
-                print(Distance.ToString());
-                if (Distance < minDistance)
+                if (lCollider[i].tag == "Enemy")
                 {
-                    minDistance = Distance;
-                    nearestTarget = lCollider[i].transform;
+                    Distance = Vector3.Distance(lCollider[i].transform.position, rb.transform.position);
+                    print(Distance.ToString());
+                    if (Distance < minDistance)
+                    {
+                        minDistance = Distance;
+                        nearestTarget = lCollider[i].transform;
+                    }
                 }
-            }
-            i++;
-            transform.LookAt(nearestTarget);
+                i++;
+                transform.LookAt(nearestTarget);
+                yield return null;
         }
     }
     //Special abilities 
