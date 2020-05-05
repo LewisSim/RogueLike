@@ -1,0 +1,355 @@
+fileFormatVersion: 2
+guid: 7a912222fbc45274087657f6883f6fcf
+ModelImporter:
+  serializedVersion: 26
+  internalIDToNameTable: []
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: None
+    second: {fileID: 2100000, guid: 06ef8d5e3c8e63a49af33c168b06b299, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: artichoke
+    second: {fileID: 2100000, guid: 13a09301a56d4644e8a0bbbbc689d613, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: battery
+    second: {fileID: 2100000, guid: 8176b35016e59cf4a9e32cf23ede84da, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bolts
+    second: {fileID: 2100000, guid: e8ed12dc267e8b14c977001e3070849a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: book_A
+    second: {fileID: 2100000, guid: a9c11b8d6f12f784fb0f149df42dc9bb, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: book_B
+    second: {fileID: 2100000, guid: c4aa1929325ff5f4fa100c7986962b07, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: bucket
+    second: {fileID: 2100000, guid: 9ff8f51ffbe0f9647bb6c894c85043ca, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: cable
+    second: {fileID: 2100000, guid: a46a67f50b44b0246a6bcc96c63214ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: crates
+    second: {fileID: 2100000, guid: 54219671a5ddb9e40b16811fb9e00a1d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: curtain
+    second: {fileID: 2100000, guid: aabaabba474fc0b489de68ad472b0bd4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: dome
+    second: {fileID: 2100000, guid: a41880e88f545af4da6de7cd3e34ac93, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floor
+    second: {fileID: 2100000, guid: dd53f554e3df929469a2adf8fb719547, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: floors
+    second: {fileID: 2100000, guid: b8015652a77ac8f40aad840a8b19da87, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: flowerpot
+    second: {fileID: 2100000, guid: 506a70376e7748241b89bcd9209a9441, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: frames
+    second: {fileID: 2100000, guid: 5e953f6cba8233d4293b75b3aca712f8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: ginger
+    second: {fileID: 2100000, guid: 848470dc70e642a488cf0fc3bbad280b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: greenhouse_glass
+    second: {fileID: 2100000, guid: 0dfbdc0cbd462844b9fd504926bc8b22, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: greenhouse_metal
+    second: {fileID: 2100000, guid: c9895d4d1a857b445a1d484e92a65109, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: greenhouse_metal_inside
+    second: {fileID: 2100000, guid: cbc638716af6d834ea2fad228d51388f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: klampe
+    second: {fileID: 2100000, guid: a01b1804c5619f241b7f86a84f872425, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamp_A
+    second: {fileID: 2100000, guid: c2535b61926b1a2478e4d01235fdea2b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lamp_B
+    second: {fileID: 2100000, guid: bc52fa68f8a29814d8cdbd55bb7e02d8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lantern_A
+    second: {fileID: 2100000, guid: 1723e4f5dd75cd9468237f815d7d90fc, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lantern_B
+    second: {fileID: 2100000, guid: c09805f22a14d2f4eb39a3d3ec7e408e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leaf_A
+    second: {fileID: 2100000, guid: 413f17b5ddb6afb4189ee55c4b63dfa0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: leaf_B.001
+    second: {fileID: 2100000, guid: 41e41d592f4bf2941a5f1a4fe3ed1588, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lighthouselamp
+    second: {fileID: 2100000, guid: 92b4847ae46f82042b29dcca7b817017, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: log_A
+    second: {fileID: 2100000, guid: 0722ee0742d4c85489cf9974907aefdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: log_B
+    second: {fileID: 2100000, guid: 5dc76ed42ba0b3e4e8434d64b65eed55, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_huge_A
+    second: {fileID: 2100000, guid: 28ace1bff7319d448adb4203605567bf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_medium_A
+    second: {fileID: 2100000, guid: eb76ff4f2f85af247b05ce3b9af13c39, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_medium_B
+    second: {fileID: 2100000, guid: 7c9c1fe76b7c276439aa7815a6a7d456, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_medium_C
+    second: {fileID: 2100000, guid: b0ee4e9756f524f4ea15f3237da06097, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_small_A
+    second: {fileID: 2100000, guid: 2e602706cfd98e24aa2426e4df4b81ce, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_small_C
+    second: {fileID: 2100000, guid: f4eeb0ea7567ed248a1a6dab947e26a6, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_tiny_A
+    second: {fileID: 2100000, guid: bbbd5a987d82d8a4287eddaaf7c0a0a4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: mushroom_tiny_C
+    second: {fileID: 2100000, guid: 005c958d890f5674c8e48c83efc00fe4, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: platform
+    second: {fileID: 2100000, guid: 2b7ed33ed1423174299a85be1586eff9, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: platform_up
+    second: {fileID: 2100000, guid: 2999c511215a3be44ba6377a7194e9c8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rock_5
+    second: {fileID: 2100000, guid: 1c24bfc3232179c4aafe853701fe0206, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: rocks
+    second: {fileID: 2100000, guid: 9f7531be1d3594544a22788765674b14, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sticks_A
+    second: {fileID: 2100000, guid: 36a86c11d0c55174787b8a22630497e7, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sticks_B
+    second: {fileID: 2100000, guid: 9e04442225ca09940a1bf60276aec8dd, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sticks_C
+    second: {fileID: 2100000, guid: 7eb16aba5a613e747a44a96efce3d25e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: sticks_D
+    second: {fileID: 2100000, guid: 800459ad0737f6543adef64c46e1a436, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone_A
+    second: {fileID: 2100000, guid: 604ea836498258b45a8616bed830924b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone_B
+    second: {fileID: 2100000, guid: cd59f5d40a728574ca2d7f5e55e9081b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone_C
+    second: {fileID: 2100000, guid: ff0699f83922b6a46a09aefdf3bfc80c, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone_D
+    second: {fileID: 2100000, guid: b85cfe3391b45b24e8d09b067c27665d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: stone_stairs
+    second: {fileID: 2100000, guid: 2c15cc406cfcb6d4e9d85a0ad40df086, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: window
+    second: {fileID: 2100000, guid: 5bdb71e9091213043bea06b8cabca738, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: wood
+    second: {fileID: 2100000, guid: 1840c3f212af9a44cb8139e9f861994b, type: 2}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 0
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 2
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    meshOptimizationFlags: -1
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  referencedClips: []
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 3
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    globalScale: 0.02
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
