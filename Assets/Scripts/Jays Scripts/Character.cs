@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 public class Character : MonoBehaviour
 {
     //Variables
@@ -40,6 +41,16 @@ public class Character : MonoBehaviour
     //UI Variables
     public Text ui_Gold, ui_Health;
 
+    //Analytic Vars
+    float timeToSend = 60f;
+    bool notSending;
+    int m_UserID;
+    int m_Health;
+    int m_Time = 1;
+    string m_weaponPref;
+    string urlset = "http://daredicing.com/setUserStats.php";
+
+
     //Methods 
     private void Start()  
     {
@@ -48,6 +59,8 @@ public class Character : MonoBehaviour
         LockedOn = false;
         StartCoroutine(CameraSwitch());
         Cursor.lockState = CursorLockMode.Locked;
+        notSending = true;
+        getUserID();
     }
 
     private void FixedUpdate()
@@ -55,6 +68,15 @@ public class Character : MonoBehaviour
         MovementCheck();
         Jumping();
         print(LockedOn);
+
+        //After A Minute Do Our GameAnalytic Function
+        timeToSend -= Time.deltaTime;
+        if ((timeToSend < 0) & (notSending))
+        {
+
+        }
+
+
     }
     public void Update()
     {
@@ -292,4 +314,39 @@ public class Character : MonoBehaviour
         z.monoParser(this);
         aFactory.GpAbility("zoomies");
     }
+
+
+    //Analytic Functions
+
+    void getUserID()
+    {
+        m_UserID = PlayerPrefs.GetInt("UserID");
+    }
+
+    IEnumerator SendData()
+    {
+
+        WWWForm form = new WWWForm();
+        form.AddField("userID", m_UserID.ToString());
+        form.AddField("sendHealth", m_Health.ToString());
+        form.AddField("sendTime", m_Time.ToString());
+        form.AddField("sendWeaponPref", m_weaponPref.ToString());
+
+        using (UnityWebRequest www = UnityWebRequest.Post(urlset, form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.isNetworkError || www.isHttpError)
+            {
+                print(www.error);
+            }
+            else
+            {
+                print("Form upload complete!");
+            }
+        }
+
+    }
+
+
 }
