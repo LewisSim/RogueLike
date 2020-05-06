@@ -13,11 +13,14 @@ public class Unit : MonoBehaviour
     public float turnDst = 5;
     public float stoppingDst = 10;
 
+    private Animator anim;
+
     PathLS path;
 
     void Start()
     {
         StartCoroutine(UpdatePath());
+        anim = GetComponent<Animator>();
     }
 
     public void OnPathFound(Vector3[] waypoints, bool pathSuccessful)
@@ -58,6 +61,7 @@ public class Unit : MonoBehaviour
     {
 
         bool followingPath = true;
+        anim.SetBool("isRunning", true);
         int pathIndex = 0;
         transform.LookAt(path.lookPoints[0]);
 
@@ -71,6 +75,7 @@ public class Unit : MonoBehaviour
                 if (pathIndex == path.finishLineIndex)
                 {
                     followingPath = false;
+                    anim.SetBool("isRunning", false);
                     break;
                 }
                 else
@@ -88,6 +93,7 @@ public class Unit : MonoBehaviour
                     if (speedPercent < 0.01f)
                     {
                         followingPath = false;
+                        anim.SetBool("isRunning", false);
                     }
                 }
 
