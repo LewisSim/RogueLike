@@ -10,6 +10,7 @@ public abstract class PowerUpVisitor
 public class PowerUpHealth : PowerUpVisitor
 {
     public int alterBehaviour(int health) {
+        Debug.Log(health);
         health = health + 10;
         return health;
     }
