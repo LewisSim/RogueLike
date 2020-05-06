@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DungeonEnter.unity
     guid: 442a1066a31d640429c783184bff539a
+  - enabled: 1
+    path: Assets/Scenes/Outside.unity
+    guid: 7950795fa45d447469a2dc5af05ef51c
   m_configObjects: {}
