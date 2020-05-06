@@ -17,4 +17,10 @@ public class EnemyLS : MonoBehaviour
         print(rb.velocity);
         
     }
+
+    void onDeath()
+    {
+
+        gameObject.SetActive(false);
+    }
 }
