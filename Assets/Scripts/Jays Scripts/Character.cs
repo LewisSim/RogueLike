@@ -28,6 +28,8 @@ public class Character : MonoBehaviour
     public Collider[] lCollider;
     public Camera cam;
 
+    public GameObject dum;
+
     //Camera variables
     public bool lockCursor;
     public float mouseSensitivity = 1;
@@ -37,6 +39,8 @@ public class Character : MonoBehaviour
     Vector3 currentRotation;
     float yaw;
     float pitch;
+    public Vector3 aY;
+    private Vector3 velocity = Vector3.zero;
 
     //UI Variables
     public Text ui_Gold, ui_Health;
@@ -75,6 +79,12 @@ public class Character : MonoBehaviour
             StartCoroutine(SendData());
         }
 
+        var newY = dum.transform.localPosition.y + Input.GetAxis("Mouse Y");
+        newY = Mathf.Clamp(newY, 1f, 3.5f);
+        //aY = new Vector3(0, newY * 1, 0);
+        aY = Vector3.SmoothDamp(dum.transform.localPosition, new Vector3(dum.transform.localPosition.x, newY, dum.transform.localPosition.z), ref velocity, 0.3f);
+        dum.transform.localPosition = aY;
+        cam.transform.LookAt(dum.transform);
 
     }
     public void Update()
