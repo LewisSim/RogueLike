@@ -42,8 +42,7 @@ public class Character : MonoBehaviour
     public Text ui_Gold, ui_Health;
 
     //Analytic Vars
-    float timeToSend = 60f;
-    bool notSending;
+    float timeToSend;
     int m_UserID;
     int m_Health;
     int m_Time = 1;
@@ -59,8 +58,8 @@ public class Character : MonoBehaviour
         LockedOn = false;
         StartCoroutine(CameraSwitch());
         Cursor.lockState = CursorLockMode.Locked;
-        notSending = true;
         getUserID();
+        timeToSend = 60f;
     }
 
     private void FixedUpdate()
@@ -71,9 +70,9 @@ public class Character : MonoBehaviour
 
         //After A Minute Do Our GameAnalytic Function
         timeToSend -= Time.deltaTime;
-        if ((timeToSend < 0) & (notSending))
+        if (timeToSend < 0)
         {
-
+            StartCoroutine(SendData());
         }
 
 
@@ -325,7 +324,7 @@ public class Character : MonoBehaviour
 
     IEnumerator SendData()
     {
-
+        timeToSend = 60f;
         WWWForm form = new WWWForm();
         form.AddField("userID", m_UserID.ToString());
         form.AddField("sendHealth", m_Health.ToString());
