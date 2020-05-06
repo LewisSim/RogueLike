@@ -9,7 +9,8 @@ public class Character : MonoBehaviour
     public Rigidbody rb;
     public float jumpHeight = 15;
     public float speed = 2f;
-    public int Health, Gold;
+    public int Health = 100;
+    public int Gold = 100;
     float maxVelocity = 3;
     bool isGrounded, isJumping, isAiming;
     Animator anim;
@@ -61,6 +62,8 @@ public class Character : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         notSending = true;
         getUserID();
+        Health = 100;
+        print(Health);
     }
 
     private void FixedUpdate()
@@ -314,8 +317,22 @@ public class Character : MonoBehaviour
         z.monoParser(this);
         aFactory.GpAbility("zoomies");
     }
-
-
+    //Health and gold related methods
+    void addHealth(int additions)
+    {
+        Health = Health + additions;
+    }
+    void healthCheck()
+    {
+        if (Health <= 0)
+        {
+            //Execute player dead script here.
+        }
+    }
+    void addGold(int additions)
+    {
+        Gold = Gold + additions;
+    }
     //Analytic Functions
 
     void getUserID()
