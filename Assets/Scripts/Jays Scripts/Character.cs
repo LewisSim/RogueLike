@@ -21,6 +21,27 @@ public class Character : MonoBehaviour
     public int attackDam = 10;
     public Collider[] eCollider;
     public Collider[] lCollider;
+<<<<<<< Updated upstream
+=======
+    public Camera cam;
+
+    public GameObject dum;
+
+    //Camera variables
+    public bool lockCursor;
+    public float mouseSensitivity = 1;
+    public Vector2 pitchMinMax = new Vector2(-40, 85);
+    public float rotationSmoothTime = .12f;
+    Vector3 rotationSmoothVelocity;
+    Vector3 currentRotation;
+    float yaw;
+    float pitch;
+    public Vector3 aY;
+    private Vector3 velocity = Vector3.zero;
+
+    //UI Variables
+    public Text ui_Gold, ui_Health;
+>>>>>>> Stashed changes
 
     private void Start()  
     {
@@ -38,9 +59,18 @@ public class Character : MonoBehaviour
         //Movement();
         Jumping();
 
+<<<<<<< Updated upstream
         //Mouse camera movement
        // float h = speed * Input.GetAxis("Mouse X");
        // transform.Rotate(0, h, 0);
+=======
+        var newY = dum.transform.localPosition.y + Input.GetAxis("Mouse Y");
+        newY = Mathf.Clamp(newY, 1f, 3.5f);
+        //aY = new Vector3(0, newY * 1, 0);
+        aY = Vector3.SmoothDamp(dum.transform.localPosition, new Vector3(dum.transform.localPosition.x, newY, dum.transform.localPosition.z), ref velocity, 0.3f);
+        dum.transform.localPosition = aY;
+        cam.transform.LookAt(dum.transform);
+>>>>>>> Stashed changes
 
         //UI Tester
        // ui_Gold.text = Gold.ToString();
@@ -62,6 +92,64 @@ public class Character : MonoBehaviour
             lockOn();
         }
     }
+<<<<<<< Updated upstream
+=======
+    IEnumerator CameraSwitch()
+    {
+        while (true)
+        {
+            if (LockedOn == false)
+            {
+               print("lockedonfalse");
+                yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+                currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(0, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
+                transform.eulerAngles = currentRotation;
+                print("Cheese"); 
+                //yield return null;
+
+                //pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+                //pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
+                //var dog = cam.transform.position.y;
+                //currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(pitch, dog), ref rotationSmoothVelocity, rotationSmoothTime);
+                //cam.transform.eulerAngles = currentRotation;
+
+            }
+            if (LockedOn == true)
+            {
+                float lockRange = 10;
+                float minDistance = 100;
+                float Distance;
+                Transform nearestTarget = null;
+                lCollider = Physics.OverlapSphere(rb.transform.position, lockRange);
+                int i = 0;
+                while (i < lCollider.Length)
+                {
+                    if (lCollider[i].tag == "Enemy")
+                    {
+                        Distance = Vector3.Distance(lCollider[i].transform.position, rb.transform.position);
+                        print(Distance.ToString());
+                        if (Distance < minDistance)
+                        {
+                            minDistance = Distance;
+                            nearestTarget = lCollider[i].transform;
+                        }
+                    }
+                    i++;
+                    transform.LookAt(nearestTarget);
+                }
+            }
+            yield return null;
+        }
+    }
+    IEnumerator CameraLook()
+    {
+        print("active");
+        while (true)
+        {
+            yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+            //pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+            //pitch = Mathf.Clamp(pitch, pitchMinMax.x, pitchMinMax.y);
+>>>>>>> Stashed changes
 
         public void Movement()
     {
