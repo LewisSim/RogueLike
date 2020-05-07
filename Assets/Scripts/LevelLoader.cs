@@ -65,8 +65,8 @@ public class LevelLoader : MonoBehaviour {
             {
                 isLevelWithGeneration = false;
                 loadingScreen.SetActive(false);
-                minimapUI.SetActive(true);
-                healthUI.SetActive(true);
+                //minimapUI.SetActive(true);
+                //healthUI.SetActive(true);
             }
         }
     }

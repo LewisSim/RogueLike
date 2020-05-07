@@ -49,8 +49,11 @@ public class SoundMaster : MonoBehaviour
 
     public void PlaySoundAtSource(AudioSource source, AudioClip clip)
     {
-        source.clip = clip;
-        source.Play();
+        if (!source.isPlaying)
+        {
+            source.clip = clip;
+            source.Play();
+        }
     }
 
     public void PlaySoundAtSourceUI(AudioClip clip)
