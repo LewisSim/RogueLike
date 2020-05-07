@@ -27,6 +27,9 @@ public class Character : MonoBehaviour
     public int rangedAttackDam = 20;
     public float cooldown = 2f;
     public bool coolingdown = false;
+    //
+    public float cooldown2 = 10f;
+    public bool coolingdown2 = false;
 
     //public float attackRange;
     public Collider[] eCollider;
@@ -354,6 +357,23 @@ public class Character : MonoBehaviour
                 coolingdown = false;
                 cooldown = 2f;
                 print("Cooling down");
+            }
+        }
+        //
+        if (Input.GetKeyDown(KeyCode.Alpha2) && !coolingdown2)
+        {
+            abTwo();
+            coolingdown2 = true;
+            print("Executed2");
+        }
+        else
+        {
+            cooldown2 -= Time.deltaTime;
+            if (cooldown2 <= 0)
+            {
+                coolingdown2 = false;
+                cooldown2 = 2f;
+                print("Cooling down2");
             }
         }
     }
