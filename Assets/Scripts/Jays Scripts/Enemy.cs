@@ -13,12 +13,17 @@ public class Enemy : MonoBehaviour
             health -= damage;
             print(damage.ToString() + " Damage taken!");
             checkHealth();
+        gameObject.GetComponent<SoundAtSource>().indexOverride = 7;
+        gameObject.GetComponent<SoundAtSource>().TriggerSound();
     }
     public void checkHealth()
     {
         if (health <= 0)
         {
             Destroy(gameObject);
+            gameObject.GetComponent<SoundAtSource>().indexOverride = 6;
+            gameObject.GetComponent<SoundAtSource>().TriggerSoundAtUI();
+            gameObject.GetComponent<Drop>().DropItem();
         }
     }
 }

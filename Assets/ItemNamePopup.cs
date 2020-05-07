@@ -21,6 +21,7 @@ public class ItemNamePopup : MonoBehaviour
     {
         if (renderObject.GetComponent<Renderer>().isVisible)
         {
+            //var pc = GameObject.FindGameObjectWithTag("Player");
             transform.LookAt(Camera.main.transform);
         }
     }

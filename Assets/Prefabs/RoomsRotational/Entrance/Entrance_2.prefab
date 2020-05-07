@@ -310,6 +310,12 @@ PrefabInstance:
       propertyPath: miniMap
       value: 
       objectReference: {fileID: 1731780131980344972}
+    - target: {fileID: 711470026732344162, guid: d228fa605b4d20f42a4487f2b1f08873,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 5412082949677241702, guid: 68a59f01a7105a445b3d2b2bf20d12c4,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d228fa605b4d20f42a4487f2b1f08873, type: 3}
 --- !u!4 &4155881112484815897 stripped

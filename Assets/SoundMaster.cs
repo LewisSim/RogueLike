@@ -10,7 +10,8 @@ public class SoundMaster : MonoBehaviour
     public AudioClip[] music;
 
     AudioSource musicSource;
-    public AudioSource UISource;
+    public AudioSource[] UISource;
+    public GameObject UISFX;
 
     public AudioMixer masterAudioMixer;
     public AudioMixerGroup mg_ui, mg_effect, mg_ambient, mg_music;
@@ -20,6 +21,7 @@ public class SoundMaster : MonoBehaviour
     private void Awake()
     {
         musicSource = GetComponent<AudioSource>();
+        UISource = UISFX.GetComponents<AudioSource>();
     }
 
     private void Update()
@@ -49,5 +51,21 @@ public class SoundMaster : MonoBehaviour
     {
         source.clip = clip;
         source.Play();
+    }
+
+    public void PlaySoundAtSourceUI(AudioClip clip)
+    {
+        //Debug.Log("in heere 1");
+        foreach (var source in UISource)
+        {
+            //Debug.Log("in heere 2");
+            if (!source.isPlaying)
+            {
+                source.clip = clip;
+                source.Play();
+                //Debug.Log("source: " + source);
+                return;
+            }
+        }   
     }
 }

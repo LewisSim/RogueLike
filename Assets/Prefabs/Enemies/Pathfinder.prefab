@@ -89,10 +89,11 @@ GameObject:
   - component: {fileID: 8039137462543190612}
   - component: {fileID: 8039137462543190613}
   - component: {fileID: 8039137462543190610}
-  - component: {fileID: 8039137462543190614}
   - component: {fileID: 8039137462543190616}
   - component: {fileID: 8039137462543190617}
   - component: {fileID: 1046259262}
+  - component: {fileID: 1517684738086631080}
+  - component: {fileID: 4242783265668767291}
   m_Layer: 0
   m_Name: StartPos
   m_TagString: Enemy
@@ -174,19 +175,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.0267887, y: 0.9295044, z: 1}
   m_Center: {x: -0.013394356, y: 0.26907134, z: 0}
---- !u!114 &8039137462543190614
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8039137462543190611}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a1ae658141cd294380e9a0c29a9b1f2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  health: 100
 --- !u!114 &8039137462543190616
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -231,6 +219,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 100
+--- !u!114 &1517684738086631080
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8039137462543190611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 5
+  indexOverride: 7
+--- !u!114 &4242783265668767291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8039137462543190611}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81470cd1861c01a4e986cab0bd9ad2b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  basicItemPrefab: {fileID: 6680819215139037823, guid: 491023aae0e038b418528141e4881959,
+    type: 3}
+  test: 0
+  typeWeightTable: 2d0000001e00000019000000
+  tierWeightTable: 46000000140000000a000000
 --- !u!1001 &3366025346117235216
 PrefabInstance:
   m_ObjectHideFlags: 0

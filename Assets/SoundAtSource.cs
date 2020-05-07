@@ -57,7 +57,7 @@ public class SoundAtSource : MonoBehaviour
         if (sClass == SoundClass.UI)
         {
             //master.PlaySoundAtSource(master.UISource, master.UIgeneral[Random.Range(0, master.UIgeneral.Length -1)]);
-            master.PlaySoundAtSource(master.UISource, master.UIgeneral[indexOverride]);
+            master.PlaySoundAtSourceUI(master.UIgeneral[indexOverride]);
         }
         if(sClass == SoundClass.Effect)
         {
@@ -77,7 +77,12 @@ public class SoundAtSource : MonoBehaviour
     {
         if (sClass == SoundClass.Effect)
         {
-            master.PlaySoundAtSource(master.UISource, master.effect[indexOverride]);
+            master.PlaySoundAtSourceUI(master.effect[indexOverride]);
+        }
+
+        if (sClass == SoundClass.Voice)
+        {
+            master.PlaySoundAtSourceUI(master.voice[indexOverride]);
         }
     }
 

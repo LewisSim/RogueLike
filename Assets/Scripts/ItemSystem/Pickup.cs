@@ -11,7 +11,7 @@ public class Pickup : MonoBehaviour
     {
         if (detectCollider.isTriggered && detectCollider.triggeredBy.gameObject.tag == "Player")
         {
-            if (Input.GetButton("Fire1"))
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 PickUp();
             }
