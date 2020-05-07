@@ -16,19 +16,22 @@ public class Character : MonoBehaviour
     public static float movementSpeed = 5.0f;
     public float rotationSpeed = 200f;
     public Image reticle;
+
     //Camera variables
     public float lookSpeed = 3;
     private Vector2 rotation = Vector2.zero;
     bool LockedOn;
+
     //Combat variables
     public int attackDam = 10;
     public int rangedAttackDam = 20;
+    public float cooldown = 2f;
+    public bool coolingdown = false;
+
     //public float attackRange;
     public Collider[] eCollider;
     public Collider[] lCollider;
     public Camera cam;
-
-    public GameObject dum;
 
     //Camera variables
     public bool lockCursor;
@@ -41,6 +44,12 @@ public class Character : MonoBehaviour
     float pitch;
     public Vector3 aY;
     private Vector3 velocity = Vector3.zero;
+    public GameObject dum;
+
+    //Jumping Variables 
+    public float fallMultiplier = 2.5f;
+    public float lowJumperMultiplier = 2f;
+    public Vector3 jump = new Vector3(0.0f, 2.0f, 0.0f);
 
     //UI Variables
     public Text ui_Gold, ui_Health;
@@ -55,7 +64,7 @@ public class Character : MonoBehaviour
 
 
     //Methods 
-    private void Start()  
+    private void Start()
     {
         anim = GetComponent<Animator>();
         Inventory.Instance.TesterMetod();
@@ -86,6 +95,7 @@ public class Character : MonoBehaviour
         dum.transform.localPosition = aY;
         cam.transform.LookAt(dum.transform);
 
+        AbilityExecution();
     }
     public void Update()
     {
@@ -163,7 +173,7 @@ public class Character : MonoBehaviour
 
     public void Movement()
     {
-        var localVelocity = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), 0 , Input.GetAxis("Vertical") * movementSpeed);
+        var localVelocity = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), 0, Input.GetAxis("Vertical") * movementSpeed);
         Vector3 movement = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), 0, Input.GetAxis("Vertical") * movementSpeed);
         rb.velocity = transform.TransformDirection(localVelocity);
         rb.velocity = Vector3.ClampMagnitude(transform.TransformDirection(localVelocity), movementSpeed);
@@ -189,7 +199,9 @@ public class Character : MonoBehaviour
             if (!isJumping)
             {
                 isJumping = true;
-                rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                //rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+                //rb.velocity += Vector3.up * Physics.gravity.y * 500 * Time.deltaTime;
+                rb.AddForce(jump * jumpForce, ForceMode.Impulse);
                 isGrounded = false;
                 Invoke("resetIsJumping", 1.5f);
             }
@@ -225,8 +237,8 @@ public class Character : MonoBehaviour
     //Combat Functions
     public void mAttack() //Melee
     {
-      float attackRange = 2;
-      eCollider = Physics.OverlapSphere(rb.transform.position, attackRange);
+        float attackRange = 2;
+        eCollider = Physics.OverlapSphere(rb.transform.position, attackRange);
         int i = 0;
         while (i < eCollider.Length)
         {
@@ -249,7 +261,7 @@ public class Character : MonoBehaviour
                     eCollider[i].SendMessage("AddDamage", attackDam);
                 }
             }
-                i++;
+            i++;
         }
     }
     public void rAttack() //Ranged
@@ -289,34 +301,34 @@ public class Character : MonoBehaviour
     }
     IEnumerator lockOn()
     {
-            float lockRange = 10;
-            float minDistance = 100;
-            float Distance;
-            Transform nearestTarget = null;
-            lCollider = Physics.OverlapSphere(rb.transform.position, lockRange);
-            int i = 0;
-            while (i < lCollider.Length)
+        float lockRange = 10;
+        float minDistance = 100;
+        float Distance;
+        Transform nearestTarget = null;
+        lCollider = Physics.OverlapSphere(rb.transform.position, lockRange);
+        int i = 0;
+        while (i < lCollider.Length)
+        {
+            if (lCollider[i].tag == "Enemy")
             {
-                if (lCollider[i].tag == "Enemy")
+                Distance = Vector3.Distance(lCollider[i].transform.position, rb.transform.position);
+                print(Distance.ToString());
+                if (Distance < minDistance)
                 {
-                    Distance = Vector3.Distance(lCollider[i].transform.position, rb.transform.position);
-                    print(Distance.ToString());
-                    if (Distance < minDistance)
-                    {
-                        minDistance = Distance;
-                        nearestTarget = lCollider[i].transform;
-                    }
+                    minDistance = Distance;
+                    nearestTarget = lCollider[i].transform;
                 }
-                i++;
-                transform.LookAt(nearestTarget);
-                yield return null;
+            }
+            i++;
+            transform.LookAt(nearestTarget);
+            yield return null;
         }
     }
     //Special abilities 
     void abOne()
     {
         aFactory.GpAbility("pushBack");
-    } 
+    }
     void abTwo()
     {
         zoomies z = new zoomies();
@@ -324,38 +336,55 @@ public class Character : MonoBehaviour
         aFactory.GpAbility("zoomies");
     }
 
-
-    //Analytic Functions
-
-    void getUserID()
+    //Ability execution
+    void AbilityExecution()
     {
-        m_UserID = PlayerPrefs.GetInt("UserID");
-    }
 
-    IEnumerator SendData()
-    {
-        timeToSend = 60f;
-        WWWForm form = new WWWForm();
-        form.AddField("userID", m_UserID.ToString());
-        form.AddField("sendHealth", m_Health.ToString());
-        form.AddField("sendTime", m_Time.ToString());
-        form.AddField("sendWeaponPref", m_weaponPref.ToString());
-
-        using (UnityWebRequest www = UnityWebRequest.Post(urlset, form))
+        if (Input.GetKeyDown(KeyCode.Alpha1) && !coolingdown)
         {
-            yield return www.SendWebRequest();
-
-            if (www.isNetworkError || www.isHttpError)
+            abOne();
+            coolingdown = true;
+            print("Executed");
+        }
+        else
+        {
+            cooldown -= Time.deltaTime;
+            if (cooldown <= 0)
             {
-                print(www.error);
-            }
-            else
-            {
-                print("Form upload complete!");
+                coolingdown = false;
+                cooldown = 2f;
+                print("Cooling down");
             }
         }
-
     }
+    //Analytic Functions
+    void getUserID()
+        {
+            m_UserID = PlayerPrefs.GetInt("UserID");
+        }
 
+        IEnumerator SendData()
+        {
+            timeToSend = 60f;
+            WWWForm form = new WWWForm();
+            form.AddField("userID", m_UserID.ToString());
+            form.AddField("sendHealth", m_Health.ToString());
+            form.AddField("sendTime", m_Time.ToString());
+            form.AddField("sendWeaponPref", m_weaponPref.ToString());
+
+            using (UnityWebRequest www = UnityWebRequest.Post(urlset, form))
+            {
+                yield return www.SendWebRequest();
+
+                if (www.isNetworkError || www.isHttpError)
+                {
+                    print(www.error);
+                }
+                else
+                {
+                    print("Form upload complete!");
+                }
+            }
+        }
 
 }

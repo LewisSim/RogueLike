@@ -1376,14 +1376,6 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1309618464, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
-      propertyPath: m_HDR
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1309618464, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
-      propertyPath: m_AllowMSAA
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4072999209642357986, guid: 3d7a2d772bc6b8542818cf8227d0d8ec,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1471,6 +1463,14 @@ PrefabInstance:
       propertyPath: dum
       value: 
       objectReference: {fileID: 188743853}
+    - target: {fileID: 1309618464, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
+      propertyPath: m_HDR
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309618464, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
+      propertyPath: m_AllowMSAA
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
 --- !u!1 &1783566691

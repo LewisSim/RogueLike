@@ -13,7 +13,7 @@ public class pushBack : pAbility
     float pbRange = 10;
     float minDistance = 100;
     float Distance;
-    float force = 5;
+    float force = 50;
     public override void pEffect()
     {
         Debug.Log("Push back - working");
