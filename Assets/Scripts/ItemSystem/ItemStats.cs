@@ -11,6 +11,8 @@ public class ItemStats : MonoBehaviour
     public string baseName, prefix, suffix, fullName;
     public Item.ItemTier tier;
 
+    public Item.ItemSubType subType;
+
     //Item Meshes
     public Mesh armourMesh, weaponMesh, potionMesh;
     MeshFilter currentMeshFilter;
@@ -47,15 +49,21 @@ public class ItemStats : MonoBehaviour
         switch (type)
         {
             case Item.ItemType.Armour:
-                PullFromBase(Armour.Base[Random.Range(0, Armour.Base.Length)]);
+                var rng = Random.Range(0, Armour.Base.Length);
+                PullFromBase(Armour.Base[rng]);
+                MessyAssignSubType(rng, type);
                 currentMeshFilter.mesh = armourMesh;
                 break;
             case Item.ItemType.Weapon:
-                PullFromBase(Weapon.Base[Random.Range(0, Weapon.Base.Length)]);
+                var rng1 = Random.Range(0, Weapon.Base.Length);
+                PullFromBase(Weapon.Base[rng1]);
+                MessyAssignSubType(rng1, type);
                 currentMeshFilter.mesh = weaponMesh;
                 break;
             case Item.ItemType.Potion:
-                PullFromBase(Potion.Base[Random.Range(0, Potion.Base.Length)]);
+                var rng2 = Random.Range(0, Potion.Base.Length);
+                PullFromBase(Potion.Base[rng2]);
+                MessyAssignSubType(rng2, type);
                 currentMeshFilter.mesh = potionMesh;
                 break;
         }
@@ -217,20 +225,7 @@ public class ItemStats : MonoBehaviour
     public Item GetStats()
     {
         Item itemOut = new Item();
-        switch (type)
-        {
-            case Item.ItemType.Armour:
-                itemOut = new Armour();
-                break;
-            case Item.ItemType.Weapon:
-                itemOut = new Weapon();
-                break;
-            case Item.ItemType.Potion:
-                itemOut = new Potion();
-                break;
-            default:
-                break;
-        }
+
         //Assign all variables
         itemOut.Tier = tier;
         itemOut.Type = type;
@@ -242,6 +237,98 @@ public class ItemStats : MonoBehaviour
         itemOut.BaseName = baseName;
         itemOut.Prefix = prefix;
         itemOut.Suffix = suffix;
+        itemOut.SubType = subType;
+        //Debug.Log(subType);
         return itemOut;
     }
+
+    void MessyAssignSubType(int index, Item.ItemType parentType)
+    {
+        switch (parentType)
+        {
+            case Item.ItemType.Armour:
+                switch (index)
+                {
+                    case 0:
+                        subType = Item.ItemSubType.LightArmour;
+                        break;
+                    case 1:
+                        subType = Item.ItemSubType.MediumArmour;
+                        break;
+                    case 2:
+                        subType = Item.ItemSubType.HeavyArmour;
+                        break;
+                    case 3:
+                        subType = Item.ItemSubType.LightArmour;
+                        break;
+                    case 4:
+                        subType = Item.ItemSubType.MediumArmour;
+                        break;
+                    case 5:
+                        subType = Item.ItemSubType.HeavyArmour;
+                        break;
+                }
+                break;
+            case Item.ItemType.Potion:
+                switch (index)
+                {
+                    case 0:
+                        subType = Item.ItemSubType.HealthPot;
+                        break;
+                    case 1:
+                        subType = Item.ItemSubType.SpeedPot;
+                        break;
+                    case 2:
+                        subType = Item.ItemSubType.DamagePot;
+                        break;
+                }
+                break;
+            case Item.ItemType.Weapon:
+                switch (index)
+                {
+                    case 0:
+                        subType = Item.ItemSubType.Spear;
+                        break;
+                    case 1:
+                        subType = Item.ItemSubType.Sword;
+                        break;
+                    case 2:
+                        subType = Item.ItemSubType.Bow;
+                        break;
+                }
+                break;
+        }
+    }
+
+
+    //public Item GetStats()
+    //{
+    //    Item itemOut = new Item();
+    //    switch (type)
+    //    {
+    //        case Item.ItemType.Armour:
+    //            itemOut = new Armour();
+    //            break;
+    //        case Item.ItemType.Weapon:
+    //            itemOut = new Weapon();
+    //            break;
+    //        case Item.ItemType.Potion:
+    //            itemOut = new Potion();
+    //            break;
+    //        default:
+    //            break;
+    //    }
+    //    //Assign all variables
+    //    itemOut.Tier = tier;
+    //    itemOut.Type = type;
+    //    itemOut.ArmourRating = armourRating;
+    //    itemOut.Health = health;
+    //    itemOut.Damage = damage;
+    //    itemOut.Speed = speed;
+    //    itemOut.Potency = potency;
+    //    itemOut.BaseName = baseName;
+    //    itemOut.Prefix = prefix;
+    //    itemOut.Suffix = suffix;
+    //    return itemOut;
+    //}
 }

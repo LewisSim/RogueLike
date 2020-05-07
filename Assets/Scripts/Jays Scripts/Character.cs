@@ -70,7 +70,7 @@ public class Character : MonoBehaviour
     private void Start()
     {
         anim = GetComponent<Animator>();
-        Inventory.Instance.TesterMetod();
+        //Inventory.Instance.TesterMetod();
         LockedOn = false;
         StartCoroutine(CameraSwitch());
         Cursor.lockState = CursorLockMode.Locked;

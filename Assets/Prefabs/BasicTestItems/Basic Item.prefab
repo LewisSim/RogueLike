@@ -258,6 +258,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3311319147158796035}
   - component: {fileID: 308462235169492649}
+  - component: {fileID: 2949071653113221084}
+  - component: {fileID: 5255854291143449561}
   m_Layer: 0
   m_Name: Basic Item
   m_TagString: Item
@@ -310,6 +312,33 @@ MonoBehaviour:
     type: 3}
   potency: 0
   INP: {fileID: 9031374034619079136}
+--- !u!114 &2949071653113221084
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680819215139037823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed86e9cb45e870f439b8347dac5b4c47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detectCollider: {fileID: 2962298017237069388}
+--- !u!114 &5255854291143449561
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6680819215139037823}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 4
+  indexOverride: 0
 --- !u!1 &7349592216817437153
 GameObject:
   m_ObjectHideFlags: 0
@@ -323,8 +352,7 @@ GameObject:
   - component: {fileID: 5767212073965284734}
   - component: {fileID: 8093639427368058522}
   - component: {fileID: 482607735454080873}
-  - component: {fileID: 4263404623872345204}
-  - component: {fileID: 8262056422733532020}
+  - component: {fileID: 5795463890345482983}
   m_Layer: 0
   m_Name: Game Item
   m_TagString: Untagged
@@ -406,20 +434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee95c5e7e2f90cc43afa736d8ae54f39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &4263404623872345204
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7349592216817437153}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed86e9cb45e870f439b8347dac5b4c47, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectCollider: {fileID: 2962298017237069388}
---- !u!114 &8262056422733532020
+--- !u!114 &5795463890345482983
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

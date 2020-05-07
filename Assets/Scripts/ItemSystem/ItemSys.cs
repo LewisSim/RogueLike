@@ -9,6 +9,8 @@ public class Item
 
     public enum ItemTier {Common, Uncommon, Rare};
 
+    public enum ItemSubType { Sword, Spear, Bow, LightArmour, MediumArmour, HeavyArmour, HealthPot, SpeedPot, DamagePot }
+
     //Basic stats
     public ItemType Type { get; set; }
     public ItemTier Tier { get; set; }
@@ -20,6 +22,13 @@ public class Item
     public string BaseName { get; set; }
     public string Prefix { get; set; }
     public string Suffix { get; set; }
+
+    public ItemSubType SubType { get; set; }
+
+    public string GetFullName()
+    {
+        return Prefix +" "+ BaseName +" of "+ Suffix;
+    }
 }
 
 public class Equipment : Item

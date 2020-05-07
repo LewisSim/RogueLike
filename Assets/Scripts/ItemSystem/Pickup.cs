@@ -13,7 +13,18 @@ public class Pickup : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                PickUp();
+                if (Inventory.isFull)
+                {
+                    //Trigger "cannot pickup" sound
+                    var sAtSource = gameObject.GetComponent<SoundAtSource>();
+                    sAtSource.indexOverride = 6;
+                    sAtSource.TriggerSoundAtUI();
+                    QuickMessage.Message("Inventory Full", 0.5f);
+                }
+                else
+                {
+                    PickUp();
+                }
             }
         }
     }
@@ -23,6 +34,9 @@ public class Pickup : MonoBehaviour
         var sAtSource = gameObject.GetComponent<SoundAtSource>();
         sAtSource.indexOverride = 1;
         sAtSource.TriggerSoundAtUI();
-        Destroy(gameObject.transform.parent.gameObject);
+
+        Inventory.AddItem(gameObject.GetComponent<ItemStats>().GetStats());
+
+        Destroy(gameObject);
     }
 }

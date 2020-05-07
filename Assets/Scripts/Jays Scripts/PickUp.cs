@@ -14,15 +14,15 @@ public class PickUp : MonoBehaviour
         pickUp.itemDescription = "We're really testing here";
     }
 
-    void OnCollisionEnter(Collision collision)
-    {
+    //void OnCollisionEnter(Collision collision)
+    //{
 
-        if (collision.gameObject.tag == "Player" && Inventory.Instance.InventoryItems.Count <= 4)
-        {
-            Inventory.Instance.InventoryItems.Add(pickUp);
-            Destroy(gameObject);
-            print(Inventory.Instance.InventoryItems[0].itemName);
-        }
-}
+    //    if (collision.gameObject.tag == "Player" && Inventory.Instance.InventoryItems.Count <= 4)
+    //    {
+    //        Inventory.Instance.InventoryItems.Add(pickUp);
+    //        Destroy(gameObject);
+    //        print(Inventory.Instance.InventoryItems[0].itemName);
+    //    }
+    //}
 
 }
