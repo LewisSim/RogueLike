@@ -499,6 +499,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7411185385641071181, guid: 3add44069ab91634cb6c1acc1a8ae9c0,
+        type: 3}
+      propertyPath: deathScreen
+      value: 
+      objectReference: {fileID: 150767135}
+    - target: {fileID: 485790252, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1135143957, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 485790251, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
+      propertyPath: m_Name
+      value: JaysCanvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 1135143956, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 320598081, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
       propertyPath: m_text
       value: Quick Message
@@ -515,27 +536,6 @@ PrefabInstance:
       propertyPath: m_textInfo.wordCount
       value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 485790252, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1135143957, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1135143956, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 485790251, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
-      propertyPath: m_Name
-      value: JaysCanvas
-      objectReference: {fileID: 0}
-    - target: {fileID: 7411185385641071181, guid: 3add44069ab91634cb6c1acc1a8ae9c0,
-        type: 3}
-      propertyPath: deathScreen
-      value: 
-      objectReference: {fileID: 150767135}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
 --- !u!4 &906146044876577776 stripped
