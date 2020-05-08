@@ -56,6 +56,7 @@ public class Character : MonoBehaviour
 
     //UI Variables
     public Text ui_Gold, ui_Health;
+    public Image deathScreen;
 
     //Analytic Vars
     float timeToSend;
@@ -417,6 +418,13 @@ public class Character : MonoBehaviour
         if (Health <= 0)
         {
             print("Player is now dead");
+            playerDead();
         }
+    }
+
+    public void playerDead()
+    {
+        deathScreen.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
     }
 }
