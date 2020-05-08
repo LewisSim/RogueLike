@@ -7,8 +7,6 @@ using System;
 public class Stat
 {
 
-
-
     [SerializeField]
     private HealthBarScript bar;
 

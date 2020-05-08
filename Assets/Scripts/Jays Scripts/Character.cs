@@ -76,6 +76,7 @@ public class Character : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         getUserID();
         timeToSend = 60f;
+        Health = 100;
     }
 
     private void FixedUpdate()
@@ -405,6 +406,17 @@ public class Character : MonoBehaviour
                     print("Form upload complete!");
                 }
             }
-        }
+    }
+    //Combat detriment functions 
+    public void sustainDamage(int damageTaken)
+    {
+        Health = Health - damageTaken;
+        print("Player has sustained damage");
 
+        //Death check
+        if (Health <= 0)
+        {
+            print("Player is now dead");
+        }
+    }
 }
