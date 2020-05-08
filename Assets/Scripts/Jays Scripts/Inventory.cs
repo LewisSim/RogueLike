@@ -37,6 +37,11 @@ public class Inventory : MonoBehaviour
     public GameObject[] ui_slots_inspector;
     static GameObject[] ui_slots;
 
+    public GameObject basicItem_inspector;
+    static GameObject basicItem;
+
+    static Transform playerPosition;
+
     public Sprite[] icons_inspector;
     static Sprite[] icons;
 
@@ -50,7 +55,7 @@ public class Inventory : MonoBehaviour
 
     public void Init()
     {
-        p_inventory = new Item[4];
+        p_inventory = new Item[5];
         for (int i = 0; i < p_inventory.Length; i++)
         {
             p_inventory[i] = null;
@@ -58,18 +63,86 @@ public class Inventory : MonoBehaviour
 
         icons = icons_inspector;
         ui_slots = ui_slots_inspector;
+        basicItem = basicItem_inspector;
+        playerPosition = transform;
         slotsFilled = new bool[p_inventory.Length];
     }
 
     public static void AddItem(Item item)
     {
-        //Find empty slot to fill
-        for (int i = 0; i < p_inventory.Length; i++)
+        ////Find empty slot to fill
+        //for (int i = 0; i < p_inventory.Length; i++)
+        //{
+        //    if(p_inventory[i] == null)
+        //    {
+        //        p_inventory[i] = item;
+        //        break;
+        //    }
+        //}
+
+        //Check appropriate slot is empty
+        if(item.Type == Item.ItemType.Armour)
         {
-            if(p_inventory[i] == null)
+            if(p_inventory[3] == null)
             {
-                p_inventory[i] = item;
-                break;
+                p_inventory[3] = item;
+            }
+            else
+            {
+                DropItem(3);
+                p_inventory[3] = item;
+            }
+        }
+
+        if (item.Type == Item.ItemType.Potion)
+        {
+            if (p_inventory[4] == null)
+            {
+                p_inventory[4] = item;
+            }
+            else
+            {
+                DropItem(4);
+                p_inventory[4] = item;
+            }
+        }
+
+        if (item.SubType == Item.ItemSubType.Sword)
+        {
+            if (p_inventory[0] == null)
+            {
+                p_inventory[0] = item;
+            }
+            else
+            {
+                DropItem(0);
+                p_inventory[0] = item;
+            }
+        }
+
+        if (item.SubType == Item.ItemSubType.Spear)
+        {
+            if (p_inventory[1] == null)
+            {
+                p_inventory[1] = item;
+            }
+            else
+            {
+                DropItem(1);
+                p_inventory[1] = item;
+            }
+        }
+
+        if (item.SubType == Item.ItemSubType.Bow)
+        {
+            if (p_inventory[2] == null)
+            {
+                p_inventory[2] = item;
+            }
+            else
+            {
+                DropItem(2);
+                p_inventory[2] = item;
             }
         }
 
@@ -84,6 +157,12 @@ public class Inventory : MonoBehaviour
     public static void DropItem(int index)
     {
         //Code to drop
+        var newItem = Instantiate(basicItem);
+
+        newItem.transform.position = playerPosition.localPosition + (playerPosition.forward * 2);
+
+        var newStats = newItem.GetComponent<ItemStats>();
+        newStats.LoadStats(p_inventory[index]);
 
         //Remove from array
         RemoveItem(index);
@@ -100,16 +179,34 @@ public class Inventory : MonoBehaviour
             {
                 int iconType = 0;
 
-                switch (p_inventory[i].Type)
+                switch (p_inventory[i].SubType)
                 {
-                    case Item.ItemType.Armour:
+                    case Item.ItemSubType.LightArmour:
                         iconType = 0;
                         break;
-                    case Item.ItemType.Potion:
+                    case Item.ItemSubType.MediumArmour:
                         iconType = 1;
                         break;
-                    case Item.ItemType.Weapon:
+                    case Item.ItemSubType.HeavyArmour:
                         iconType = 2;
+                        break;
+                    case Item.ItemSubType.HealthPot:
+                        iconType = 3;
+                        break;
+                    case Item.ItemSubType.SpeedPot:
+                        iconType = 4;
+                        break;
+                    case Item.ItemSubType.DamagePot:
+                        iconType = 5;
+                        break;
+                    case Item.ItemSubType.Sword:
+                        iconType = 6;
+                        break;
+                    case Item.ItemSubType.Spear:
+                        iconType = 7;
+                        break;
+                    case Item.ItemSubType.Bow:
+                        iconType = 8;
                         break;
                 }
 

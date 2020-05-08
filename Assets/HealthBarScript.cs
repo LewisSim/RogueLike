@@ -56,6 +56,11 @@ public class HealthBarScript : MonoBehaviour
         {
             health.CurrentVal += 10;
         }
+
+        if (health.CurrentVal >= 0)
+        {
+            print("Character Dead");
+        }
     }
 
     private void HandleBar()

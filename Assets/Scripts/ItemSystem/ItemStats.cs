@@ -59,12 +59,14 @@ public class ItemStats : MonoBehaviour
                 PullFromBase(Weapon.Base[rng1]);
                 MessyAssignSubType(rng1, type);
                 currentMeshFilter.mesh = weaponMesh;
+                currentMeshFilter.transform.localScale = new Vector3(4f, 4f, 4f);
                 break;
             case Item.ItemType.Potion:
                 var rng2 = Random.Range(0, Potion.Base.Length);
                 PullFromBase(Potion.Base[rng2]);
                 MessyAssignSubType(rng2, type);
                 currentMeshFilter.mesh = potionMesh;
+                currentMeshFilter.transform.localScale = new Vector3(15f, 15f, 15f);
                 break;
         }
 
@@ -220,6 +222,45 @@ public class ItemStats : MonoBehaviour
         prefix = itemObject.Prefix;
         suffix = itemObject.Suffix;
         potency = itemObject.Potency;
+        subType = itemObject.SubType;
+        switch (type)
+        {
+            case Item.ItemType.Armour:
+                currentMeshFilter.mesh = armourMesh;
+                break;
+            case Item.ItemType.Weapon:
+                currentMeshFilter.mesh = weaponMesh;
+                currentMeshFilter.transform.localScale = new Vector3(4f, 4f, 4f);
+                break;
+            case Item.ItemType.Potion:
+                currentMeshFilter.mesh = potionMesh;
+                currentMeshFilter.transform.localScale = new Vector3(15f, 15f, 15f);
+                break;
+        }
+
+        //Set Item Name
+        string n = prefix + " " + baseName + " of " + suffix;
+        if (type == Item.ItemType.Potion)
+        {
+            switch (tier)
+            {
+                case Item.ItemTier.Common:
+                    prefix = "Weak";
+                    break;
+                case Item.ItemTier.Uncommon:
+                    prefix = "Regular";
+                    break;
+                case Item.ItemTier.Rare:
+                    prefix = "Strong";
+                    break;
+            }
+            n = prefix + " " + baseName;
+        }
+        gameObject.name = n;
+        fullName = n;
+
+        //Update pop up
+        INP.AssignTextToPopUp(fullName);
     }
 
     public Item GetStats()

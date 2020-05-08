@@ -13,6 +13,10 @@ public class FaceCameraNoY : MonoBehaviour
     void Start()
     {
         obj = gameObject;
+        if(camera == null)
+        {
+            camera = Camera.main;
+        }
     }
 
     // Update is called once per frame

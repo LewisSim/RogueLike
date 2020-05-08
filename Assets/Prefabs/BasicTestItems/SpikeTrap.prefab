@@ -1367,7 +1367,7 @@ MonoBehaviour:
   untriggeredPos: {x: 0, y: -0.14, z: 0}
   triggeredPos: {x: 0, y: 0.077, z: 0}
   spikes: {fileID: 3958089120698462761}
-  damage: 5
+  damage: 30
   timerMax: 3
 --- !u!65 &4880532722978849979
 BoxCollider:

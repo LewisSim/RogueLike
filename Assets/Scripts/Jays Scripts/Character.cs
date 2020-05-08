@@ -56,6 +56,7 @@ public class Character : MonoBehaviour
 
     //UI Variables
     public Text ui_Gold, ui_Health;
+    public Image deathScreen;
 
     //Analytic Vars
     float timeToSend;
@@ -76,6 +77,7 @@ public class Character : MonoBehaviour
         Cursor.lockState = CursorLockMode.Locked;
         getUserID();
         timeToSend = 60f;
+        Health = 100;
     }
 
     private void FixedUpdate()
@@ -405,6 +407,24 @@ public class Character : MonoBehaviour
                     print("Form upload complete!");
                 }
             }
-        }
+    }
+    //Combat detriment functions 
+    public void sustainDamage(int damageTaken)
+    {
+        Health = Health - damageTaken;
+        print("Player has sustained damage");
 
+        //Death check
+        if (Health <= 0)
+        {
+            print("Player is now dead");
+            playerDead();
+        }
+    }
+
+    public void playerDead()
+    {
+        deathScreen.gameObject.SetActive(true);
+        Cursor.lockState = CursorLockMode.None;
+    }
 }
