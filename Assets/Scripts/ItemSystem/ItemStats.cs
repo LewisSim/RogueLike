@@ -220,6 +220,43 @@ public class ItemStats : MonoBehaviour
         prefix = itemObject.Prefix;
         suffix = itemObject.Suffix;
         potency = itemObject.Potency;
+        subType = itemObject.SubType;
+        switch (type)
+        {
+            case Item.ItemType.Armour:
+                currentMeshFilter.mesh = armourMesh;
+                break;
+            case Item.ItemType.Weapon:
+                currentMeshFilter.mesh = weaponMesh;
+                break;
+            case Item.ItemType.Potion:
+                currentMeshFilter.mesh = potionMesh;
+                break;
+        }
+
+        //Set Item Name
+        string n = prefix + " " + baseName + " of " + suffix;
+        if (type == Item.ItemType.Potion)
+        {
+            switch (tier)
+            {
+                case Item.ItemTier.Common:
+                    prefix = "Weak";
+                    break;
+                case Item.ItemTier.Uncommon:
+                    prefix = "Regular";
+                    break;
+                case Item.ItemTier.Rare:
+                    prefix = "Strong";
+                    break;
+            }
+            n = prefix + " " + baseName;
+        }
+        gameObject.name = n;
+        fullName = n;
+
+        //Update pop up
+        INP.AssignTextToPopUp(fullName);
     }
 
     public Item GetStats()
