@@ -309,7 +309,7 @@ MonoBehaviour:
     type: 3}
   weaponMesh: {fileID: 2551729668346068454, guid: 6f505a503f5cbdb4681dbe83b50b6ca2,
     type: 3}
-  potionMesh: {fileID: 4467052755238404529, guid: a43452d88e0ea824488ce33cdb8c87b6,
+  potionMesh: {fileID: 704279204990112302, guid: a43452d88e0ea824488ce33cdb8c87b6,
     type: 3}
   potency: 0
   INP: {fileID: 9031374034619079136}

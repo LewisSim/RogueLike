@@ -59,12 +59,14 @@ public class ItemStats : MonoBehaviour
                 PullFromBase(Weapon.Base[rng1]);
                 MessyAssignSubType(rng1, type);
                 currentMeshFilter.mesh = weaponMesh;
+                currentMeshFilter.transform.localScale = new Vector3(4f, 4f, 4f);
                 break;
             case Item.ItemType.Potion:
                 var rng2 = Random.Range(0, Potion.Base.Length);
                 PullFromBase(Potion.Base[rng2]);
                 MessyAssignSubType(rng2, type);
                 currentMeshFilter.mesh = potionMesh;
+                currentMeshFilter.transform.localScale = new Vector3(15f, 15f, 15f);
                 break;
         }
 
@@ -228,9 +230,11 @@ public class ItemStats : MonoBehaviour
                 break;
             case Item.ItemType.Weapon:
                 currentMeshFilter.mesh = weaponMesh;
+                currentMeshFilter.transform.localScale = new Vector3(4f, 4f, 4f);
                 break;
             case Item.ItemType.Potion:
                 currentMeshFilter.mesh = potionMesh;
+                currentMeshFilter.transform.localScale = new Vector3(15f, 15f, 15f);
                 break;
         }
 
