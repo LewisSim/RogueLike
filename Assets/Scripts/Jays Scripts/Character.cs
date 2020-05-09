@@ -9,7 +9,7 @@ public class Character : MonoBehaviour
     public Rigidbody rb;
     public float jumpHeight = 15;
     public float speed = 2f;
-    public int Health, Gold;
+    public float Health, Gold;
     float maxVelocity = 3;
     bool isGrounded, isJumping, isAiming;
     Animator anim;
@@ -78,6 +78,9 @@ public class Character : MonoBehaviour
         getUserID();
         timeToSend = 60f;
         Health = 100;
+
+        print(Inventory.p_inventory[4].ArmourRating.ToString());
+
     }
 
     private void FixedUpdate()
@@ -409,9 +412,40 @@ public class Character : MonoBehaviour
             }
     }
     //Combat detriment functions 
-    public void sustainDamage(int damageTaken)
+    public void sustainDamage(float damageTaken)
     {
         Health = Health - damageTaken;
+
+        print("Player has sustained damage");
+
+        //Death check
+        if (Health <= 0)
+        {
+            print("Player is now dead");
+            playerDead();
+        }
+    }
+
+    public void sustainNonPureDamage(float damageTaken)
+    {
+        //Tester vars
+        float tmpArmourVal;
+
+        if (Inventory.p_inventory[4] == null)
+        {
+
+            tmpArmourVal = 10;
+        }
+        else
+        {
+            tmpArmourVal = Inventory.p_inventory[4].ArmourRating;
+        }
+
+        var newDam = damageTaken - ((tmpArmourVal * 1));
+        print("New damage" + newDam);
+        Health = Health - newDam;
+        print("New Health" + Health);
+
         print("Player has sustained damage");
 
         //Death check

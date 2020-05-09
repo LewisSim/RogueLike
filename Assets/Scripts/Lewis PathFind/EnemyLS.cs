@@ -59,7 +59,8 @@ public class EnemyLS : MonoBehaviour
         if (minDistance <= 1.2f && !coolingDown)
         {
             print("Attacking player");
-            nearestTarget.SendMessage("sustainDamage", 50f);
+            //nearestTarget.SendMessage("sustainDamage", 50f);
+            nearestTarget.SendMessage("sustainNonPureDamage", 50f);
             coolingDown = true;
         }
         else
