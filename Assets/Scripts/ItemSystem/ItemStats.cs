@@ -13,6 +13,8 @@ public class ItemStats : MonoBehaviour
 
     public Item.ItemSubType subType;
 
+    public bool custom = false;
+
     //Item Meshes
     public Mesh armourMesh, weaponMesh, potionMesh;
     MeshFilter currentMeshFilter;
@@ -42,6 +44,59 @@ public class ItemStats : MonoBehaviour
         //AssignStats();
     }
 
+    int ReturnIndexForSubTypeToBase(Item.ItemSubType itemSubType)
+    {
+        int returnVal = 0;
+        if(type == Item.ItemType.Armour)
+        {
+            switch (itemSubType)
+            {
+                case Item.ItemSubType.LightArmour:
+                    returnVal = 0;
+                    break;
+                case Item.ItemSubType.MediumArmour:
+                    returnVal = 1;
+                    break;
+                case Item.ItemSubType.HeavyArmour:
+                    returnVal = 2;
+                    break;
+            }
+        }
+
+        if (type == Item.ItemType.Weapon)
+        {
+            switch (itemSubType)
+            {
+                case Item.ItemSubType.Spear:
+                    returnVal = 0;
+                    break;
+                case Item.ItemSubType.Sword:
+                    returnVal = 1;
+                    break;
+                case Item.ItemSubType.Bow:
+                    returnVal = 2;
+                    break;
+            }
+        }
+        if (type == Item.ItemType.Potion)
+        {
+            switch (itemSubType)
+            {
+                case Item.ItemSubType.HealthPot:
+                    returnVal = 0;
+                    break;
+                case Item.ItemSubType.SpeedPot:
+                    returnVal = 1;
+                    break;
+                case Item.ItemSubType.DamagePot:
+                    returnVal = 2;
+                    break;
+            }
+        }
+        //print("return val: " + returnVal);
+        return returnVal;
+    }
+
     //For assigning fresh stats
     public void AssignStats()
     {
@@ -50,21 +105,42 @@ public class ItemStats : MonoBehaviour
         {
             case Item.ItemType.Armour:
                 var rng = Random.Range(0, Armour.Base.Length);
-                PullFromBase(Armour.Base[rng]);
-                MessyAssignSubType(rng, type);
+                if (!custom)
+                {
+                    PullFromBase(Armour.Base[rng]);
+                    MessyAssignSubType(rng, type);
+                }
+                else
+                {
+                    PullFromBase(Armour.Base[ReturnIndexForSubTypeToBase(subType)]);
+                }
                 currentMeshFilter.mesh = armourMesh;
                 break;
             case Item.ItemType.Weapon:
                 var rng1 = Random.Range(0, Weapon.Base.Length);
-                PullFromBase(Weapon.Base[rng1]);
-                MessyAssignSubType(rng1, type);
+                if (!custom)
+                {
+                    PullFromBase(Weapon.Base[rng1]);
+                    MessyAssignSubType(rng1, type);
+                }
+                else
+                {
+                    PullFromBase(Weapon.Base[ReturnIndexForSubTypeToBase(subType)]);
+                }
                 currentMeshFilter.mesh = weaponMesh;
                 currentMeshFilter.transform.localScale = new Vector3(4f, 4f, 4f);
                 break;
             case Item.ItemType.Potion:
                 var rng2 = Random.Range(0, Potion.Base.Length);
-                PullFromBase(Potion.Base[rng2]);
-                MessyAssignSubType(rng2, type);
+                if (!custom)
+                {
+                    PullFromBase(Potion.Base[rng2]);
+                    MessyAssignSubType(rng2, type);
+                }
+                else
+                {
+                    PullFromBase(Potion.Base[ReturnIndexForSubTypeToBase(subType)]);
+                }
                 currentMeshFilter.mesh = potionMesh;
                 currentMeshFilter.transform.localScale = new Vector3(15f, 15f, 15f);
                 break;

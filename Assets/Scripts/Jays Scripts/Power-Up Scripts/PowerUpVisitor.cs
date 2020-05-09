@@ -9,16 +9,16 @@ public abstract class PowerUpVisitor
 
 public class PowerUpHealth : PowerUpVisitor
 {
-    public int alterBehaviour(int health) {
+    public float alterBehaviour(float health) {
         Debug.Log(health);
-        health = health + 10;
+        health = health + 10f;
         return health;
     }
 }
 
 public class PowerUpGold : PowerUpVisitor
 {
-    public int alterBehaviour(int gold)
+    public float alterBehaviour(float gold)
     {
         gold = gold + 100;
         return gold;
