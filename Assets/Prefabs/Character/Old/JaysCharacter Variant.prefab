@@ -2690,6 +2690,20 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a288284a6fa9d6d4b91fa91b05a8bd85, type: 3}
   - {fileID: 21300000, guid: 0dfe7c35efe61b8449b5431427a59dba, type: 3}
   - {fileID: 21300000, guid: cf433665342ab8b4ebfbe5a83ecd5631, type: 3}
+--- !u!114 &6058394798880952714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7495321548730595053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d88c1c88f95ec0648b24ec257aa31d2c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sClass: 4
+  indexOverride: 8
 --- !u!65 &1179774612
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2973,6 +2987,10 @@ PrefabInstance:
       propertyPath: dum
       value: 
       objectReference: {fileID: 188743853}
+    - target: {fileID: 2086806097, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
+      propertyPath: healthBarScript
+      value: 
+      objectReference: {fileID: 745295611}
     - target: {fileID: 1309618461, guid: 3d7a2d772bc6b8542818cf8227d0d8ec, type: 3}
       propertyPath: m_TagString
       value: MainCamera
@@ -2999,15 +3017,15 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 7411185387186548764}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &7495321548730595053 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1071129845992982257, guid: 3d7a2d772bc6b8542818cf8227d0d8ec,
-    type: 3}
-  m_PrefabInstance: {fileID: 7411185387186548764}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6800403433296495870 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4072999209642357986, guid: 3d7a2d772bc6b8542818cf8227d0d8ec,
+    type: 3}
+  m_PrefabInstance: {fileID: 7411185387186548764}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7495321548730595053 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1071129845992982257, guid: 3d7a2d772bc6b8542818cf8227d0d8ec,
     type: 3}
   m_PrefabInstance: {fileID: 7411185387186548764}
   m_PrefabAsset: {fileID: 0}

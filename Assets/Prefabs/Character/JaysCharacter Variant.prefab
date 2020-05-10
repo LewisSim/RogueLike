@@ -504,6 +504,11 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 150767135}
+    - target: {fileID: 7411185385641071181, guid: 3add44069ab91634cb6c1acc1a8ae9c0,
+        type: 3}
+      propertyPath: healthBarScript
+      value: 
+      objectReference: {fileID: 5966325998754337269}
     - target: {fileID: 485790252, guid: 3add44069ab91634cb6c1acc1a8ae9c0, type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
@@ -556,3 +561,15 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 5966325999217041166}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5966325998754337269 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 745295611, guid: 3add44069ab91634cb6c1acc1a8ae9c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5966325999217041166}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ff3f8e0f301c6494691c39c4647638aa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

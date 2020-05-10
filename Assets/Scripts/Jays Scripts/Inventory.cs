@@ -182,7 +182,7 @@ public class Inventory : MonoBehaviour
         UpdateUI();
     }
 
-    static void UpdateUI()
+    public static void UpdateUI()
     {
         for (int i = 0; i < p_inventory.Length; i++)
         {
@@ -272,23 +272,23 @@ public class Inventory : MonoBehaviour
 
         //Check if full
 
-        int checker = 0;
-        foreach (var slot in slotsFilled)
-        {
-            if(slot == false)
-            {
-                isFull = false;
-            }
-            else
-            {
-                checker++;
-            }
-        }
-        if(checker == slotsFilled.Length)
-        {
-            isFull = true;
-        }
+        //int checker = 0;
+        //foreach (var slot in slotsFilled)
+        //{
+        //    if(slot == false)
+        //    {
+        //        isFull = false;
+        //    }
+        //    else
+        //    {
+        //        checker++;
+        //    }
+        //}
+        //if(checker == slotsFilled.Length)
+        //{
+        //    isFull = true;
+        //}
 
-        Debug.Log("Inventory is full : " + isFull);
+        //Debug.Log("Inventory is full : " + isFull);
     }
 }

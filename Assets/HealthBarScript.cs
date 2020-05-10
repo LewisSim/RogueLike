@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class HealthBarScript : MonoBehaviour
 {
     [SerializeField]
-    private Stat health;
+    public Stat health;
 
     [SerializeField]
     private float fillAmount;
@@ -25,12 +25,14 @@ public class HealthBarScript : MonoBehaviour
 
     public bool InEffect = false;
 
+
     public float MaxValue { get; set; }
 
     public float Value
     {
         set
         {
+            //print("changing bar");
             fillAmount = Map(value, 0, MaxValue, 0, 1);
         }
     }
@@ -47,17 +49,17 @@ public class HealthBarScript : MonoBehaviour
             HandleBar();
         }
 
-        if (Input.GetKeyDown(KeyCode.Q)) // take away 10hp
-        {
-            health.CurrentVal -= 10;
-        }
+        //if (Input.GetKeyDown(KeyCode.Q)) // take away 10hp
+        //{
+        //    health.CurrentVal -= 10;
+        //}
 
-        if (Input.GetKeyDown(KeyCode.R)) // add 10hp
-        {
-            health.CurrentVal += 10;
-        }
+        //if (Input.GetKeyDown(KeyCode.R)) // add 10hp
+        //{
+        //    health.CurrentVal += 10;
+        //}
 
-        if (health.CurrentVal >= 0)
+        if (health.CurrentVal <= 0)
         {
             print("Character Dead");
         }

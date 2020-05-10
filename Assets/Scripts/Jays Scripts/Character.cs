@@ -13,7 +13,7 @@ public class Character : MonoBehaviour
     float maxVelocity = 3;
     bool isGrounded, isJumping, isAiming;
     Animator anim;
-    public static float movementSpeed = 5.0f;
+    public static float movementSpeed = 4.0f;
     public float rotationSpeed = 200f;
     public Image reticle;
 
@@ -57,6 +57,7 @@ public class Character : MonoBehaviour
     //UI Variables
     public Text ui_Gold, ui_Health;
     public Image deathScreen;
+    public HealthBarScript healthBarScript;
 
     //Analytic Vars
     float timeToSend;
@@ -122,6 +123,13 @@ public class Character : MonoBehaviour
         {
             LockedOn = !LockedOn;
         }
+
+
+        //USE POTION
+        if (Input.GetKeyDown(KeyCode.Q))
+        {
+            UsePotion();
+        }
     }
     IEnumerator CameraSwitch()
     {
@@ -181,10 +189,10 @@ public class Character : MonoBehaviour
 
     public void Movement()
     {
-        var localVelocity = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), 0, Input.GetAxis("Vertical") * movementSpeed);
-        Vector3 movement = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), 0, Input.GetAxis("Vertical") * movementSpeed);
+        var localVelocity = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), rb.velocity.y, Input.GetAxis("Vertical") * movementSpeed);
+        //Vector3 movement = new Vector3((Input.GetAxis("Horizontal") * movementSpeed), 0, Input.GetAxis("Vertical") * movementSpeed);
         rb.velocity = transform.TransformDirection(localVelocity);
-        rb.velocity = Vector3.ClampMagnitude(transform.TransformDirection(localVelocity), movementSpeed);
+        //rb.velocity = Vector3.ClampMagnitude(transform.TransformDirection(localVelocity), movementSpeed);
     }
     public void Jumping()
     {
@@ -200,7 +208,7 @@ public class Character : MonoBehaviour
                 isGrounded = false;
             }
         }
-        float jumpForce = 30f;
+        float jumpForce = 2f;
 
         if (isGrounded && Input.GetKey(KeyCode.Space))
         {
@@ -245,22 +253,6 @@ public class Character : MonoBehaviour
     //Combat Functions
     public void mAttack() //Melee
     {
-
-        float tmpAttVal;
-
-        if (Inventory.p_inventory[0] == null)
-        {
-
-            tmpAttVal = 10;
-        }
-        else
-        {
-            tmpAttVal = Inventory.p_inventory[0].Damage;
-        }
-
-        var newDam = attackDam + ((tmpAttVal * 1.5));
-        print("New damage " + newDam);
-
         float attackRange = 2;
         eCollider = Physics.OverlapSphere(rb.transform.position, attackRange);
         int i = 0;
@@ -272,7 +264,7 @@ public class Character : MonoBehaviour
                 if (dT <= attackRange)
                 {
                     print(dT.ToString() + " Attack Landed!");
-                    eCollider[i].SendMessage("AddDamage", newDam);
+                    eCollider[i].SendMessage("AddDamage", attackDam);
                 }
             }
             else if (eCollider[i].tag == "Agent")
@@ -282,13 +274,12 @@ public class Character : MonoBehaviour
                 if (dT <= attackRange)
                 {
                     print(dT.ToString() + " Attack Landed!");
-                    eCollider[i].SendMessage("AddDamage", newDam);
+                    eCollider[i].SendMessage("AddDamage", attackDam);
                 }
             }
             i++;
         }
     }
-
     public void rAttack() //Ranged
     {
         if (Input.GetMouseButtonDown(1) && isAiming == false)
@@ -308,8 +299,7 @@ public class Character : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                //Shoot();
-                nPShoot();
+                Shoot();
                 print("Firing MY G");
             }
         }
@@ -325,35 +315,6 @@ public class Character : MonoBehaviour
             hit.collider.SendMessage("AddDamage", rangedAttackDam);
         }
     }
-
-    void nPShoot()
-    {
-        float tmpAttVal;
-
-        if (Inventory.p_inventory[1] == null)
-        {
-
-            tmpAttVal = 10;
-        }
-        else
-        {
-            tmpAttVal = Inventory.p_inventory[1].Damage;
-        }
-
-        var newDam = rangedAttackDam + ((tmpAttVal * 1.5));
-        print("New damage value " + newDam);
-
-        float RattackRange = 100f;
-        RaycastHit hit;
-        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, RattackRange))
-        {
-            print("WorkingG");
-            Debug.Log(hit.transform.name);
-            hit.collider.SendMessage("AddDamage", newDam);
-            print("Damage sent");
-        }
-    }
-
     IEnumerator lockOn()
     {
         float lockRange = 10;
@@ -465,6 +426,8 @@ public class Character : MonoBehaviour
 
         print("Player has sustained damage");
 
+        healthBarScript.health.CurrentVal = Health;
+
         //Death check
         if (Health <= 0)
         {
@@ -495,11 +458,39 @@ public class Character : MonoBehaviour
 
         print("Player has sustained damage");
 
+        healthBarScript.health.CurrentVal = Health;
+
         //Death check
         if (Health <= 0)
         {
             print("Player is now dead");
             playerDead();
+        }
+    }
+
+    public void UsePotion()
+    {
+        if (Inventory.p_inventory[3] != null)
+        {
+            var sound = GetComponent<SoundAtSource>();
+            switch (Inventory.p_inventory[3].SubType)
+            {
+                case Item.ItemSubType.HealthPot:
+                    healthBarScript.health.CurrentVal += Inventory.p_inventory[3].Potency * 40;
+                    sound.indexOverride = 8;
+                    break;
+                case Item.ItemSubType.DamagePot:
+                    sound.indexOverride = 10;
+                    break;
+                case Item.ItemSubType.SpeedPot:
+                    sound.indexOverride = 11;
+                    break;
+            }
+
+            sound.TriggerSoundAtUI();
+            Inventory.RemoveItem(3);
+            Inventory.UpdateUI();
+
         }
     }
 

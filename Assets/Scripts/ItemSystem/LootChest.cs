@@ -12,6 +12,8 @@ public class LootChest : MonoBehaviour
     public GameObject txtCanvas;
     public TextMeshProUGUI overlayText;
 
+    public Animator anim;
+
     bool playerIsInBounds = false;
 
     Drop dropScript;
@@ -27,6 +29,9 @@ public class LootChest : MonoBehaviour
             txtCanvas.SetActive(true);
             overlayText.GetComponent<TextMeshProUGUI>().isOverlay = true;
             playerIsInBounds = true;
+            anim.SetBool("Open", true);
+            gameObject.GetComponent<SoundAtSource>().indexOverride = 7;
+            gameObject.GetComponent<SoundAtSource>().TriggerSoundAtUI();
             //Open();
         }
     }
@@ -47,6 +52,7 @@ public class LootChest : MonoBehaviour
             txtCanvas.SetActive(false);
             overlayText.GetComponent<TextMeshProUGUI>().isOverlay = false;
             playerIsInBounds = false;
+            anim.SetBool("Open", false);
         }
     }
 
@@ -57,7 +63,8 @@ public class LootChest : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.E))
             {
                 Open();
-                gameObject.GetComponent<SoundAtSource>().TriggerSoundAtUI();
+                //gameObject.GetComponent<SoundAtSource>().indexOverride = 7;
+                //gameObject.GetComponent<SoundAtSource>().TriggerSoundAtUI();
             }
         }
     }
