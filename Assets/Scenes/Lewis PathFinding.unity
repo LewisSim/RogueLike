@@ -1172,7 +1172,7 @@ GameObject:
   - component: {fileID: 1792842283410878809}
   m_Layer: 0
   m_Name: minion@idles
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1221,6 +1221,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rb: {fileID: 6065088905235895419}
   aiCollider: []
+  health: 100
 --- !u!1 &1954019538298608104
 GameObject:
   m_ObjectHideFlags: 0

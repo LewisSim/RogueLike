@@ -90,11 +90,18 @@ public class EnemyLS : MonoBehaviour
     {
         if (health <= 0)
         {
+            postDeath();
             gameObject.SetActive(false);
             //Destroy(gameObject);
             gameObject.GetComponent<SoundAtSource>().indexOverride = 6;
             gameObject.GetComponent<SoundAtSource>().TriggerSoundAtUI();
             gameObject.GetComponent<Drop>().DropItem();
         }
+    }
+
+    void postDeath()
+    {
+        print("Post Death");
+        nearestTarget.SendMessage("payPlayer", 100);
     }
 }
