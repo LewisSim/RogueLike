@@ -245,6 +245,22 @@ public class Character : MonoBehaviour
     //Combat Functions
     public void mAttack() //Melee
     {
+
+        float tmpAttVal;
+
+        if (Inventory.p_inventory[0] == null)
+        {
+
+            tmpAttVal = 10;
+        }
+        else
+        {
+            tmpAttVal = Inventory.p_inventory[0].Damage;
+        }
+
+        var newDam = attackDam + ((tmpAttVal * 1.5));
+        print("New damage " + newDam);
+
         float attackRange = 2;
         eCollider = Physics.OverlapSphere(rb.transform.position, attackRange);
         int i = 0;
@@ -256,7 +272,7 @@ public class Character : MonoBehaviour
                 if (dT <= attackRange)
                 {
                     print(dT.ToString() + " Attack Landed!");
-                    eCollider[i].SendMessage("AddDamage", attackDam);
+                    eCollider[i].SendMessage("AddDamage", newDam);
                 }
             }
             else if (eCollider[i].tag == "Agent")
@@ -266,12 +282,13 @@ public class Character : MonoBehaviour
                 if (dT <= attackRange)
                 {
                     print(dT.ToString() + " Attack Landed!");
-                    eCollider[i].SendMessage("AddDamage", attackDam);
+                    eCollider[i].SendMessage("AddDamage", newDam);
                 }
             }
             i++;
         }
     }
+
     public void rAttack() //Ranged
     {
         if (Input.GetMouseButtonDown(1) && isAiming == false)
@@ -291,7 +308,8 @@ public class Character : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Shoot();
+                //Shoot();
+                nPShoot();
                 print("Firing MY G");
             }
         }
@@ -307,6 +325,35 @@ public class Character : MonoBehaviour
             hit.collider.SendMessage("AddDamage", rangedAttackDam);
         }
     }
+
+    void nPShoot()
+    {
+        float tmpAttVal;
+
+        if (Inventory.p_inventory[1] == null)
+        {
+
+            tmpAttVal = 10;
+        }
+        else
+        {
+            tmpAttVal = Inventory.p_inventory[1].Damage;
+        }
+
+        var newDam = rangedAttackDam + ((tmpAttVal * 1.5));
+        print("New damage value " + newDam);
+
+        float RattackRange = 100f;
+        RaycastHit hit;
+        if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, RattackRange))
+        {
+            print("WorkingG");
+            Debug.Log(hit.transform.name);
+            hit.collider.SendMessage("AddDamage", newDam);
+            print("Damage sent");
+        }
+    }
+
     IEnumerator lockOn()
     {
         float lockRange = 10;
