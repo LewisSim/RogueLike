@@ -38,6 +38,7 @@ public class TutorialKeyScript : MonoBehaviour
 
     void TriggerDoor()
     {
-        door.SetActive(false);
+        door.transform.Rotate(new Vector3(0f, 90f, 0f));
+        //door.SetActive(false);
     }
 }

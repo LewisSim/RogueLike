@@ -1796,7 +1796,7 @@ MonoBehaviour:
   - {fileID: 567855355}
   - {fileID: 385893797}
   - {fileID: 1576944795}
-  door: {fileID: 1828344375}
+  door: {fileID: 1587385109}
 --- !u!114 &75211488
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46016,6 +46016,12 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1586939368}
   m_Mesh: {fileID: 10209, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!1 &1587385109 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: -927199367670048503, guid: d49965ae9dc8c8d46acecc0984e8a669,
+    type: 3}
+  m_PrefabInstance: {fileID: 1701629157}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1587943724
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -49097,22 +49103,22 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d49965ae9dc8c8d46acecc0984e8a669,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d49965ae9dc8c8d46acecc0984e8a669,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.70710665
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d49965ae9dc8c8d46acecc0984e8a669,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d49965ae9dc8c8d46acecc0984e8a669,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.7071069
+      value: 0.7071068
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d49965ae9dc8c8d46acecc0984e8a669,
         type: 3}
@@ -49127,7 +49133,7 @@ PrefabInstance:
     - target: {fileID: -4216859302048453862, guid: d49965ae9dc8c8d46acecc0984e8a669,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 90.00001
+      value: 90
       objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d49965ae9dc8c8d46acecc0984e8a669,
         type: 3}
@@ -53101,7 +53107,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!65 &1828344376
 BoxCollider:
   m_ObjectHideFlags: 0

@@ -49,10 +49,18 @@ public class Inventory : MonoBehaviour
     static Sprite[] icons;
 
     public static bool isFull;
-    static bool[] slotsFilled; 
+    static bool[] slotsFilled;
+
+    //private static Inventory instance;
+
+    //public static Inventory Instance
+    //{
+    //    get { return instance; }
+    //}
 
     private void Awake()
     {
+
         Init();
     }
 
