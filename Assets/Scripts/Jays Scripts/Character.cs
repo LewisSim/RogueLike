@@ -250,6 +250,7 @@ public class Character : MonoBehaviour
         Health = pwrup2.alterBehaviour(Health);
         print(Health);
     }
+
     //Combat Functions
     public void mAttack() //Melee
     {
@@ -498,5 +499,12 @@ public class Character : MonoBehaviour
     {
         deathScreen.gameObject.SetActive(true);
         Cursor.lockState = CursorLockMode.None;
+    }
+
+    public void payPlayer(int payment)
+    {
+        print(Gold);
+        Gold += payment;
+        print(Gold);
     }
 }
