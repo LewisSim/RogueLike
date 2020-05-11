@@ -113,7 +113,7 @@ public class Character : MonoBehaviour
         if (Input.GetButtonDown("Fire1") && isAiming == false)
         {
             anim.SetTrigger("isMAttacking");
-            mAttack();
+            //mAttack();
         }
         //Ranged attack
         rAttack();
