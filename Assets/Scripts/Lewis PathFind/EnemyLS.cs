@@ -80,6 +80,11 @@ public class EnemyLS : MonoBehaviour
     //Methods
     public void AddDamage(int damage)
     {
+        if(nearestTarget == null)
+        {
+            nearestTarget = GameObject.FindGameObjectWithTag("Player").transform;
+            gameObject.GetComponent<Unit>().target = nearestTarget;
+        }
         health -= damage;
         print(damage.ToString() + " Damage taken!");
         checkHealth();
