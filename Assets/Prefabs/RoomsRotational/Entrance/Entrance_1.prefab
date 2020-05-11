@@ -10,9 +10,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2694262248327235224, guid: 3332f8d70327aa04aa0065846815c8fe, type: 3}
 --- !u!1 &7018307343565095088
 GameObject:
@@ -56,10 +56,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8668232869522500837}
     m_Modifications:
-    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+    - target: {fileID: 3807108519677382504, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
-      propertyPath: m_Name
-      value: CandleDoor (1)
+      propertyPath: m_Intensity
+      value: 47.746483
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807108520929336227, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 47.746483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272545150717364, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_Version
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272545150717364, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272545150717364, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272546931218815, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_Version
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272546931218815, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272546931218815, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5341094793989668351, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
@@ -116,18 +151,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3807108520929336227, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
-      propertyPath: m_Intensity
-      value: 47.746483
-      objectReference: {fileID: 0}
-    - target: {fileID: 3807108519677382504, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 47.746483
+      propertyPath: m_Name
+      value: CandleDoor (1)
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5341094793996588093, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
+    - {fileID: 3258328709517604421, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
+    - {fileID: 3258328710245261966, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
 --- !u!4 &7730545370093996612 stripped
 Transform:
@@ -142,11 +174,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8668232869522500837}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: c7b7d25d5b103614393f458d382b1b21,
-        type: 3}
-      propertyPath: m_Name
-      value: Hallway_DeadEnd_4
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c7b7d25d5b103614393f458d382b1b21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -217,6 +244,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.85
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c7b7d25d5b103614393f458d382b1b21,
+        type: 3}
+      propertyPath: m_Name
+      value: Hallway_DeadEnd_4
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c7b7d25d5b103614393f458d382b1b21,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b7d25d5b103614393f458d382b1b21, type: 3}
 --- !u!1 &4632523942235789015 stripped
@@ -238,11 +275,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8668232869522500837}
     m_Modifications:
-    - target: {fileID: 8679824157464762385, guid: 002b538a1a81dba4a9fb386bfb974d93,
-        type: 3}
-      propertyPath: m_Name
-      value: Window Light (Empty)
-      objectReference: {fileID: 0}
     - target: {fileID: 8136995237986957741, guid: 002b538a1a81dba4a9fb386bfb974d93,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -298,7 +330,59 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 8679824157464762385, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_Name
+      value: Window Light (Empty)
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801458269867866, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_Version
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801458269867866, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_PointlightHDType
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801458269867866, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_AreaLightShape
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801458269867866, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801458269867866, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801458269867867, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_UseBoundingSphereOverride
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801460271328080, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_Version
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801460271328080, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 9185801460271328080, guid: 002b538a1a81dba4a9fb386bfb974d93,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 9185801460271328095, guid: 002b538a1a81dba4a9fb386bfb974d93, type: 3}
+    - {fileID: 9185801458269867865, guid: 002b538a1a81dba4a9fb386bfb974d93, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 002b538a1a81dba4a9fb386bfb974d93, type: 3}
 --- !u!4 &4231678730345905041 stripped
 Transform:
@@ -313,10 +397,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8668232869522500837}
     m_Modifications:
-    - target: {fileID: 5832574951129011545, guid: d228fa605b4d20f42a4487f2b1f08873,
+    - target: {fileID: 711470026732344162, guid: d228fa605b4d20f42a4487f2b1f08873,
         type: 3}
-      propertyPath: m_Name
-      value: PlayerSpawner
+      propertyPath: miniMap
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3636931745422795982, guid: d228fa605b4d20f42a4487f2b1f08873,
         type: 3}
@@ -373,10 +457,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 711470026732344162, guid: d228fa605b4d20f42a4487f2b1f08873,
+    - target: {fileID: 5832574951129011545, guid: d228fa605b4d20f42a4487f2b1f08873,
         type: 3}
-      propertyPath: miniMap
-      value: 
+      propertyPath: m_Name
+      value: PlayerSpawner
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d228fa605b4d20f42a4487f2b1f08873, type: 3}
@@ -393,10 +477,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8668232869522500837}
     m_Modifications:
-    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+    - target: {fileID: 3807108519677382504, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
-      propertyPath: m_Name
-      value: CandleDoor
+      propertyPath: m_Intensity
+      value: 47.746483
+      objectReference: {fileID: 0}
+    - target: {fileID: 3807108520929336227, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_Intensity
+      value: 47.746483
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272545150717364, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_Version
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272545150717364, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272545150717364, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272546931218815, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_Version
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272546931218815, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 4519272546931218815, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5341094793989668351, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
@@ -453,18 +572,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3807108520929336227, guid: 7ed76a18919e3e64399cc5e4bca8db52,
+    - target: {fileID: 5341094793990021599, guid: 7ed76a18919e3e64399cc5e4bca8db52,
         type: 3}
-      propertyPath: m_Intensity
-      value: 47.746483
-      objectReference: {fileID: 0}
-    - target: {fileID: 3807108519677382504, guid: 7ed76a18919e3e64399cc5e4bca8db52,
-        type: 3}
-      propertyPath: m_Intensity
-      value: 47.746483
+      propertyPath: m_Name
+      value: CandleDoor
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 5341094793996588093, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
+    - {fileID: 3258328709517604421, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
+    - {fileID: 3258328710245261966, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 7ed76a18919e3e64399cc5e4bca8db52, type: 3}
 --- !u!4 &4565215923519632533 stripped
 Transform:

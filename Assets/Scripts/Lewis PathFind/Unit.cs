@@ -36,7 +36,6 @@ public class Unit : MonoBehaviour
 
     IEnumerator UpdatePath()
     {
-
         if (Time.timeSinceLevelLoad < .3f)
         {
             yield return new WaitForSeconds(.3f);

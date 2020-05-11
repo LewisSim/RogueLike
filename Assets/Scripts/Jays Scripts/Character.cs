@@ -79,8 +79,6 @@ public class Character : MonoBehaviour
         timeToSend = 60f;
         Health = 100;
 
-        print(Inventory.p_inventory[4].ArmourRating.ToString());
-
     }
 
     private void FixedUpdate()
@@ -312,7 +310,11 @@ public class Character : MonoBehaviour
         {
             print("WorkingG");
             Debug.Log(hit.transform.name);
-            hit.collider.SendMessage("AddDamage", rangedAttackDam);
+            //hit.collider.SendMessage("AddDamage", rangedAttackDam);
+            if (hit.transform.name == "minion@idles")
+            {
+                hit.collider.SendMessage("AddDamage", rangedAttackDam);
+            }
         }
     }
     IEnumerator lockOn()
