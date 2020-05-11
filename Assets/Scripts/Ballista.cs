@@ -90,6 +90,14 @@ public class Ballista : MonoBehaviour
         cam.transform.LookAt(dum.transform);
 
     */
+
+        yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
+        pitch -= Input.GetAxis("Mouse Y") * mouseSensitivity;
+        pitch = Mathf.Clamp(pitch, -15f, 5f);
+
+        currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(0, yaw, pitch), ref rotationSmoothVelocity, rotationSmoothTime);
+        transform.eulerAngles = currentRotation;
+
         if (Input.GetButtonDown("Fire1"))
         {
             Shoot();
