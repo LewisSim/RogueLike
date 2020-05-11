@@ -446,6 +446,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5839017547355353161}
+  permaP: {fileID: 906146044876577776, guid: 31e575145094bf74eaab63404b572810, type: 3}
   aiCollider: []
   health: 100
 --- !u!114 &6768134684258087782

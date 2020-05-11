@@ -102,6 +102,6 @@ public class EnemyLS : MonoBehaviour
     void postDeath()
     {
         print("Post Death");
-        permaP.SendMessage("payPlayer", 100);
+        nearestTarget.SendMessage("payPlayer", 100);
     }
 }

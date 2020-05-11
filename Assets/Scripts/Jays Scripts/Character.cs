@@ -254,6 +254,22 @@ public class Character : MonoBehaviour
     //Combat Functions
     public void mAttack() //Melee
     {
+
+        float tmpAttVal;
+
+        if (Inventory.p_inventory[0] == null)
+        {
+
+            tmpAttVal = 10;
+        }
+        else
+        {
+            tmpAttVal = Inventory.p_inventory[0].Damage;
+        }
+
+        var newDam = attackDam + ((tmpAttVal * 1.5));
+        print("New damage " + newDam);
+
         float attackRange = 2;
         eCollider = Physics.OverlapSphere(rb.transform.position, attackRange);
         int i = 0;
@@ -265,7 +281,7 @@ public class Character : MonoBehaviour
                 if (dT <= attackRange)
                 {
                     print(dT.ToString() + " Attack Landed!");
-                    eCollider[i].SendMessage("AddDamage", attackDam);
+                    eCollider[i].SendMessage("AddDamage", newDam);
                     //anim.SetBool("isMAttacking", false);
                 }
             }
@@ -302,17 +318,17 @@ public class Character : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
-               // print("Firing MY G");
+               print("Firing MY G");
             }
         }
     }
     void Shoot()
     {
-        float RattackRange = 100f;
+        float RattackRange = 300f;
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, RattackRange))
         {
-            //print("WorkingG");
+            print("WorkingG");
             Debug.Log(hit.transform.name);
             //hit.collider.SendMessage("AddDamage", rangedAttackDam);
             if (hit.transform.name == "minion@idles")
