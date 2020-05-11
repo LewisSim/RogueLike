@@ -553,7 +553,7 @@ GameObject:
   - component: {fileID: 8498419511379762601}
   - component: {fileID: 8448149572278392777}
   - component: {fileID: 1332392287051797769}
-  m_Layer: 0
+  m_Layer: 2
   m_Name: PlayerSightZone
   m_TagString: Untagged
   m_Icon: {fileID: 0}

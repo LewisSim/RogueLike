@@ -317,8 +317,7 @@ public class Character : MonoBehaviour
         {
             if (Input.GetButtonDown("Fire1"))
             {
-                Shoot();
-               print("Firing MY G");
+               Shoot();
             }
         }
     }
@@ -331,8 +330,9 @@ public class Character : MonoBehaviour
             print("WorkingG");
             Debug.Log(hit.transform.name);
             //hit.collider.SendMessage("AddDamage", rangedAttackDam);
-            if (hit.transform.name == "minion@idles")
+            if (hit.transform.tag == "Enemy")
             {
+                print("Range attacked");
                 hit.collider.SendMessage("AddDamage", rangedAttackDam);
             }
         }
