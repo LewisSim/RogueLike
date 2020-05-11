@@ -10,9 +10,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: -2694262248327235224, guid: 3332f8d70327aa04aa0065846815c8fe, type: 3}
 --- !u!1 &7018307343565095088
 GameObject:
@@ -55,11 +55,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8668232869522500837}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: c7b7d25d5b103614393f458d382b1b21,
-        type: 3}
-      propertyPath: m_Name
-      value: Hallway_DeadEnd_4
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: c7b7d25d5b103614393f458d382b1b21,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -129,6 +124,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalScale.z
       value: 0.85
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c7b7d25d5b103614393f458d382b1b21,
+        type: 3}
+      propertyPath: m_Name
+      value: Hallway_DeadEnd_4
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: c7b7d25d5b103614393f458d382b1b21,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c7b7d25d5b103614393f458d382b1b21, type: 3}

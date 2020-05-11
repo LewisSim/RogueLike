@@ -47,7 +47,7 @@ MonoBehaviour:
   type: 2
   tier: 0
   test: 0
-  s_enemy: {fileID: 6698377524643813632, guid: d35fb78b42696424f8beb6be6424fea4, type: 3}
+  s_enemy: {fileID: 2144462407309563236, guid: 95df4fcba15e1a6459de2195a302de93, type: 3}
   s_lootChest: {fileID: 5291020719197207946, guid: 55f893aad364e114f8b5afa8e29f0366,
     type: 3}
   s_trap: {fileID: 3402661428815045746, guid: 7fe07c426c20a65418825bc109ab65cb, type: 3}
@@ -58,11 +58,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8435838404501509854}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: de04fe08632790f4eb27b972120b9915,
-        type: 3}
-      propertyPath: m_Name
-      value: SpawnPointMark
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: de04fe08632790f4eb27b972120b9915,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -123,6 +118,11 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 108e33deca49d0d478987687724db573, type: 2}
+    - target: {fileID: -927199367670048503, guid: de04fe08632790f4eb27b972120b9915,
+        type: 3}
+      propertyPath: m_Name
+      value: SpawnPointMark
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: de04fe08632790f4eb27b972120b9915, type: 3}
 --- !u!4 &1307738211343942454 stripped
