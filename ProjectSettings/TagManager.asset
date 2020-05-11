@@ -39,6 +39,7 @@ TagManager:
   - badFood
   - food
   - cover
+  - charactermesh
   layers:
   - Default
   - TransparentFX
