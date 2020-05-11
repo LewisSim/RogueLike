@@ -323,6 +323,20 @@ MonoBehaviour:
   m_EffectColor: {r: 0, g: 0, b: 0, a: 1}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
+--- !u!64 &3552647135906173637
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5767029726144827103}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 6453704192278869261, guid: b8be64f7b9c8ebd48b930200eedc29ab, type: 3}
 --- !u!50 &7411185385467636795
 Rigidbody2D:
   serializedVersion: 4
@@ -546,6 +560,11 @@ PrefabInstance:
       propertyPath: m_RenderingPathCustomFrameSettings.bitDatas.data1
       value: 70005819440989
       objectReference: {fileID: 0}
+    - target: {fileID: 199353663313498577, guid: 3add44069ab91634cb6c1acc1a8ae9c0,
+        type: 3}
+      propertyPath: m_TagString
+      value: charactermesh
+      objectReference: {fileID: 0}
     - target: {fileID: 4347174967253400986, guid: 3add44069ab91634cb6c1acc1a8ae9c0,
         type: 3}
       propertyPath: m_Version
@@ -631,6 +650,12 @@ PrefabInstance:
 --- !u!4 &906146044876577776 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6800403433296495870, guid: 3add44069ab91634cb6c1acc1a8ae9c0,
+    type: 3}
+  m_PrefabInstance: {fileID: 5966325999217041166}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5767029726144827103 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 199353663313498577, guid: 3add44069ab91634cb6c1acc1a8ae9c0,
     type: 3}
   m_PrefabInstance: {fileID: 5966325999217041166}
   m_PrefabAsset: {fileID: 0}

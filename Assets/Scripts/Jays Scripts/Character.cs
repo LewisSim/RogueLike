@@ -30,6 +30,7 @@ public class Character : MonoBehaviour
     //
     public float cooldown2 = 10f;
     public bool coolingdown2 = false;
+    public bool attackFinished = false;
 
     //public float attackRange;
     public Collider[] eCollider;
@@ -111,7 +112,8 @@ public class Character : MonoBehaviour
         //Melee attack
         if (Input.GetButtonDown("Fire1") && isAiming == false)
         {
-            mAttack();
+            anim.SetTrigger("isMAttacking");
+            //mAttack();
         }
         //Ranged attack
         rAttack();
@@ -263,6 +265,7 @@ public class Character : MonoBehaviour
                 {
                     print(dT.ToString() + " Attack Landed!");
                     eCollider[i].SendMessage("AddDamage", attackDam);
+                    //anim.SetBool("isMAttacking", false);
                 }
             }
             else if (eCollider[i].tag == "Agent")
