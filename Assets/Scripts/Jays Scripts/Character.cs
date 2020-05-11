@@ -112,7 +112,7 @@ public class Character : MonoBehaviour
         //Melee attack
         if (Input.GetButtonDown("Fire1") && isAiming == false)
         {
-            anim.SetBool("isMAttacking", true);
+            anim.SetTrigger("isMAttacking");
             mAttack();
         }
         //Ranged attack
@@ -265,7 +265,7 @@ public class Character : MonoBehaviour
                 {
                     print(dT.ToString() + " Attack Landed!");
                     eCollider[i].SendMessage("AddDamage", attackDam);
-                    anim.SetBool("isMAttacking", false);
+                    //anim.SetBool("isMAttacking", false);
                 }
             }
             else if (eCollider[i].tag == "Agent")
