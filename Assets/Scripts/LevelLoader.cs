@@ -18,8 +18,11 @@ public class LevelLoader : MonoBehaviour {
     public bool isLevelWithGeneration;
     private LevelGen lGen;
 
+    public int sceneAlterIndex;
+
     [Header("You must enable this if you are using the LoadDepends function")]
     public bool playerPref;
+
 
 
 	public void LoadLevel (int sceneIndex)
@@ -65,18 +68,29 @@ public class LevelLoader : MonoBehaviour {
     /// </summary>
     /// <param name="sceneIndex">The scene to run if the result is true</param>
     /// <param name="sceneAlterIndex">The scene to run if the result is false</param>
-    public void LoadDepends(int sceneIndex, int sceneAlterIndex)
+    public void LoadDepends(int sceneIndex)
     {
-        int sendIndex;
+        int sendIndex = 0;
         if (playerPref)
         {
             if (PlayerPrefs.HasKey("Intro"))
             {
-                sendIndex = sceneIndex;
+                if (PlayerPrefs.GetInt("Intro") == 1)
+                {
+                    sendIndex = sceneIndex;
+                }
+                else
+                {
+                    sendIndex = sceneAlterIndex;
+                    PlayerPrefs.SetInt("Intro", 1);
+                    PlayerPrefs.Save();
+                }
             }
             else
             {
                 sendIndex = sceneAlterIndex;
+                PlayerPrefs.SetInt("Intro", 1);
+                PlayerPrefs.Save();
             }
 
 
@@ -102,6 +116,12 @@ public class LevelLoader : MonoBehaviour {
                 //minimapUI.SetActive(true);
                 //healthUI.SetActive(true);
             }
+        }
+
+        if (Input.GetKeyDown(KeyCode.I))
+        {
+            PlayerPrefs.SetInt("Intro", 0);
+            print("reset intro key");
         }
     }
 

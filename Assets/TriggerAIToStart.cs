@@ -9,7 +9,7 @@ public class TriggerAIToStart : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "charactermesh")
+        if(other.tag == "Player")
         {
             unit.target = other.transform;
             //print("player detected at: "+other.gameObject.transform.position);
