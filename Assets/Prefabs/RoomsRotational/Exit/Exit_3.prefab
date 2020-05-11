@@ -45,9 +45,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
+  serializedVersion: 4
   m_Convex: 0
-  m_CookingOptions: 14
+  m_CookingOptions: 30
   m_Mesh: {fileID: 2023177183224926040, guid: 557946f6c5fe45e4a85b3cb42339865d, type: 3}
 --- !u!1001 &1151260381472476735
 PrefabInstance:
@@ -56,6 +56,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 4815122955392093361}
     m_Modifications:
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_Version
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9136379149227009171, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_Name
@@ -116,7 +131,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1790029290169054860, guid: 3584f457015fe044794ffa0a59e9a0a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3584f457015fe044794ffa0a59e9a0a3, type: 3}
 --- !u!1001 &2054039580649342144
 PrefabInstance:
@@ -125,6 +141,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7730666398888059928}
     m_Modifications:
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_Version
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_MinFilterSize
+      value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 8406196325159236229, guid: 3584f457015fe044794ffa0a59e9a0a3,
+        type: 3}
+      propertyPath: m_ShadowResolution.m_Level
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 9136379149227009171, guid: 3584f457015fe044794ffa0a59e9a0a3,
         type: 3}
       propertyPath: m_Name
@@ -185,7 +216,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -1790029290169054860, guid: 3584f457015fe044794ffa0a59e9a0a3, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 3584f457015fe044794ffa0a59e9a0a3, type: 3}
 --- !u!1001 &2522621528293273305
 PrefabInstance:
@@ -274,11 +306,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5421250119607299079}
     m_Modifications:
-    - target: {fileID: 7924503384812295170, guid: 3006fa959de023d4aa019edcd2a7f93b,
-        type: 3}
-      propertyPath: m_Name
-      value: AreaTransition
-      objectReference: {fileID: 0}
     - target: {fileID: 1389721125343562405, guid: 3006fa959de023d4aa019edcd2a7f93b,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -339,6 +366,11 @@ PrefabInstance:
       propertyPath: DelveDeeper
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7924503384812295170, guid: 3006fa959de023d4aa019edcd2a7f93b,
+        type: 3}
+      propertyPath: m_Name
+      value: AreaTransition
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3006fa959de023d4aa019edcd2a7f93b, type: 3}
 --- !u!4 &3894080076497495596 stripped
@@ -354,11 +386,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5421250119607299079}
     m_Modifications:
-    - target: {fileID: 259316687623363688, guid: 79c996bf1d244c94cbb82a93c7e81da7,
-        type: 3}
-      propertyPath: m_Name
-      value: CandleFire
-      objectReference: {fileID: 0}
     - target: {fileID: 259316687622930504, guid: 79c996bf1d244c94cbb82a93c7e81da7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -414,6 +441,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 259316687623363688, guid: 79c996bf1d244c94cbb82a93c7e81da7,
+        type: 3}
+      propertyPath: m_Name
+      value: CandleFire
+      objectReference: {fileID: 0}
     - target: {fileID: 259316687641281800, guid: 79c996bf1d244c94cbb82a93c7e81da7,
         type: 3}
       propertyPath: InitialModule.startSizeY.minMaxState
@@ -450,11 +482,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5421250119607299079}
     m_Modifications:
-    - target: {fileID: -927199367670048503, guid: d053b708736a1c84d951a90fc8351eff,
-        type: 3}
-      propertyPath: m_Name
-      value: Hallway_DeadEnd_2
-      objectReference: {fileID: 0}
     - target: {fileID: -4216859302048453862, guid: d053b708736a1c84d951a90fc8351eff,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -525,6 +552,16 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.85
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d053b708736a1c84d951a90fc8351eff,
+        type: 3}
+      propertyPath: m_Name
+      value: Hallway_DeadEnd_2
+      objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: d053b708736a1c84d951a90fc8351eff,
+        type: 3}
+      propertyPath: m_TagString
+      value: Wall
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d053b708736a1c84d951a90fc8351eff, type: 3}
 --- !u!1 &4301207405482918288 stripped
@@ -546,11 +583,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 5421250119607299079}
     m_Modifications:
-    - target: {fileID: 259316687623363688, guid: 79c996bf1d244c94cbb82a93c7e81da7,
-        type: 3}
-      propertyPath: m_Name
-      value: CandleFire (1)
-      objectReference: {fileID: 0}
     - target: {fileID: 259316687622930504, guid: 79c996bf1d244c94cbb82a93c7e81da7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -605,6 +637,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 259316687623363688, guid: 79c996bf1d244c94cbb82a93c7e81da7,
+        type: 3}
+      propertyPath: m_Name
+      value: CandleFire (1)
       objectReference: {fileID: 0}
     - target: {fileID: 259316687641281800, guid: 79c996bf1d244c94cbb82a93c7e81da7,
         type: 3}
