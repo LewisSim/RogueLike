@@ -12,6 +12,7 @@ public class TriggerAIToStart : MonoBehaviour
         if(other.tag == "charactermesh")
         {
             unit.target = other.transform;
+            //print("player detected at: "+other.gameObject.transform.position);
             unit.enabled = true;
             enemy.enabled = true;
         }
