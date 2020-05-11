@@ -168,7 +168,7 @@ public class LearnBehaviour : MonoBehaviour
                 }
 
 
-                string[] pages = urlget.Split('/');
+                string[] pages = urlStats.Split('/');
                 int page = pages.Length - 1;
 
                 if (www.isNetworkError)
