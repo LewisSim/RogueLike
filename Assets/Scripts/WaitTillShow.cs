@@ -32,9 +32,10 @@ public class WaitTillShow : MonoBehaviour
 
         if (allowSpace)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                lvlload.LoadLevel(6);
+                lvlload.LoadSceneStandard(6);
+                allowSpace = false;
             }
         }
     }
