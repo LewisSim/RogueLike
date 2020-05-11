@@ -6,6 +6,7 @@ using UnityEngine.Networking;
 public class GetWeaponPercent : MonoBehaviour
 {
     string userDataString;
+    [System.NonSerialized]
     public string userStatsString;
     float timeToSend;
     int m_UserID;
