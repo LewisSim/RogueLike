@@ -119,6 +119,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Wall
       objectReference: {fileID: 0}
+    - target: {fileID: -927199367670048503, guid: 367a36b874f9f954684f1402a4e22cd9,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 367a36b874f9f954684f1402a4e22cd9, type: 3}
 --- !u!1 &8265650828125726966 stripped

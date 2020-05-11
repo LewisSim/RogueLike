@@ -429,7 +429,7 @@ MonoBehaviour:
   speed: 5
   turnSpeed: 3
   turnDst: 5
-  stoppingDst: 10
+  stoppingDst: 0
 --- !u!114 &2144462407309563243
 MonoBehaviour:
   m_ObjectHideFlags: 0
