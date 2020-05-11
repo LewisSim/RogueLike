@@ -62,7 +62,6 @@ public class Character : MonoBehaviour
     //Analytic Vars
     float timeToSend;
     int m_UserID;
-    int m_Health;
     int m_Time = 1;
     string m_weaponPref;
     string urlset = "http://daredicing.com/setUserStats.php";
@@ -402,7 +401,7 @@ public class Character : MonoBehaviour
             timeToSend = 60f;
             WWWForm form = new WWWForm();
             form.AddField("userID", m_UserID.ToString());
-            form.AddField("sendHealth", m_Health.ToString());
+            form.AddField("sendHealth", Health.ToString());
             form.AddField("sendTime", m_Time.ToString());
             form.AddField("sendWeaponPref", m_weaponPref.ToString());
 
