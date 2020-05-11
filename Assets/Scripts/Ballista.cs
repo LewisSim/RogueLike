@@ -76,6 +76,7 @@ public class Ballista : MonoBehaviour
         {
             rAttack();
         }
+        
     }
 
 
@@ -114,6 +115,8 @@ public class Ballista : MonoBehaviour
             character.SetActive(false);
             txtCanvas.SetActive(true);
             overlayText.GetComponent<TextMeshProUGUI>().isOverlay = true;
+            //Testing
+            StartCoroutine(player.GetComponent<Character>().CameraSwitch());
         }
     }
     void Shoot()

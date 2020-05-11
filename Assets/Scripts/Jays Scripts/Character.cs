@@ -140,7 +140,7 @@ public class Character : MonoBehaviour
             UsePotion();
         }
     }
-    IEnumerator CameraSwitch()
+    public IEnumerator CameraSwitch()
     {
         while (true)
         {
