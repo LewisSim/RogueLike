@@ -68,7 +68,7 @@ public class Ballista : MonoBehaviour
                 cam.gameObject.SetActive(true);
                 character.SetActive(true);
                 txtCanvas.SetActive(false);
-                overlayText.GetComponent<TextMeshProUGUI>().isOverlay = true;
+                overlayText.GetComponent<TextMeshProUGUI>().isOverlay = false;
             }
         }
 
@@ -104,6 +104,17 @@ public class Ballista : MonoBehaviour
             
         }
 
+
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            usingBallista = false;
+            player.SetActive(true);
+            reticle.gameObject.SetActive(false);
+            cam.gameObject.SetActive(false);
+            character.SetActive(false);
+            txtCanvas.SetActive(true);
+            overlayText.GetComponent<TextMeshProUGUI>().isOverlay = true;
+        }
     }
     void Shoot()
     {
