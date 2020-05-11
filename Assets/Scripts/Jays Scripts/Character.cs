@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Networking;
+using TMPro;
 public class Character : MonoBehaviour
 {
     //Variables
@@ -56,7 +57,7 @@ public class Character : MonoBehaviour
     public Vector3 jump = new Vector3(0.0f, 2.0f, 0.0f);
 
     //UI Variables
-    public Text ui_Gold, ui_Health;
+    public TextMeshProUGUI ui_Gold, ui_Health;
     public Image deathScreen;
     public HealthBarScript healthBarScript;
 
@@ -79,7 +80,7 @@ public class Character : MonoBehaviour
         getUserID();
         timeToSend = 60f;
         Health = 100;
-
+        ui_Gold.text = "Gold: ";
     }
 
     private void FixedUpdate()
@@ -103,6 +104,8 @@ public class Character : MonoBehaviour
         cam.transform.LookAt(dum.transform);
 
         AbilityExecution();
+
+        ui_Gold.text = "Gold: " + Gold.ToString();
     }
     public void Update()
     {
@@ -140,7 +143,6 @@ public class Character : MonoBehaviour
                 yaw += Input.GetAxis("Mouse X") * mouseSensitivity;
                 currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(0, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
                 transform.eulerAngles = currentRotation;
-                print("Cheese");
                 //yield return null;
             }
             if (LockedOn == true)
@@ -181,7 +183,6 @@ public class Character : MonoBehaviour
 
             currentRotation = Vector3.SmoothDamp(currentRotation, new Vector3(0, yaw), ref rotationSmoothVelocity, rotationSmoothTime);
             transform.eulerAngles = currentRotation;
-            print("Cheese");
             yield return null;
         }
     }
@@ -285,13 +286,13 @@ public class Character : MonoBehaviour
     {
         if (Input.GetMouseButtonDown(1) && isAiming == false)
         {
-            print("RMBd active");
+           // print("RMBd active");
             reticle.gameObject.SetActive(true);
             isAiming = true;
         }
         else if (Input.GetMouseButtonDown(1) && isAiming == true)
         {
-            print("RMBd deactivated");
+            //print("RMBd deactivated");
             reticle.gameObject.SetActive(false);
             isAiming = false;
         }
@@ -301,7 +302,7 @@ public class Character : MonoBehaviour
             if (Input.GetButtonDown("Fire1"))
             {
                 Shoot();
-                print("Firing MY G");
+               // print("Firing MY G");
             }
         }
     }
@@ -311,7 +312,7 @@ public class Character : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, RattackRange))
         {
-            print("WorkingG");
+            //print("WorkingG");
             Debug.Log(hit.transform.name);
             //hit.collider.SendMessage("AddDamage", rangedAttackDam);
             if (hit.transform.name == "minion@idles")
@@ -365,7 +366,7 @@ public class Character : MonoBehaviour
         {
             abOne();
             coolingdown = true;
-            print("Executed");
+           // print("Executed");
         }
         else
         {
@@ -374,7 +375,7 @@ public class Character : MonoBehaviour
             {
                 coolingdown = false;
                 cooldown = 2f;
-                print("Cooling down");
+                //print("Cooling down");
             }
         }
         //
@@ -382,7 +383,7 @@ public class Character : MonoBehaviour
         {
             abTwo();
             coolingdown2 = true;
-            print("Executed2");
+            //print("Executed2");
         }
         else
         {
@@ -391,7 +392,7 @@ public class Character : MonoBehaviour
             {
                 coolingdown2 = false;
                 cooldown2 = 2f;
-                print("Cooling down2");
+                //print("Cooling down2");
             }
         }
     }
@@ -461,14 +462,12 @@ public class Character : MonoBehaviour
         Health = Health - newDam;
         print("New Health" + Health);
 
-        print("Player has sustained damage");
 
         healthBarScript.health.CurrentVal = Health;
 
         //Death check
         if (Health <= 0)
         {
-            print("Player is now dead");
             playerDead();
         }
     }

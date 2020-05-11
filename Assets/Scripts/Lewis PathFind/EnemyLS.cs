@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyLS : MonoBehaviour
 {
     public Rigidbody rb;
+    public Transform permaP;
 
     //Variables
     float lockRange = 2f;
@@ -46,7 +47,6 @@ public class EnemyLS : MonoBehaviour
             transform.LookAt(nearestTarget);
             print("Targetting player");
         }
-
         attackingPlayer();
     }
 
@@ -90,7 +90,7 @@ public class EnemyLS : MonoBehaviour
     {
         if (health <= 0)
         {
-            //postDeath();
+            postDeath();
             gameObject.SetActive(false);
             //Destroy(gameObject);
             gameObject.GetComponent<SoundAtSource>().indexOverride = 6;
@@ -102,6 +102,6 @@ public class EnemyLS : MonoBehaviour
     void postDeath()
     {
         print("Post Death");
-        nearestTarget.SendMessage("payPlayer", 100);
+        permaP.SendMessage("payPlayer", 100);
     }
 }
