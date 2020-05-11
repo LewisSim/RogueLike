@@ -90,7 +90,7 @@ public class EnemyLS : MonoBehaviour
     {
         if (health <= 0)
         {
-            postDeath();
+            //postDeath();
             gameObject.SetActive(false);
             //Destroy(gameObject);
             gameObject.GetComponent<SoundAtSource>().indexOverride = 6;
