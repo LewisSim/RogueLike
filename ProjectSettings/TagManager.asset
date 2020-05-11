@@ -15,6 +15,30 @@ TagManager:
   - Enemy
   - floor
   - SoundSystem
+  - target
+  - ground
+  - symbol_O
+  - stone
+  - pyramid
+  - agent
+  - ball
+  - iWall
+  - pit
+  - symbol_O_Goal
+  - symbol_X
+  - wall
+  - symbol_X_Goal
+  - goal
+  - block
+  - walkableSurface
+  - purpleAgent
+  - purpleGoal
+  - blueAgent
+  - blueGoal
+  - switchOff
+  - badFood
+  - food
+  - cover
   layers:
   - Default
   - TransparentFX

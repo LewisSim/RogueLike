@@ -21,6 +21,8 @@ public class LevelGen : MonoBehaviour
 
     public bool loadBossRoom;
 
+    public GameObject gm_manager;
+
     private void Awake()
     {
         StartCoroutine(Begin());
@@ -368,8 +370,12 @@ public class LevelGen : MonoBehaviour
             }
         }
 
+
+        gm_manager.SetActive(true);
+
         progress = 0.96f;
         yield break;
+
     }
 
 
