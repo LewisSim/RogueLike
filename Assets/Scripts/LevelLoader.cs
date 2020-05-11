@@ -18,6 +18,9 @@ public class LevelLoader : MonoBehaviour {
     public bool isLevelWithGeneration;
     private LevelGen lGen;
 
+    [Header("You must enable this if you are using the LoadDepends function")]
+    public bool playerPref;
+
 
 	public void LoadLevel (int sceneIndex)
     {
@@ -54,6 +57,37 @@ public class LevelLoader : MonoBehaviour {
         {
             lGen = GameObject.FindGameObjectWithTag("LevelGenerator").GetComponent<LevelGen>();
         }
+
+    }
+
+    /// <summary>
+    /// Will load a scene based on an if, you must enable the playerpref bool to have this work at the moment
+    /// </summary>
+    /// <param name="sceneIndex">The scene to run if the result is true</param>
+    /// <param name="sceneAlterIndex">The scene to run if the result is false</param>
+    public void LoadDepends(int sceneIndex, int sceneAlterIndex)
+    {
+        int sendIndex;
+        if (playerPref)
+        {
+            if (PlayerPrefs.HasKey("Intro"))
+            {
+                sendIndex = sceneIndex;
+            }
+            else
+            {
+                sendIndex = sceneAlterIndex;
+            }
+
+
+        }
+        else
+        {
+            sendIndex = sceneIndex;
+        }
+
+        LoadLevel(sendIndex);
+        
     }
 
     private void Update()

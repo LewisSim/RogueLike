@@ -23,6 +23,12 @@ MonoBehaviour:
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
   density:
     m_OverrideState: 1
     m_Value: 1
@@ -58,8 +64,8 @@ MonoBehaviour:
   baseHeight:
     m_OverrideState: 1
     m_Value: 0
-  meanHeight:
-    m_OverrideState: 1
+  maximumHeight:
+    m_OverrideState: 0
     m_Value: 10
   anisotropy:
     m_OverrideState: 1
@@ -90,7 +96,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   skyType:
     m_OverrideState: 1
-    m_Value: 2
+    m_Value: 3
   skyAmbientMode:
     m_OverrideState: 1
     m_Value: 0
@@ -196,6 +202,12 @@ MonoBehaviour:
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
+  tint:
+    m_OverrideState: 0
+    m_Value: {r: 1, g: 1, b: 1, a: 1}
+    hdr: 1
+    showAlpha: 0
+    showEyeDropper: 1
   density:
     m_OverrideState: 1
     m_Value: 1
@@ -245,7 +257,6 @@ MonoBehaviour:
   components:
   - {fileID: 8035754789653898180}
   - {fileID: -5785037982809448780}
-  - {fileID: -3421143321213336758}
   - {fileID: -247009862716926501}
   - {fileID: -6633038787426588735}
 --- !u!114 &8035754789653898180
@@ -266,6 +277,11 @@ MonoBehaviour:
     m_OverrideState: 1
     m_Value: 500
     min: 0
+  directionalTransmissionMultiplier:
+    m_OverrideState: 0
+    m_Value: 1
+    min: 0
+    max: 1
   cascadeShadowSplitCount:
     m_OverrideState: 1
     m_Value: 4
