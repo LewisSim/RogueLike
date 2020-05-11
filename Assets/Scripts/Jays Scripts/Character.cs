@@ -72,6 +72,7 @@ public class Character : MonoBehaviour
     //Methods 
     private void Start()
     {
+        DontDestroyOnLoad(gameObject);
         anim = GetComponent<Animator>();
         //Inventory.Instance.TesterMetod();
         LockedOn = false;
@@ -82,6 +83,12 @@ public class Character : MonoBehaviour
         Health = 100;
         ui_Gold.text = "Gold: ";
     }
+
+    //private void OnLevelWasLoaded(int level)
+    //{
+    //    Inventory.UpdateUI();
+    //    print("UI updated on load");
+    //}
 
     private void FixedUpdate()
     {

@@ -85,6 +85,8 @@ public class Inventory : MonoBehaviour
         c_damage = c_damage_i;
 
         slotsFilled = new bool[p_inventory.Length];
+
+        UpdateUI();
     }
 
     public static void AddItem(Item item)
