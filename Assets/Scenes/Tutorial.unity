@@ -7945,7 +7945,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: a0f717594b6fe94428423bf5c1622bc3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0f717594b6fe94428423bf5c1622bc3, type: 3}
@@ -14109,12 +14109,6 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8435838404501509855, guid: f09e851ee9466f749868f252bb5841ff,
-        type: 3}
-      propertyPath: s_enemy
-      value: 
-      objectReference: {fileID: 8039137461565999053, guid: ff1daec244093d94ead1393130fb0247,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09e851ee9466f749868f252bb5841ff, type: 3}
 --- !u!1001 &438256273
@@ -22259,12 +22253,6 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8435838404501509855, guid: f09e851ee9466f749868f252bb5841ff,
-        type: 3}
-      propertyPath: s_enemy
-      value: 
-      objectReference: {fileID: 8039137461565999053, guid: ff1daec244093d94ead1393130fb0247,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09e851ee9466f749868f252bb5841ff, type: 3}
 --- !u!1 &678936161
@@ -27120,12 +27108,6 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8435838404501509855, guid: f09e851ee9466f749868f252bb5841ff,
-        type: 3}
-      propertyPath: s_enemy
-      value: 
-      objectReference: {fileID: 8039137461565999053, guid: ff1daec244093d94ead1393130fb0247,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09e851ee9466f749868f252bb5841ff, type: 3}
 --- !u!1 &831244025
@@ -31100,12 +31082,6 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8435838404501509855, guid: f09e851ee9466f749868f252bb5841ff,
-        type: 3}
-      propertyPath: s_enemy
-      value: 
-      objectReference: {fileID: 8039137461565999053, guid: ff1daec244093d94ead1393130fb0247,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09e851ee9466f749868f252bb5841ff, type: 3}
 --- !u!1001 &954251354
@@ -37578,7 +37554,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: a0f717594b6fe94428423bf5c1622bc3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0f717594b6fe94428423bf5c1622bc3, type: 3}
@@ -37824,12 +37800,6 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8435838404501509855, guid: f09e851ee9466f749868f252bb5841ff,
-        type: 3}
-      propertyPath: s_enemy
-      value: 
-      objectReference: {fileID: 8039137461565999053, guid: ff1daec244093d94ead1393130fb0247,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09e851ee9466f749868f252bb5841ff, type: 3}
 --- !u!1 &1121889228
@@ -46863,7 +46833,7 @@ PrefabInstance:
     - target: {fileID: -927199367670048503, guid: a0f717594b6fe94428423bf5c1622bc3,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a0f717594b6fe94428423bf5c1622bc3, type: 3}
@@ -68822,12 +68792,6 @@ PrefabInstance:
       propertyPath: type
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8435838404501509855, guid: f09e851ee9466f749868f252bb5841ff,
-        type: 3}
-      propertyPath: s_enemy
-      value: 
-      objectReference: {fileID: 8039137461565999053, guid: ff1daec244093d94ead1393130fb0247,
-        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f09e851ee9466f749868f252bb5841ff, type: 3}
 --- !u!1 &2104754331

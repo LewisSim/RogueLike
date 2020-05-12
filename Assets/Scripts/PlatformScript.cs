@@ -8,15 +8,19 @@ public class PlatformScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject == Player)
+        if(other.gameObject.tag == "Player")
         {
-            Player.transform.parent = transform;
+            
+            other.transform.parent = transform;
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        Player.transform.parent = null;
+        if (other.gameObject.tag == "Player")
+        {
+            other.transform.parent = null;
+        }
     }
 
 }
