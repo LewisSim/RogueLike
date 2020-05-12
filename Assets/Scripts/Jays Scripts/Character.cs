@@ -82,6 +82,8 @@ public class Character : MonoBehaviour
         timeToSend = 60f;
         Health = 100;
         ui_Gold.text = "Gold: ";
+        print("player id: "+m_UserID.ToString());
+        //StartCoroutine(SendData());
     }
 
     //private void OnLevelWasLoaded(int level)
@@ -97,6 +99,8 @@ public class Character : MonoBehaviour
         print(LockedOn);
 
         //After A Minute Do Our GameAnalytic Function
+        m_weaponPref = Inventory.p_inventory[0].SubType.ToString();
+        //print("weapon pref: " + m_weaponPref);
         timeToSend -= Time.deltaTime;
         if (timeToSend < 0)
         {

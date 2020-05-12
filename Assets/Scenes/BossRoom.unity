@@ -917,7 +917,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 185318418}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 476f1bda844226048b3c705a8eea92b5, type: 3}
   m_Name: 
@@ -926,6 +926,50 @@ MonoBehaviour:
   permaP: {fileID: 391481970}
   aiCollider: []
   health: 100
+--- !u!114 &185318421
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185318418}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c5e52b493a34ee4ca47d7a58e72608e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 391481970}
+  speed: 20
+  turnSpeed: 3
+  turnDst: 5
+  stoppingDst: 10
+--- !u!135 &185318422
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185318418}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.69
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &185318423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 185318418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8f1341e3a155864d81369e68e132ccd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  unit: {fileID: 185318421}
+  enemy: {fileID: 185318419}
 --- !u!1 &191958880
 GameObject:
   m_ObjectHideFlags: 0
@@ -3253,7 +3297,6 @@ GameObject:
   - component: {fileID: 710717080}
   - component: {fileID: 710717087}
   - component: {fileID: 710717088}
-  - component: {fileID: 710717083}
   m_Layer: 0
   m_Name: agent
   m_TagString: agent
@@ -3366,23 +3409,6 @@ MonoBehaviour:
   rayMissColor: {r: 1, g: 1, b: 1, a: 1}
   m_StartVerticalOffset: 0
   m_EndVerticalOffset: 0
---- !u!114 &710717083
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 710717078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c5e52b493a34ee4ca47d7a58e72608e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  target: {fileID: 391481970}
-  speed: 20
-  turnSpeed: 3
-  turnDst: 5
-  stoppingDst: 10
 --- !u!114 &710717084
 MonoBehaviour:
   m_ObjectHideFlags: 0
