@@ -39,6 +39,8 @@ public class BossAgent : Agent
     public float maxSpeed;
 
 
+    
+
 
     public override void Initialize()
     {
@@ -257,7 +259,11 @@ public class BossAgent : Agent
     // Update is called once per frame
     void FixedUpdate()
     {
-
+        if(character == null)
+        {
+            character = GameObject.FindGameObjectWithTag("Player");
+            m_Character = character.GetComponent<TrainingCharacter>();
+        }
 
         if (m_AgentRb.velocity.magnitude > maxSpeed)
         {

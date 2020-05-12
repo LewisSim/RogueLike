@@ -62,7 +62,11 @@ public class Ballista : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            m_trainingCharacter = player.GetComponent<TrainingCharacter>();
+        }
     }
 
     private void Update()
