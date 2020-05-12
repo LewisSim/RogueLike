@@ -10,6 +10,7 @@ public class BossAgent : Agent
     public bool useVectorObs;
     public GameObject character;
     public GameObject pathFindingObj;
+    public GameObject triggerObj;
     public GameObject area;
     TrainingCharacter m_Character;
     TrainingArea m_Area;
@@ -45,10 +46,11 @@ public class BossAgent : Agent
         m_Character = character.GetComponent<TrainingCharacter>();
         m_Area = area.GetComponent<TrainingArea>();
         Time.timeScale = scrollBar;
-        m_AIStart = pathFindingObj.GetComponent<TriggerAIToStart>();
+        m_AIStart = triggerObj.GetComponent<TriggerAIToStart>();
         m_Unit = pathFindingObj.GetComponent<Unit>();
         m_Unit.enabled = false;
         enemyls = pathFindingObj.GetComponent<EnemyLS>();
+
     }
 
     public override void CollectObservations(VectorSensor sensor)

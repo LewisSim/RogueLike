@@ -16,6 +16,8 @@ public class Ballista : MonoBehaviour
     public bool usingBallista;
     public GameObject ballista;
     TrainingCharacter m_trainingCharacter;
+    public GameObject enemyScript;
+    EnemyLS enemy;
 
     public float mouseSensitivity = 1;
     public Vector2 pitchMinMax = new Vector2(-40, 85);
@@ -34,6 +36,7 @@ public class Ballista : MonoBehaviour
     private void Start()
     {
         m_trainingCharacter =  player.GetComponent<TrainingCharacter>();
+        enemy = enemyScript.GetComponent<EnemyLS>();
 
     }
 
@@ -136,6 +139,7 @@ public class Ballista : MonoBehaviour
             //hit.collider.SendMessage("AddDamage", rangedAttackDam);
             if (hit.transform.name == "agent")
             {
+                enemy.health = 0;
                 //hit.collider.SendMessage("AddDamage", rangedAttackDam);
             }
         }
