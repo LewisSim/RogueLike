@@ -9,11 +9,15 @@ public class BossAgent : Agent
     //agent needs
     public bool useVectorObs;
     public GameObject character;
+    public GameObject pathFindingObj;
     public GameObject area;
     TrainingCharacter m_Character;
     TrainingArea m_Area;
     Rigidbody m_AgentRb;
+    TriggerAIToStart m_AIStart;
     Unit m_Unit;
+    EnemyLS enemyls;
+    public GameObject portal;
 
     //logic needs
     bool m_Attack;
@@ -41,9 +45,10 @@ public class BossAgent : Agent
         m_Character = character.GetComponent<TrainingCharacter>();
         m_Area = area.GetComponent<TrainingArea>();
         Time.timeScale = scrollBar;
-        m_Unit = gameObject.GetComponent<Unit>();
+        m_AIStart = pathFindingObj.GetComponent<TriggerAIToStart>();
+        m_Unit = pathFindingObj.GetComponent<Unit>();
         m_Unit.enabled = false;
-
+        enemyls = pathFindingObj.GetComponent<EnemyLS>();
     }
 
     public override void CollectObservations(VectorSensor sensor)
@@ -84,6 +89,7 @@ public class BossAgent : Agent
         if (m_Character.UsingBallista())
         {
             m_Unit.enabled = false;
+            m_AIStart.enabled = false;
             CoverAgent(vectorAction);
         }
         else
@@ -97,7 +103,8 @@ public class BossAgent : Agent
 
     public void Fight()
     {
-        m_Unit.enabled = true;
+        m_AIStart.enabled = true;
+
     }
 
     public void AttackAgent(float[] act)
@@ -235,6 +242,13 @@ public class BossAgent : Agent
         else
         {
             canAttack = false;
+        }
+
+        if (enemyls.health <= 0)
+        {
+            gameObject.SetActive(false);
+            portal.SetActive(true);
+
         }
     }
 
