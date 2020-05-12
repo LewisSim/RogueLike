@@ -37,6 +37,10 @@ public class PopupOnTrigger : MonoBehaviour
 
     private void Update()
     {
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+        }
         if (playerIsInBounds)
         {
             if (Input.GetKeyDown(KeyCode.E))

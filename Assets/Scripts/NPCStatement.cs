@@ -49,6 +49,11 @@ public class NPCStatement : MonoBehaviour
             tmprotext.SetText("");
         }
 
+
+        if(characterCamera == null)
+        {
+            characterCamera = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().cam;
+        }
     }
 
     private void OnDrawGizmosSelected()

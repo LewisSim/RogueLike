@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyLS : MonoBehaviour
 {
     public Rigidbody rb;
+    public Transform permaP;
 
     //Variables
     float lockRange = 2f;
@@ -15,6 +16,8 @@ public class EnemyLS : MonoBehaviour
     float attackCooldown = 5f;
     bool coolingDown = false;
     public int health = 100;
+
+    Animator animator;
 
     // Update is called once per frame
     void Update()
@@ -46,7 +49,6 @@ public class EnemyLS : MonoBehaviour
             transform.LookAt(nearestTarget);
             print("Targetting player");
         }
-
         attackingPlayer();
     }
 
@@ -55,8 +57,15 @@ public class EnemyLS : MonoBehaviour
         if (minDistance <= 1.2f && !coolingDown)
         {
             print("Attacking player");
+            if(animator == null)
+            {
+                animator = GetComponent<Animator>();
+            }
+            animator.SetTrigger("attack");
+            gameObject.GetComponent<SoundAtSource>().indexOverride = 3;
+            gameObject.GetComponent<SoundAtSource>().TriggerSoundAtUI();
             //nearestTarget.SendMessage("sustainDamage", 50f);
-            nearestTarget.SendMessage("sustainNonPureDamage", 50f);
+            //nearestTarget.SendMessage("sustainNonPureDamage", 35f);
             coolingDown = true;
         }
         else
@@ -65,10 +74,15 @@ public class EnemyLS : MonoBehaviour
             if (attackCooldown <= 0)
             {
                 coolingDown = false;
-                attackCooldown = 5f;
+                attackCooldown = 2f;
                 print("Complete cooldown");
             }
         }
+    }
+
+    public void DamagePlayer()
+    {
+        nearestTarget.SendMessage("sustainNonPureDamage", 45f);
     }
 
     void onDeath()
@@ -80,17 +94,24 @@ public class EnemyLS : MonoBehaviour
     //Methods
     public void AddDamage(int damage)
     {
+        if(nearestTarget == null)
+        {
+            nearestTarget = GameObject.FindGameObjectWithTag("Player").transform;
+            var unit = gameObject.GetComponent<Unit>();
+            unit.enabled = true;
+            unit.target = nearestTarget;
+        }
         health -= damage;
         print(damage.ToString() + " Damage taken!");
         checkHealth();
-        gameObject.GetComponent<SoundAtSource>().indexOverride = 7;
+        gameObject.GetComponent<SoundAtSource>().indexOverride = 1;
         gameObject.GetComponent<SoundAtSource>().TriggerSound();
     }
     public void checkHealth()
     {
         if (health <= 0)
         {
-            //postDeath();
+            postDeath();
             gameObject.SetActive(false);
             //Destroy(gameObject);
             gameObject.GetComponent<SoundAtSource>().indexOverride = 6;

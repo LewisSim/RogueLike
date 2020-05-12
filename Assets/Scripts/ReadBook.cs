@@ -33,6 +33,10 @@ public class ReadBook : MonoBehaviour
             Reading();
         }
 
+        if(detectObject == null)
+        {
+            detectObject = GameObject.FindGameObjectWithTag("Player");
+        }
     }
 
 

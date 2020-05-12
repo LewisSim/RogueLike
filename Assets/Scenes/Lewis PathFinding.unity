@@ -474,6 +474,11 @@ PrefabInstance:
       propertyPath: deathScreen
       value: 
       objectReference: {fileID: 300015634}
+    - target: {fileID: 3753033636374482243, guid: 31e575145094bf74eaab63404b572810,
+        type: 3}
+      propertyPath: ui_Gold
+      value: 
+      objectReference: {fileID: 644228938}
     - target: {fileID: 4235669389194078691, guid: 31e575145094bf74eaab63404b572810,
         type: 3}
       propertyPath: m_Name
@@ -562,7 +567,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.18533334, y: 0.6843369}
   m_AnchorMax: {x: 0.25352085, y: 0.7083369}
-  m_AnchoredPosition: {x: 33.49997, y: -3}
+  m_AnchoredPosition: {x: 33.49991, y: -3}
   m_SizeDelta: {x: 69, y: 24}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &644228938
@@ -1478,6 +1483,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 6065088905235895419}
+  permaP: {fileID: 460853502}
   aiCollider: []
   health: 100
 --- !u!114 &1792842283410878810

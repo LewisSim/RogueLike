@@ -9,12 +9,14 @@ public class WaitTillShow : MonoBehaviour
     float timer;
     bool allowSpace;
     Text text;
+    LevelLoader lvlload;
     // Start is called before the first frame update
     void Start()
     {
         timer = waitTime;
         text = gameObject.GetComponent<Text>();
         text.enabled = false;
+        lvlload = gameObject.GetComponent<LevelLoader>();
     }
 
     // Update is called once per frame
@@ -30,9 +32,10 @@ public class WaitTillShow : MonoBehaviour
 
         if (allowSpace)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
-                //GO TO NEXT SCENE
+                lvlload.LoadSceneStandard(6);
+                allowSpace = false;
             }
         }
     }
