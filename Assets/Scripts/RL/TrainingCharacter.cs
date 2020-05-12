@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrainingCharacter : MonoBehaviour
 {
-    bool m_OnBallista;
+    public bool m_OnBallista;
     bool m_InRange;
     public int health;
     float inputTime = 5f;
@@ -15,28 +15,12 @@ public class TrainingCharacter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
-        timer = SetTimer();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        timer -= Time.deltaTime;
 
-        if (timer < 0f)
-        {
-            if (m_OnBallista)
-            {
-                m_OnBallista = false;
-
-            }
-            else
-            {
-                m_OnBallista = true;
-            }
-            timer = SetTimer();
-        }
     }
 
     public bool UsingBallista()
@@ -71,16 +55,7 @@ public class TrainingCharacter : MonoBehaviour
     {
         m_InRange = false;
         m_OnBallista = false;
-        health = 100;
-        SetTimer();
     }
 
 
-    float SetTimer()
-    {
-        float number = inputTime;
-        number = Random.Range(inputTime, inputTop);
-
-        return number;
-    }
 }

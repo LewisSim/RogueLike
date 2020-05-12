@@ -4,21 +4,17 @@ using Unity.MLAgents;
 using UnityEngine;
 using Unity.MLAgents.Sensors;
 
-public class BossAgent : Agent
+public class BossAgentCurriculum : Agent
 {
     //agent needs
     public bool useVectorObs;
     public GameObject character;
-    public GameObject pathFindingObj;
-    public GameObject triggerObj;
     public GameObject area;
+    public GameObject cover1, cover2;
+    SphereCollider m_cover1, m_cover2;
     TrainingCharacter m_Character;
     TrainingArea m_Area;
     Rigidbody m_AgentRb;
-    TriggerAIToStart m_AIStart;
-    Unit m_Unit;
-    EnemyLS enemyls;
-    public GameObject portal;
 
     //logic needs
     bool m_Attack;
@@ -38,8 +34,8 @@ public class BossAgent : Agent
     public float speed;
     public float maxSpeed;
 
+    EnvironmentParameters m_ResetParams;
 
-    
 
 
     public override void Initialize()
@@ -48,19 +44,24 @@ public class BossAgent : Agent
         m_Character = character.GetComponent<TrainingCharacter>();
         m_Area = area.GetComponent<TrainingArea>();
         Time.timeScale = scrollBar;
-        m_AIStart = triggerObj.GetComponent<TriggerAIToStart>();
-        m_Unit = pathFindingObj.GetComponent<Unit>();
-        m_Unit.enabled = false;
-        enemyls = pathFindingObj.GetComponent<EnemyLS>();
+        m_cover1 = cover1.GetComponent<SphereCollider>();
+        m_cover2 = cover2.GetComponent<SphereCollider>();
+
+        m_ResetParams = Academy.Instance.EnvironmentParameters;
+        m_Area.PlaceObject(gameObject);
+
 
     }
+
 
     public override void CollectObservations(VectorSensor sensor)
     {
         if (useVectorObs)
         {
-            sensor.AddObservation(Vector3.Normalize(transform.InverseTransformDirection(m_AgentRb.velocity)));
-            sensor.AddObservation(Vector3.Normalize(character.gameObject.transform.position - gameObject.transform.position));
+            sensor.AddObservation((transform.InverseTransformDirection(m_AgentRb.velocity)));
+            sensor.AddObservation((character.gameObject.transform.position - gameObject.transform.position));
+            sensor.AddObservation(cover1.gameObject.transform.position - gameObject.transform.position);
+            sensor.AddObservation(cover2.gameObject.transform.position - gameObject.transform.position);
             sensor.AddObservation(m_Character.UsingBallista());
             sensor.AddObservation(canAttack);
             sensor.AddObservation(m_Character.AgentInRange());
@@ -89,25 +90,7 @@ public class BossAgent : Agent
             //Fight
         }
         */
-
-        if (m_Character.UsingBallista())
-        {
-            m_Unit.enabled = false;
-            m_AIStart.enabled = false;
-            CoverAgent(vectorAction);
-        }
-        else
-        {
-            
-            Fight();
-        }
-        
-
-    }
-
-    public void Fight()
-    {
-        m_AIStart.enabled = true;
+        CoverAgent(vectorAction);
 
     }
 
@@ -247,23 +230,12 @@ public class BossAgent : Agent
         {
             canAttack = false;
         }
-
-        if (enemyls.health <= 0)
-        {
-            gameObject.SetActive(false);
-            portal.SetActive(true);
-
-        }
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if(character == null)
-        {
-            character = GameObject.FindGameObjectWithTag("Player");
-            m_Character = character.GetComponent<TrainingCharacter>();
-        }
+
 
         if (m_AgentRb.velocity.magnitude > maxSpeed)
         {
@@ -279,12 +251,6 @@ public class BossAgent : Agent
         {
             GotCover();
 
-        }
-
-        if (other.gameObject.CompareTag("food"))
-        {
-            AddReward(0.1f);
-            other.gameObject.SetActive(false);
         }
     }
 
@@ -304,7 +270,7 @@ public class BossAgent : Agent
         print("got cover");
         if (m_Character.UsingBallista())
         {
-            SetReward(1f);
+            AddReward(1f);
             shouldCover = true;
             print(" in cover");
         }
@@ -327,7 +293,7 @@ public class BossAgent : Agent
         {
             if (shouldCover)
             {
-                SetReward(2f);
+                AddReward(2f);
                 shouldCover = false;
                 EndEpisode();
             }
@@ -364,6 +330,9 @@ public class BossAgent : Agent
         m_AgentRb.velocity = Vector3.zero;
         transform.rotation = Quaternion.Euler(new Vector3(0f, Random.Range(0, 360)));
         m_Area.PlaceObject(gameObject);
+        m_cover1.radius = m_ResetParams.GetWithDefault("sphereRadius", 0.5f);
+        m_cover2.radius = m_ResetParams.GetWithDefault("sphereRadius", 0.5f);
+        
     }
 
     public override void Heuristic(float[] actionsOut)

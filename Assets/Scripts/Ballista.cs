@@ -15,6 +15,9 @@ public class Ballista : MonoBehaviour
     public GameObject character;
     public bool usingBallista;
     public GameObject ballista;
+    TrainingCharacter m_trainingCharacter;
+    public GameObject enemyScript;
+    EnemyLS enemy;
 
     public float mouseSensitivity = 1;
     public Vector2 pitchMinMax = new Vector2(-40, 85);
@@ -30,6 +33,12 @@ public class Ballista : MonoBehaviour
 
     bool playerIsInBounds = false;
 
+    private void Start()
+    {
+        m_trainingCharacter =  player.GetComponent<TrainingCharacter>();
+        enemy = enemyScript.GetComponent<EnemyLS>();
+
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -53,7 +62,11 @@ public class Ballista : MonoBehaviour
 
     private void FixedUpdate()
     {
-
+        if(player == null)
+        {
+            player = GameObject.FindGameObjectWithTag("Player");
+            m_trainingCharacter = player.GetComponent<TrainingCharacter>();
+        }
     }
 
     private void Update()
@@ -62,6 +75,7 @@ public class Ballista : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E) && (!usingBallista))
             {
+                m_trainingCharacter.m_OnBallista = true;
                 usingBallista = true;
                 player.SetActive(false);
                 reticle.gameObject.SetActive(true);
@@ -108,6 +122,7 @@ public class Ballista : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
+            m_trainingCharacter.m_OnBallista = false;
             usingBallista = false;
             player.SetActive(true);
             reticle.gameObject.SetActive(false);
@@ -128,6 +143,7 @@ public class Ballista : MonoBehaviour
             //hit.collider.SendMessage("AddDamage", rangedAttackDam);
             if (hit.transform.name == "agent")
             {
+                enemy.health = 0;
                 //hit.collider.SendMessage("AddDamage", rangedAttackDam);
             }
         }
