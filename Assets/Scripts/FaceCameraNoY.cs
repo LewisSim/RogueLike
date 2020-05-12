@@ -15,13 +15,17 @@ public class FaceCameraNoY : MonoBehaviour
         obj = gameObject;
         if(camera == null)
         {
-            camera = Camera.main;
+            camera = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().cam;
         }
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (camera == null)
+        {
+            camera = GameObject.FindGameObjectWithTag("Player").GetComponent<Character>().cam;
+        }
         var lookAt = camera.transform.position;
         lookAt.y = gameObject.transform.position.y;
         obj.transform.rotation = Quaternion.LookRotation(transform.position - lookAt);
