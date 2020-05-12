@@ -106,7 +106,7 @@ public class Ballista : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             usingBallista = false;
             player.SetActive(true);
@@ -114,8 +114,7 @@ public class Ballista : MonoBehaviour
             cam.gameObject.SetActive(false);
             character.SetActive(false);
             txtCanvas.SetActive(true);
-            overlayText.GetComponent<TextMeshProUGUI>().isOverlay = true;
-            //Testing
+            overlayText.GetComponent<TextMeshProUGUI>().isOverlay = true;           
             StartCoroutine(player.GetComponent<Character>().CameraSwitch());
         }
     }
