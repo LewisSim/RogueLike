@@ -13,6 +13,7 @@ public class TutorialKeyScript : MonoBehaviour
     {
         foreach (var spawner in newEnemySpawners)
         {
+            //spawner.Spawn();
             spawner.gameObject.SetActive(false);
         }
     }

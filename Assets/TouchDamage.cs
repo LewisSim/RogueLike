@@ -11,7 +11,7 @@ public class TouchDamage : MonoBehaviour
     {
         if(collision.transform.tag == "Player")
         {
-            collision.gameObject.SendMessage("sustainNonPureDamage", damage);
+            collision.gameObject.SendMessage("sustainDamage", damage);
         }
     }
 }
