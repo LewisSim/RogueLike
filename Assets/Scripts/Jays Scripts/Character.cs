@@ -99,7 +99,10 @@ public class Character : MonoBehaviour
         print(LockedOn);
 
         //After A Minute Do Our GameAnalytic Function
-        m_weaponPref = Inventory.p_inventory[0].SubType.ToString();
+        if (Inventory.p_inventory[0] != null)
+        {
+            m_weaponPref = Inventory.p_inventory[0].SubType.ToString();
+        }
         //print("weapon pref: " + m_weaponPref);
         timeToSend -= Time.deltaTime;
         if (timeToSend < 0)
